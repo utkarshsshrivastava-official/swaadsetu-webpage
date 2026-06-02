@@ -211,12 +211,14 @@ export function CustomerSection() {
                 >
                   <div 
                     className="flex-shrink-0 w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300"
-                    style={{ backgroundColor: isActive ? item.color : "rgba(255,255,255,0.03)" }}
+                    style={{
+                      backgroundColor: isActive ? item.color : "rgba(255,255,255,0.03)",
+                      color: isActive ? "#000000" : "rgba(255,255,255,0.6)"
+                    }}
                   >
                     <IconComponent 
                       size={18} 
                       className="transition-colors duration-300"
-                      color={isActive ? "#000000" : "rgba(255,255,255,0.6)"} 
                     />
                   </div>
 
@@ -250,8 +252,8 @@ export function CustomerSection() {
             
             {/* Dynamic Card Displaying Performance Telemetry */}
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-slate-900/80 to-slate-950/90 p-6 shadow-xl backdrop-blur-md">
-              <div className="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
-                <currentFeature.icon size={120} color={currentFeature.color} />
+              <div className="absolute top-0 right-0 p-4 opacity-10 pointer-events-none" style={{ color: currentFeature.color }}>
+                <currentFeature.icon size={120} className="text-current" />
               </div>
 
               <div className="space-y-4">
