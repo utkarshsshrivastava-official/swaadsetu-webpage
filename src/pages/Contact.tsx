@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, ArrowRight, Shield, Sparkles, Globe, Cpu, ExternalLink } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { Mail, Phone, MapPin, ArrowRight, Shield, Globe, Cpu, ExternalLink } from "lucide-react";
 import Navbar from "../component/Navbar";
 import { Footer, footerContact } from "../component/Footer";
 import { Helmet } from "@dr.pogodin/react-helmet";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -13,12 +13,15 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 25 },
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } 
+    transition: { 
+      duration: 0.6, 
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number] 
+    } 
   }
 };
 
