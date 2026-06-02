@@ -18,8 +18,8 @@
  */
 
 import type { FC } from "react";
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import Navbar from "../component/Navbar";
 import { Footer } from "../component/Footer";
 import BackButton from "../component/ui/BackButton";
@@ -52,7 +52,7 @@ const fadeRight = (delay = 0) => ({
 /* ─────────────────────────────────────────────
    Animated counter (copied from Hero)
 ───────────────────────────────────────────── */
-const Counter = ({ target, suffix = "+" }: { target: string | number; suffix?: string }) => {
+/* const Counter = ({ target, suffix = "+" }: { target: string | number; suffix?: string }) => {
   const numeric = typeof target === "number" ? target : parseFloat(target as string);
   const isDecimal = String(target).includes(".");
   const [value, setValue] = useState(0);
@@ -82,7 +82,7 @@ const Counter = ({ target, suffix = "+" }: { target: string | number; suffix?: s
   }, [numeric]);
 
   return <span ref={ref}>{value}{suffix}</span>;
-};
+}; */
 
 /* ─────────────────────────────────────────────
    Floating particle (same as Hero)
@@ -144,7 +144,7 @@ const values = [
 /* ─────────────────────────────────────────────
    Stats
 ───────────────────────────────────────────── */
-const stats = [
+/* const stats = [
   {
     value: 44,
     suffix: "K+",
@@ -169,7 +169,7 @@ const stats = [
     label: "Restaurants",
     sub: "live on SwaadSetu today",
   },
-];
+]; */
 
 /* ─────────────────────────────────────────────
    Image URLs (Unsplash — free to use)
@@ -200,8 +200,8 @@ const About: FC = () => {
   }, []);
 
   const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroImgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  // const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  // const heroImgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
     <>
@@ -269,76 +269,92 @@ const About: FC = () => {
         </header>
 
         {/* ════════════════════════════════════
-            HERO BANNER
+            HERO SECTION
         ════════════════════════════════════ */}
-        <section ref={heroRef} className="relative min-h-[70vh] flex items-end overflow-hidden pt-20">
-
-          {/* Parallax image */}
-          <motion.div
-            style={{ y: heroImgY }}
-            className="absolute inset-0 z-0"
-          >
-            <img
-              src={IMG.hero}
-              alt="Warm restaurant atmosphere — ambient dining room"
-              className="w-full h-full object-cover"
-              loading="eager"
-            />
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-base-100 via-base-100/70 to-base-100/20" />
-          </motion.div>
+        <section ref={heroRef} className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-28 pb-16">
 
           {/* Grid overlay */}
           <div
             className="absolute inset-0 z-[1] pointer-events-none"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(251,191,36,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.04) 1px, transparent 1px)",
+                "linear-gradient(rgba(251,191,36,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.035) 1px, transparent 1px)",
               backgroundSize: "48px 48px",
             }}
           />
+
+          {/* Glows */}
+          <div className="absolute inset-0 z-[1] pointer-events-none">
+            <div className="absolute top-[10%] left-[10%] w-[600px] h-[600px] rounded-full bg-amber-500/10 blur-[130px]" />
+            <div className="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] rounded-full bg-orange-600/10 blur-[120px]" />
+          </div>
 
           {/* Floating particles */}
           <div className="absolute inset-0 z-[2] pointer-events-none">
             {particles.map((p, i) => <Particle key={i} {...p} />)}
           </div>
 
-          {/* Hero text */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 pb-20 w-full">
-            <motion.div {...fadeUp(0.1)}>
-              <div className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                Our Story
-              </div>
-            </motion.div>
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 w-full grid lg:grid-cols-[1.2fr_0.8fr] gap-16 lg:gap-10 items-center">
+            
+            {/* Left: Text & Story */}
+            <div className="flex flex-col gap-8 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+              <motion.div {...fadeUp(0.1)} className="flex justify-center lg:justify-start">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(251,191,36,0.15)] backdrop-blur-md">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                  Our Story
+                </div>
+              </motion.div>
 
-            <motion.h1
-              {...fadeUp(0.2)}
-              className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-white max-w-3xl"
-            >
-              We're{" "}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                  changing
+              <motion.h1
+                {...fadeUp(0.2)}
+                className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-white drop-shadow-lg"
+              >
+                We're{" "}
+                <span className="relative inline-block">
+                  <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
+                    changing
+                  </span>
+                  <motion.span
+                    className="absolute -bottom-2 left-0 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full shadow-[0_0_15px_rgba(251,191,36,0.5)]"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+                  />
                 </span>
-                <motion.span
-                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
-                />
-              </span>{" "}
-              how India dines.
-            </motion.h1>
+                <br />how India dines.
+              </motion.h1>
 
-            <motion.p
-              {...fadeUp(0.35)}
-              className=" mt-6 text-slate-400 bg-transparent/80 text-lg lg:text-xl leading-relaxed max-w-xl font-light "
-            >
-              SwaadSetu bridges restaurants and guests through seamless,
-              contactless technology — built for the speed, scale, and warmth
-              of Indian hospitality.
-            </motion.p>
+              <motion.p
+                {...fadeUp(0.35)}
+                className="text-slate-300 text-lg sm:text-xl leading-relaxed font-light drop-shadow-sm max-w-xl mx-auto lg:mx-0"
+              >
+                SwaadSetu bridges restaurants and guests through seamless,
+                contactless technology — built for the speed, scale, and warmth
+                of Indian hospitality. We believe every restaurant deserves world-class software.
+              </motion.p>
+            </div>
+
+            {/* Right: Modern floating image composition */}
+            <div className="relative w-full h-[400px] sm:h-[500px] flex items-center justify-center perspective-1000 mt-10 lg:mt-0">
+               <motion.div
+                  initial={{ opacity: 0, x: 50, y: 30, rotateY: -10, rotateZ: 5 }}
+                  animate={{ opacity: 1, x: 0, y: 0, rotateY: -10, rotateZ: 5 }}
+                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+                  className="absolute w-[80%] h-[80%] rounded-3xl overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-20"
+               >
+                  <img src={IMG.hero} alt="Restaurant interior" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060812] via-transparent to-transparent opacity-80" />
+               </motion.div>
+               
+               <motion.div
+                  initial={{ opacity: 0, x: -50, y: -30, rotateY: 15, rotateZ: -5 }}
+                  animate={{ opacity: 1, x: -30, y: 30, rotateY: 15, rotateZ: -5 }}
+                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+                  className="absolute left-0 bottom-10 w-[50%] h-[50%] rounded-3xl overflow-hidden border border-amber-400/20 shadow-[0_20px_50px_rgba(251,191,36,0.2)] z-30 backdrop-blur-md bg-black/40 p-2"
+               >
+                  <img src={IMG.mission} alt="QR Menu Detail" className="w-full h-full object-cover rounded-2xl" />
+               </motion.div>
+            </div>
           </div>
         </section>
 
@@ -472,11 +488,10 @@ const About: FC = () => {
         </section>
 
         {/* ════════════════════════════════════
-            SECTION 2 — Stats bar
+            SECTION 2 — Stats bar (Hidden for new company)
         ════════════════════════════════════ */}
-        <section className="relative py-16 overflow-hidden">
+        {/* <section className="relative py-16 overflow-hidden">
 
-          {/* Full-width amber divider lines */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-amber-400/25 to-transparent mb-16" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
@@ -498,7 +513,7 @@ const About: FC = () => {
           </div>
 
           <div className="w-full h-px bg-gradient-to-r from-transparent via-amber-400/25 to-transparent mt-16" />
-        </section>
+        </section> */}
 
         {/* ════════════════════════════════════
             SECTION 3 — Mission
@@ -506,71 +521,52 @@ const About: FC = () => {
         <section className="relative py-28 overflow-hidden">
 
           {/* Left glow */}
-          <div className="absolute bottom-0 left-[-10%] w-[500px] h-[400px] rounded-full bg-amber-600/7 blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-amber-600/10 blur-[150px] pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
+          <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-              {/* Left image — 900×600px recommended */}
+              {/* Left image */}
               <motion.div
                 {...fadeLeft(0.1)}
-                className="relative rounded-3xl overflow-hidden border border-amber-400/10 shadow-[0_0_80px_rgba(251,191,36,0.12)]"
+                className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)] z-10 group"
               >
                 <img
                   src={IMG.mission}
-                  alt="Customer scanning QR menu at restaurant table — 900×600px"
-                  className="w-full h-auto object-cover"
+                  alt="Customer scanning QR menu at restaurant table"
+                  className="w-full h-auto object-cover transform-gpu group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
                 {/* Gradient overlay bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-base-100/60 via-transparent to-transparent pointer-events-none" />
-
-                {/* Floating stat — matches Hero style */}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                  className="absolute bottom-4 right-4 bg-base-200 border border-amber-400/20 rounded-2xl px-4 py-3 flex items-center gap-3 shadow-xl"
-                >
-                  <div className="w-8 h-8 rounded-xl bg-green-400/15 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-slate-500">Order confirmed</p>
-                    <p className="text-sm font-bold text-green-300">Table #7</p>
-                  </div>
-                </motion.div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060812] via-transparent to-transparent opacity-80 pointer-events-none" />
               </motion.div>
 
               {/* Right: mission text */}
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-6 z-10">
                 <motion.div {...fadeRight(0.05)}>
-                  <span className="text-xs font-semibold tracking-widest uppercase text-amber-400/70">
+                  <span className="text-xs font-bold tracking-widest uppercase text-amber-400">
                     Our Mission
                   </span>
                 </motion.div>
 
                 <motion.h2
                   {...fadeRight(0.15)}
-                  className="text-4xl sm:text-5xl font-black leading-tight text-white"
+                  className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] text-white drop-shadow-md"
                 >
                   Every restaurant deserves{" "}
-                  <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
                     world-class tools.
                   </span>
                 </motion.h2>
 
-                <motion.p {...fadeRight(0.28)} className="text-slate-400 leading-relaxed">
+                <motion.p {...fadeRight(0.28)} className="text-slate-300 text-lg leading-relaxed font-light drop-shadow-sm">
                   We want every restaurant — from small cafés to busy
                   multi-outlet brands — to have access to reliable restaurant
                   management software built specifically for Indian restaurants,
                   without complexity or high costs.
                 </motion.p>
 
-                <motion.p {...fadeRight(0.38)} className="text-slate-500 leading-relaxed text-sm">
+                <motion.p {...fadeRight(0.38)} className="text-slate-400 leading-relaxed text-base font-light">
                   SwaadSetu is built for the realities of Indian dining: high
                   volume, diverse menus, and guests who value both speed and
                   warmth. As a cloud-based platform, we bring QR ordering,
@@ -579,16 +575,16 @@ const About: FC = () => {
                 </motion.p>
 
                 {/* Checklist */}
-                <motion.ul {...fadeRight(0.48)} className="mt-2 space-y-3">
+                <motion.ul {...fadeRight(0.48)} className="mt-4 space-y-4">
                   {[
                     "Zero complexity setup — live in under 30 minutes",
                     "Works on any device, any network",
                     "Priced for Indian restaurant margins",
                     "Dedicated local support team",
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-slate-400">
-                      <span className="w-5 h-5 rounded-full bg-amber-400/15 border border-amber-400/30 flex items-center justify-center shrink-0 mt-0.5">
-                        <svg className="w-3 h-3 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <li key={item} className="flex items-start gap-4 text-base text-slate-300 font-medium">
+                      <span className="w-6 h-6 rounded-full bg-amber-400/20 border border-amber-400/40 flex items-center justify-center shrink-0 mt-0.5 shadow-[0_0_10px_rgba(251,191,36,0.2)]">
+                        <svg className="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </span>
@@ -617,35 +613,35 @@ const About: FC = () => {
           />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] rounded-full bg-amber-500/6 blur-[120px] pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 relative z-10">
+          <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
 
             {/* Section header */}
-            <motion.div {...fadeUp(0.05)} className="text-center mb-4">
-              <span className="text-xs font-semibold tracking-widest uppercase text-amber-400/70">
+            <motion.div {...fadeUp(0.05)} className="text-center mb-4 flex justify-center">
+              <span className="text-xs font-bold tracking-widest uppercase text-amber-400">
                 How We Work
               </span>
             </motion.div>
 
             <motion.h2
               {...fadeUp(0.15)}
-              className="text-4xl sm:text-5xl font-black text-center text-white mb-4"
+              className="text-4xl sm:text-5xl font-black text-center text-white mb-6 drop-shadow-md"
             >
               Our{" "}
-              <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
                 Team Values
               </span>
             </motion.h2>
 
             <motion.p
               {...fadeUp(0.25)}
-              className="text-slate-400 text-center max-w-xl mx-auto mb-14"
+              className="text-slate-300 text-center text-lg max-w-2xl mx-auto mb-16 font-light drop-shadow-sm"
             >
               A small, focused team obsessed with solving real problems for
-              restaurants. These are the principles we live by.
+              restaurants. These are the core principles we live by everyday.
             </motion.p>
 
-            {/* Values grid — DaisyUI card */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+            {/* Values grid — Premium Glassmorphism */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {values.map((v, idx) => (
                 <motion.div
                   key={v.title}
@@ -653,14 +649,15 @@ const About: FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.6, delay: 0.08 * idx, ease: [0.22, 1, 0.36, 1] }}
-                  className="card bg-base-200 border border-amber-400/10 hover:border-amber-400/30 transition-all duration-300 hover:shadow-[0_0_32px_rgba(251,191,36,0.08)] group rounded-2xl"
+                  className="relative bg-white/[0.02] border border-white/10 hover:border-amber-400/30 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(251,191,36,0.1)] hover:bg-white/[0.04] group rounded-3xl overflow-hidden backdrop-blur-sm"
                 >
-                  <div className="card-body gap-3 p-6">
-                    <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-400 text-xl group-hover:bg-amber-400/20 transition-colors  animate-pulse ">
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="p-8 relative z-10 flex flex-col h-full">
+                    <div className="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-400 text-xl group-hover:bg-amber-400/20 group-hover:scale-110 transition-all duration-300 shadow-[0_0_10px_rgba(251,191,36,0.1)] mb-6">
                       {v.icon}
                     </div>
-                    <h3 className="card-title text-white text-base font-bold mt-3">{v.title}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">{v.text}</p>
+                    <h3 className="text-white text-xl font-bold mb-3 tracking-wide">{v.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed font-light flex-grow">{v.text}</p>
                   </div>
                 </motion.div>
               ))}
@@ -674,26 +671,26 @@ const About: FC = () => {
         <section className="relative py-24 overflow-hidden">
           <div className="w-full h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent mb-24" />
 
-          <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <motion.div {...fadeUp(0.05)} className="mb-4">
-              <div className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                Join 58+ restaurants already live
+          <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 text-center relative z-10">
+            <motion.div {...fadeUp(0.05)} className="mb-6 flex justify-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(251,191,36,0.15)] backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                Join the platform
               </div>
             </motion.div>
 
             <motion.h2
               {...fadeUp(0.15)}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6"
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 drop-shadow-md"
             >
               Ready to{" "}
-              <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
                 transform
               </span>{" "}
               your restaurant?
             </motion.h2>
 
-            <motion.p {...fadeUp(0.25)} className="text-slate-400 text-lg mb-10 max-w-xl mx-auto">
+            <motion.p {...fadeUp(0.25)} className="text-slate-300 text-lg mb-10 max-w-xl mx-auto font-light drop-shadow-sm">
               Get a personalised demo and see SwaadSetu live in your restaurant
               in under 30 minutes.
             </motion.p>
@@ -706,15 +703,15 @@ const About: FC = () => {
                     "_blank",
                   )
                 }
-                className="btn btn-lg bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none shadow-[0_0_32px_rgba(251,191,36,0.4)] hover:shadow-[0_0_48px_rgba(251,191,36,0.6)] hover:scale-[1.03] active:scale-95 transition-all duration-200 rounded-xl flex items-center justify-center gap-2 px-3 py-2 cursor-pointer"
+                className="btn btn-lg h-[56px] px-8 bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none rounded-2xl shadow-[0_0_30px_rgba(251,191,36,0.3)] hover:shadow-[0_0_50px_rgba(251,191,36,0.5)] hover:-translate-y-1 active:translate-y-0 transition-all duration-300 group flex items-center justify-center gap-2"
               >
                 Book a Free Demo
-                <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <svg className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </button>
               <button
-                className="btn btn-lg btn-ghost border border-amber-400/30 text-amber-300 hover:bg-amber-400/10 hover:border-amber-400/60 transition-all duration-200 rounded-xl px-3 py-2 cursor-pointer"
+                className="btn btn-lg h-[56px] px-8 btn-ghost border border-white/20 text-white hover:bg-white/10 hover:border-white/40 rounded-2xl transition-all duration-300 backdrop-blur-sm"
                 onClick={() => (window.location.href = "https://www.swaadsetu.com/features")}
               >
                 See How It Works

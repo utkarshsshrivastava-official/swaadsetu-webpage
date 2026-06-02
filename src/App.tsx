@@ -12,7 +12,7 @@ const FAQ = lazy(() => import("./pages/FAQ"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const PrivatePolicy = lazy(() => import("./pages/PrivatePolicy"));
-
+const Contact = lazy(() => import("./pages/Contact"));
 
 // Loader
 const LoadingScreen = () => (
@@ -36,6 +36,7 @@ function App() {
           <Route path="/features" element={<Features />} />
           <Route path="/about" element={<About />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/contact" element={<Contact />} />
           {/* <Route path="/select-restaurant" element={<RestaurantSelector />} /> */}
           <Route
             path="/register-restaurant"

@@ -3,7 +3,7 @@ import Hero from "./Hero";
 import { Footer } from "../component/Footer";
 import { CTASection } from "../component/cta-section";
 import { CustomerSection } from "./customer-section";
-import { AnalyticsSection } from "./AnalyticsSection";
+// import { AnalyticsSection } from "./AnalyticsSection";
 import Navbar from "../component/Navbar";
 import AboutSection from "./AboutSection"; 
 
@@ -132,8 +132,8 @@ const SwaadsetuLanding: React.FC = () => {
           {/* Staff Section */}
           <StaffSection />
 
-          {/* AnalyticsSection */}
-          <AnalyticsSection />
+          {/* AnalyticsSection (Hidden as per user request to hide data/stats) */}
+          {/* <AnalyticsSection /> */}
         </div>
 
         <div id="contact">

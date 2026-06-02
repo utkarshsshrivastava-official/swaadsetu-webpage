@@ -150,8 +150,8 @@ const AboutSection = () => {
 
         </div>
 
-        {/* ── Bottom stats bar ── */}
-        <motion.div
+        {/* ── Bottom stats bar (Hidden for new company) ── */}
+        {/* <motion.div
           {...fadeUp(0.3)}
           className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-amber-400/10 rounded-2xl overflow-hidden border border-amber-400/10"
         >
@@ -173,7 +173,7 @@ const AboutSection = () => {
               </span>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
       </div>
     </section>

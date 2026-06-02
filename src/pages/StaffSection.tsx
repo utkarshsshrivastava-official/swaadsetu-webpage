@@ -80,12 +80,12 @@ const features = [
 ];
 
 /* ── Animated number ticker ── */
-const stats = [
-  { value: "6", label: "Powerful modules" },
-  { value: "3s", label: "Avg. order acceptance" },
-  { value: "40%", label: "Fewer service errors" },
-  { value: "∞", label: "Tables supported" },
-];
+// const stats = [
+//   { value: "6", label: "Powerful modules" },
+//   { value: "3s", label: "Avg. order acceptance" },
+//   { value: "40%", label: "Fewer service errors" },
+//   { value: "∞", label: "Tables supported" },
+// ];
 
 const StaffSection = () => {
   const navigate = useNavigate();
@@ -194,8 +194,8 @@ const StaffSection = () => {
           ))}
         </div>
 
-        {/* ── Stats strip ── */}
-        <motion.div
+        {/* ── Stats strip (Hidden for new company) ── */}
+        {/* <motion.div
           {...fadeUp(0.3)}
           className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.05] rounded-2xl overflow-hidden border border-white/[0.07]"
         >
@@ -209,7 +209,7 @@ const StaffSection = () => {
               </span>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* ── CTA ── */}
         <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center mt-12">

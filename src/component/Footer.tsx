@@ -62,6 +62,17 @@ const companyLinks = [
   { label: "Blog",     to: "/blogs" },
 ];
 
+export const footerContact = {
+  email: "connect@swaadsetu.com",
+  phone: "+91 9407655717",
+  addressLines: [
+    "Zager Digital Services,",
+    "Startup Enclave,",
+    "CSIT Durg,",
+    "Chhattisgarh 491001",
+  ],
+};
+
 const bottomLinks = [
   { label: "Home",           to: "/"              },
   { label: "Contact",        to: "/#contact"      },
@@ -198,11 +209,8 @@ export function Footer() {
                 <div className="w-7 h-7 rounded-lg bg-amber-400/10 flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin size={14} className="text-amber-400" />
                 </div>
-                <span className="text-slate-400 text-sm leading-relaxed">
-                  Zager Digital Services,<br />
-                  Startup Enclave,<br />
-                  CSIT Durg,<br />
-                  Chhattisgarh 491001
+                <span className="text-slate-400 text-sm leading-relaxed whitespace-pre-line">
+                  {footerContact.addressLines.join("\n")}
                 </span>
               </li>
             </ul>
@@ -221,9 +229,10 @@ export function Footer() {
             <Link
               key={label}
               to={to}
-              className="text-xs text-slate-500 hover:text-amber-300 transition-colors duration-150 tracking-wide"
+              className="relative text-xs text-slate-500 hover:text-amber-300 transition-colors duration-150 tracking-wide group"
             >
               {label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400/50 transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </motion.div>

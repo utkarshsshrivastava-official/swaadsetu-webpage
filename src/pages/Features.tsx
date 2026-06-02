@@ -3,7 +3,8 @@
 import Navbar from "../component/Navbar";
 import {Footer} from "../component/Footer";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import FeaturePlayground from "../component/FeaturePlayground";
+import { useRef, useState, useEffect } from "react";
 
 /* ─────────────────────────────────────────
    Types
@@ -22,7 +23,8 @@ interface Feature {
    */
   image?: string;
   imageAlt?: string;
-  wide?: boolean; // spans 2 cols in the bento grid
+  wide?: boolean; // spans multiple columns in the bento grid
+  tall?: boolean; // spans multiple rows in the bento grid
 }
 
 /* ─────────────────────────────────────────
@@ -57,6 +59,7 @@ const features: Feature[] = [
     image:
       "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=480&h=520&fit=crop&auto=format",
     imageAlt: "Person ordering food on smartphone",
+    tall: true,
   },
   {
     icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
@@ -88,6 +91,7 @@ const features: Feature[] = [
     image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=480&h=260&fit=crop&auto=format",
     imageAlt: "Digital payment on a smartphone",
+    wide: true,
   },
   {
     icon: "M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z",
@@ -107,7 +111,7 @@ const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] as const },
+  transition: { duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] as const },
 });
 
 /* Glow colour map — consumed by inline styles */
@@ -144,11 +148,11 @@ const iconColorMap: Record<string, string> = {
 ───────────────────────────────────────── */
 const FeatureIcon = ({ path, accent }: { path: string; accent: string }) => (
   <div
-    className="flex items-center justify-center w-10 h-10 rounded-xl flex-shrink-0"
+    className="flex items-center justify-center w-11 h-11 rounded-2xl flex-shrink-0 transition-all duration-300"
     style={{ background: iconBgMap[accent] }}
   >
     <svg
-      className="w-5 h-5"
+      className="w-5 h-5 transform transition-transform duration-300 group-hover:scale-110"
       viewBox="0 0 24 24"
       fill="none"
       stroke={iconColorMap[accent]}
@@ -162,13 +166,7 @@ const FeatureIcon = ({ path, accent }: { path: string; accent: string }) => (
   </div>
 );
 
-const FeatureCard = ({
-  feature,
-  index,
-}: {
-  feature: Feature;
-  index: number;
-}) => {
+const FeatureCard = ({ feature, index, onSelect }: { feature: Feature; index: number; onSelect?: (f: Feature) => void; }) => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
@@ -178,136 +176,79 @@ const FeatureCard = ({
       initial={{ opacity: 0, y: 36 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{
-        duration: 0.7,
-        delay: index * 0.08,
+        duration: 0.8,
+        delay: index * 0.06,
         ease: [0.22, 1, 0.36, 1],
       }}
-      /* DaisyUI card base + custom dark glass layer */
-      className={`card group relative overflow-hidden transition-all duration-500 ${
-        feature.wide ? "md:col-span-2" : ""
-      }`}
+      className={`group relative overflow-hidden rounded-[30px] border border-white/10 bg-slate-950/80 shadow-[0_20px_80px_-34px_rgba(15,23,42,0.7)] transition-all duration-500 will-change-transform cursor-pointer ${feature.wide ? "lg:col-span-3" : ""} ${feature.tall ? "lg:row-span-2" : ""}`}
       style={{
-        background:
-          "color-mix(in srgb, var(--color-base-100) 60%, transparent)",
-        border: `1px solid ${borderMap[feature.accent]}`,
-        boxShadow: `0 0 0 0 ${glowMap[feature.accent]}`,
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        borderColor: borderMap[feature.accent],
       }}
+      onClick={() => onSelect?.(feature)}
       whileHover={{
-        y: -4,
-        boxShadow: `0 0 48px 4px ${glowMap[feature.accent]}`,
-        borderColor: iconColorMap[feature.accent] + "60",
+        y: -10,
+        scale: 1.025,
+        boxShadow: `0 30px 80px -30px ${glowMap[feature.accent]}`,
       }}
+      whileTap={{ scale: 0.995 }}
     >
-      {/* Ambient glow blob (top-right) */}
-      <div
-        className="pointer-events-none absolute -top-10 -right-10 w-48 h-48 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-        style={{ background: glowMap[feature.accent] }}
-        aria-hidden="true"
-      />
+      <div className="pointer-events-none absolute -top-8 -right-8 w-52 h-52 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: glowMap[feature.accent] }} aria-hidden="true" />
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-70" aria-hidden="true" />
 
-      {/* ── Card with image ── */}
       {feature.image ? (
-        <div className={`flex flex-col ${feature.wide ? "md:flex-row" : ""}`}>
-          {/* Image */}
-          <div
-            className={`relative overflow-hidden ${
-              feature.wide
-                ? "md:w-1/2 h-52 md:h-auto"
-                : "h-44"
-            }`}
-          >
+        <div className={`flex flex-col overflow-hidden ${feature.wide ? "md:flex-row" : ""}`}>
+          <div className={`relative overflow-hidden ${feature.wide ? "md:w-1/2 h-64 md:h-auto" : "h-56"}`}>
             <img
               src={feature.image}
               alt={feature.imageAlt ?? ""}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               loading="lazy"
             />
-            {/* Dark gradient overlay */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to bottom, transparent 40%, rgba(6,8,18,0.7))",
-              }}
-              aria-hidden="true"
-            />
-            {/* Eyebrow badge on image */}
-            <span
-              className="absolute top-3 left-3 badge badge-sm font-semibold tracking-widest text-[10px] uppercase border-0"
-              style={{
-                background: iconBgMap[feature.accent],
-                color: iconColorMap[feature.accent],
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
-                border: `1px solid ${borderMap[feature.accent]}`,
-              }}
-            >
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent" aria-hidden="true" />
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" aria-hidden="true" />
+            <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-[0.3em]" style={{ background: iconBgMap[feature.accent], color: iconColorMap[feature.accent] }}>
               {feature.eyebrow}
-            </span>
+            </div>
           </div>
 
-          {/* Text body */}
-          <div className="card-body gap-3 p-6 md:p-8 flex-1">
-            <div className="flex items-start gap-3">
+          <div className="flex flex-col justify-between p-6 md:p-8 space-y-4 bg-gradient-to-b from-slate-950/90 to-slate-950/70">
+            <div className="flex items-start gap-4">
               <FeatureIcon path={feature.icon} accent={feature.accent} />
-              <div className="flex-1">
-                <h3 className="card-title text-base-content text-lg font-bold leading-snug">
-                  {feature.title}
-                </h3>
-                <p className="text-base-content/60 text-sm leading-relaxed mt-1">
-                  {feature.description}
-                </p>
+              <div className="space-y-3">
+                <h3 className="text-xl font-bold tracking-tight text-white">{feature.title}</h3>
+                <p className="text-sm leading-6 text-slate-400">{feature.description}</p>
               </div>
             </div>
 
-            {feature.stat && (
-              <div className="flex items-center gap-2 mt-auto pt-2">
-                <span
-                  className="text-2xl font-black tabular-nums"
-                  style={{ color: iconColorMap[feature.accent] }}
-                >
-                  {feature.stat.value}
-                </span>
-                <span className="text-xs text-base-content/50">
-                  {feature.stat.label}
-                </span>
-              </div>
-            )}
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              {feature.stat ? (
+                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                  <p className="text-2xl font-extrabold text-white" style={{ color: iconColorMap[feature.accent] }}>{feature.stat.value}</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-slate-500 mt-1">{feature.stat.label}</p>
+                </div>
+              ) : (
+                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-slate-300 text-sm">Advanced service layer</div>
+              )}
+              <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-500">Tap to explore</span>
+            </div>
           </div>
         </div>
       ) : (
-        /* ── Text-only card ── */
-        <div className="card-body gap-4 p-6">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col gap-5 p-6 md:p-8">
+          <div className="flex items-center gap-4">
             <FeatureIcon path={feature.icon} accent={feature.accent} />
-            <span
-              className="text-[10px] font-semibold tracking-widest uppercase"
-              style={{ color: iconColorMap[feature.accent] }}
-            >
-              {feature.eyebrow}
-            </span>
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">{feature.eyebrow}</p>
+              <h3 className="mt-3 text-xl font-bold tracking-tight text-white">{feature.title}</h3>
+            </div>
           </div>
-
-          <div>
-            <h3 className="text-base-content text-lg font-bold leading-snug">
-              {feature.title}
-            </h3>
-            <p className="text-base-content/60 text-sm leading-relaxed mt-2">
-              {feature.description}
-            </p>
-          </div>
-
+          <p className="text-sm leading-6 text-slate-400">{feature.description}</p>
           {feature.stat && (
-            <div className="flex items-baseline gap-2 mt-auto pt-1">
-              <span
-                className="text-3xl font-black tabular-nums"
-                style={{ color: iconColorMap[feature.accent] }}
-              >
-                {feature.stat.value}
-              </span>
-              <span className="text-xs text-base-content/50">
-                {feature.stat.label}
-              </span>
+            <div className="inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+              <span className="text-3xl font-extrabold" style={{ color: iconColorMap[feature.accent] }}>{feature.stat.value}</span>
+              <span className="text-xs uppercase tracking-[0.3em] text-slate-500">{feature.stat.label}</span>
             </div>
           )}
         </div>
@@ -316,10 +257,127 @@ const FeatureCard = ({
   );
 };
 
+const PlaygroundToggle = ({ open, onToggle }: { open: boolean; onToggle: () => void }) => (
+  <button
+    type="button"
+    className="btn btn-md btn-outline border-white/15 text-slate-200 hover:border-white/30"
+    onClick={onToggle}
+  >
+    {open ? "Hide mini demo" : "Show mini demo"}
+  </button>
+);
+
+const PlaygroundArea = ({ featureTitle, open }: { featureTitle: string; open: boolean }) => (
+  <motion.div
+    layout
+    initial={{ height: 0, opacity: 0 }}
+    animate={open ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+    style={{ overflow: "hidden" }}
+  >
+    {open && <FeaturePlayground featureTitle={featureTitle} />}
+  </motion.div>
+);
+
+/* Modal preview shown when a card is selected */
+const FeatureModal = ({
+  feature,
+  onClose,
+}: {
+  feature: Feature | null;
+  onClose: () => void;
+}) => {
+  const [playgroundOpen, setPlaygroundOpen] = useState(false);
+
+  if (!feature) return null;
+
+  return (
+    <motion.div
+      key={feature.title}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-6"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ scale: 0.96, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.25 }}
+        className="max-w-3xl w-full bg-base-100 rounded-2xl overflow-hidden shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="relative">
+          {feature.image && (
+            <>
+              <img
+                src={feature.image}
+                alt={feature.imageAlt ?? feature.title}
+                className="w-full h-60 object-cover"
+                loading="lazy"
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(255,255,255,0.02) 0%, transparent 25%, rgba(255,255,255,0.02) 50%, transparent 75%)",
+                  mixBlendMode: "overlay",
+                  transform: "skewX(-10deg)",
+                  animation: "slide 7.5s linear infinite",
+                  opacity: 0.7,
+                }}
+              />
+            </>
+          )}
+          <button
+            aria-label="Close"
+            onClick={onClose}
+            className="absolute top-4 right-4 btn btn-sm btn-circle btn-ghost"
+          >
+            ×
+          </button>
+        </div>
+
+        <div className="p-6">
+          <h3 className="text-2xl font-extrabold mb-2">{feature.title}</h3>
+          <p className="text-base-content/70 mb-4">{feature.description}</p>
+          <div className="flex flex-wrap gap-3 items-center">
+            <button
+              className="btn btn-md font-bold"
+              style={{
+                background: "linear-gradient(90deg, #fbbf24, #f97316)",
+                color: "#08101a",
+              }}
+              onClick={() => window.open("https://www.swaadsetu.com/contact", "_blank")}
+            >
+              Request Demo
+            </button>
+            <button className="btn btn-md btn-ghost" onClick={onClose}>
+              Close
+            </button>
+            <PlaygroundToggle open={playgroundOpen} onToggle={() => setPlaygroundOpen((value) => !value)} />
+          </div>
+          <PlaygroundArea featureTitle={feature.title} open={playgroundOpen} />
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 /* ─────────────────────────────────────────
    Main Section
 ───────────────────────────────────────── */
 const FeatureSection = () => {
+  const [selected, setSelected] = useState<Feature | null>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelected(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#060812] text-base-content overflow-x-hidden" data-theme="swaad-dark">
       <Navbar />
@@ -357,126 +415,95 @@ const FeatureSection = () => {
           {...fadeUp(0)}
           className="flex flex-col items-center text-center mb-16 gap-4"
         >
-          {/* Pill */}
           <div
-            className="badge badge-md font-semibold tracking-widest text-[10px] uppercase border-0 gap-2 px-4 py-3"
+            className="px-4 py-2 rounded-full text-sm font-semibold tracking-wide"
             style={{
-              background: "rgba(251,191,36,0.08)",
-              color: "#fbbf24",
-              border: "1px solid rgba(251,191,36,0.25)",
+              background: "linear-gradient(90deg,#fbbf24, #fb923c)",
+              color: "#08101a",
             }}
           >
-            <span
-              className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"
-              aria-hidden="true"
-            />
-            Everything Your Restaurant Needs
+            Key Capabilities
           </div>
 
-          <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight text-base-content"
-          >
-            Built for{" "}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-base-content">
+            Elevate Your Service —
             <span
-              className="bg-clip-text text-transparent"
+              className="bg-clip-text text-transparent ml-2"
               style={{
                 backgroundImage:
-                  "linear-gradient(90deg, #fbbf24 0%, #fb923c 50%, #fbbf24 100%)",
+                  "linear-gradient(90deg,#fbbf24, #fb923c)",
               }}
             >
-              Indian Kitchens.
-            </span>
-            <br />
-            <span className="text-base-content/70">
-              Loved by Every Diner.
+              Delight Every Diner
             </span>
           </h2>
 
-          <p className="text-base-content/60 text-lg max-w-xl leading-relaxed font-light">
-            From the first QR scan to the last payment, SwaadSetu handles every
-            touchpoint — so your staff can focus on what matters: great food.
+          <p className="text-base-content/60 text-base max-w-2xl leading-relaxed font-light">
+            Modern, fast and beautiful tools for Indian restaurants — QR menus,
+            frictionless ordering, instant payments and actionable insights.
           </p>
 
-          {/* Decorative separator */}
-          <div
-            className="w-24 h-px mt-2"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent, #fbbf24, transparent)",
-            }}
-            aria-hidden="true"
-          />
+          <div className="w-32 h-0.5 mt-2 rounded-full" style={{background: "linear-gradient(90deg,#fbbf24, #fb923c)"}} aria-hidden="true" />
         </motion.div>
 
-        {/* ── Bento grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* ── Responsive bento grid ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 auto-rows-[260px]">
           {features.map((feature, i) => (
-            <FeatureCard key={feature.title} feature={feature} index={i} />
+            <FeatureCard key={feature.title} feature={feature} index={i} onSelect={(f)=>setSelected(f)} />
           ))}
         </div>
 
         {/* ── Bottom CTA strip ── */}
-        <motion.div
-          {...fadeUp(0.3)}
-          className="mt-16 flex flex-col md:flex-row items-center justify-between gap-6 rounded-3xl p-8 md:p-10"
-          style={{
-            background: "rgba(251,191,36,0.05)",
-            border: "1px solid rgba(251,191,36,0.18)",
-          }}
-        >
-          <div className="text-center md:text-left">
-            <p className="text-base-content font-bold text-xl">
-              Ready to transform your restaurant?
-            </p>
-            <p className="text-base-content/50 text-sm mt-1">
-              Join 58+ restaurants already running on SwaadSetu.
-            </p>
-          </div>
-          <div className="flex gap-3 flex-wrap justify-center">
-            <button
-              className="btn btn-md font-bold border-none"
+            <motion.div
+              {...fadeUp(0.3)}
+              className="mt-16 flex flex-col md:flex-row items-center justify-between gap-6 rounded-2xl p-8 md:p-10"
               style={{
-                background: "linear-gradient(90deg, #fbbf24, #f97316)",
-                color: "#000",
-                boxShadow: "0 0 24px rgba(251,191,36,0.35)",
+                background: "linear-gradient(90deg, rgba(247,185,76,0.06), rgba(251,115,22,0.03))",
+                border: "1px solid rgba(251,191,36,0.12)",
               }}
-              onClick={() =>
-                window.open(
-                  "https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true",
-                  "_blank",
-                )
-              }
             >
-              Book a Free Demo
-              <svg
-                className="w-4 h-4 ml-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.5}
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </button>
-            <button
-              className="btn btn-md btn-ghost border text-amber-400"
-              style={{ borderColor: "rgba(251,191,36,0.35)" }}
-              onClick={() =>
-                (window.location.href = "https://www.swaadsetu.com/features")
-              }
-            >
-              See All Features
-            </button>
-          </div>
-        </motion.div>
+              <div className="text-center md:text-left">
+                <p className="text-base-content font-extrabold text-xl">
+                  Ready to elevate your dining experience?
+                </p>
+                <p className="text-base-content/50 text-sm mt-1">
+                  Start a free demo — no credit card required.
+                </p>
+              </div>
+              <div className="flex gap-3 flex-wrap justify-center">
+                <button
+                  className="btn btn-md font-bold border-none"
+                  style={{
+                    background: "linear-gradient(90deg, #fbbf24, #f97316)",
+                    color: "#08101a",
+                    boxShadow: "0 10px 30px rgba(247,147,60,0.18)",
+                  }}
+                  onClick={() =>
+                    window.open(
+                      "https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true",
+                      "_blank",
+                    )
+                  }
+                >
+                  Start Free Demo
+                </button>
+                <button
+                  className="btn btn-md btn-ghost border text-amber-400"
+                  style={{ borderColor: "rgba(251,191,36,0.18)" }}
+                  onClick={() =>
+                    (window.location.href = "https://www.swaadsetu.com/features")
+                  }
+                >
+                  View Full Specs
+                </button>
+              </div>
+            </motion.div>
       </div>
       </section>
       <Footer />
+
+      {/* Modal preview */}
+      {selected && <FeatureModal feature={selected} onClose={() => setSelected(null)} />}
     </div>
   );
 };

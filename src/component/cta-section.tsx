@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, Zap, Users, Clock } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const fadeUp = (delay = 0) => ({
@@ -14,11 +14,11 @@ const benefits = [
   { icon: CheckCircle2, label: "No Credit Card Required" },
 ];
 
-const socialProof = [
-  { icon: Users,  value: "500+", label: "Restaurants onboarded" },
-  { icon: Zap,    value: "35%",  label: "Avg. order increase"   },
-  { icon: Clock,  value: "−40%", label: "Wait time reduction"   },
-];
+// const socialProof = [
+//   { icon: Users,  value: "500+", label: "Restaurants onboarded" },
+//   { icon: Zap,    value: "35%",  label: "Avg. order increase"   },
+//   { icon: Clock,  value: "−40%", label: "Wait time reduction"   },
+// ];
 
 export function CTASection() {
   const handleRedirect = () => {
@@ -86,7 +86,7 @@ export function CTASection() {
 
         {/* ── Subtext ── */}
         <motion.p {...fadeUp(0.2)} className="text-slate-400 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-10">
-          Join 500+ restaurants already using Swaad Setu to deliver
+          Join restaurants already using Swaad Setu to deliver
           exceptional dining experiences and grow their business — with zero setup hassle.
         </motion.p>
 
@@ -125,25 +125,27 @@ export function CTASection() {
         </motion.div>
 
         {/* ── Divider ── */}
-        <motion.div
+        {/* <motion.div
           {...fadeUp(0.42)}
           className="w-full h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent mb-12"
-        />
+        /> */}
 
         {/* ── Social proof stats ── */}
-        <motion.div {...fadeUp(0.48)} className="grid grid-cols-3 gap-px bg-white/[0.05] rounded-2xl overflow-hidden border border-white/[0.07] max-w-2xl mx-auto">
+        {/* <motion.div {...fadeUp(0.48)} className="grid grid-cols-3 gap-px bg-white/[0.05] rounded-2xl overflow-hidden border border-white/[0.07] max-w-2xl mx-auto shadow-xl">
           {socialProof.map((s, i) => (
-            <div key={i} className="bg-[#060812] flex flex-col items-center justify-center py-6 px-4 gap-1.5">
-              <s.icon size={16} className="text-amber-400/60 mb-1" />
-              <span className="text-2xl font-black bg-gradient-to-b from-amber-200 to-amber-500 bg-clip-text text-transparent">
+            <div key={i} className="bg-[#060812] flex flex-col items-center justify-center py-8 px-4 gap-2 hover:bg-white/[0.02] transition-colors duration-300">
+              <div className="w-10 h-10 rounded-full bg-amber-400/10 flex items-center justify-center mb-2">
+                <s.icon size={18} className="text-amber-400" />
+              </div>
+              <span className="text-3xl font-black bg-gradient-to-b from-amber-200 to-amber-500 bg-clip-text text-transparent drop-shadow-md">
                 {s.value}
               </span>
-              <span className="text-[11px] text-slate-500 text-center font-medium leading-tight">
+              <span className="text-[12px] text-slate-400 text-center font-medium leading-tight">
                 {s.label}
               </span>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
       </div>
     </section>
