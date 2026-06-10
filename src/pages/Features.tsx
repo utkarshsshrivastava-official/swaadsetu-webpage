@@ -76,6 +76,9 @@ const features: Feature[] = [
       "Built on redundant infra so your menu is live even during dinner rush. We've never gone dark during a service.",
     accent: "green",
     stat: { value: "99.9%", label: "Uptime" },
+    image:
+      "https://images.unsplash.com/photo-1580894908361-967195033215?w=480&h=260&fit=crop&auto=format",
+    imageAlt: "Team looking at a dashboard showing uptime statistics",
   },
   {
     icon: "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z",
@@ -96,6 +99,9 @@ const features: Feature[] = [
       "Send targeted offers, happy-hour alerts, and seasonal specials directly to diners who've ordered before.",
     accent: "orange",
     stat: { value: "3.2×", label: "Repeat visits" },
+    image:
+      "https://images.unsplash.com/photo-1596526131033-9d3d42755258?w=480&h=520&fit=crop&auto=format",
+    imageAlt: "Smartphone showing push notifications for promotions",
   },
 ];
 
