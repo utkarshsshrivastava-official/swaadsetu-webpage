@@ -117,7 +117,7 @@ const StaffSection = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
             Staff Dashboard
           </div>
-          <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+          <h2 className="text-3xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
             Give Your Team A{" "}
             <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
               Clean, Fast

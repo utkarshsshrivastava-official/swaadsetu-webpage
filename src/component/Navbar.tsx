@@ -88,43 +88,18 @@ const navLinks = [
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isOpen, setIsOpen]               = useState(false);
-  const [scrolled, setScrolled]           = useState(false);
   const navigate  = useNavigate();
   const location  = useLocation();
 
-  /* ── scroll shadow ── */
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   /* ── active section tracker ── */
   useEffect(() => {
-    const handleScroll = () => {
-      if (location.pathname !== "/") return;
-      const ids     = ["home", "features", "about", "contact"];
-      const scrollY = window.scrollY + 130;
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (el && scrollY >= el.offsetTop && scrollY < el.offsetTop + el.clientHeight) {
-          setActiveSection(id);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
     const p = location.pathname;
-    if      (p === "/")         { setActiveSection("home");     handleScroll(); }
+    if      (p === "/")         { setActiveSection("home");     }
     else if (p === "/about")    { setActiveSection("about");    }
     else if (p === "/features") { setActiveSection("features"); }
     else if (p === "/pricing")  { setActiveSection("pricing");  }
     else if (p === "/contact")  { setActiveSection("contact");  }
     else if (location.hash === "#contact") { setActiveSection("contact"); }
-
-    return () => window.removeEventListener("scroll", handleScroll);
   }, [location]);
 
   /* ── close drawer on route change ── */
@@ -133,6 +108,12 @@ const Navbar = () => {
   const handleNavClick = (path: string) => {
     setIsOpen(false);
     
+    // Instantly show the active state when a link is clicked
+    const clickedLink = navLinks.find((link) => link.path === path);
+    if (clickedLink) {
+      setActiveSection(clickedLink.id);
+    }
+
     // If the path contains a hash (e.g., /#contact) or is exactly "/"
     if (path.includes("#") || path === "/") {
       if (location.pathname !== "/") {
@@ -168,10 +149,6 @@ const Navbar = () => {
         fixed top-0 inset-x-0 z-50
         bg-base-100/80 backdrop-blur-xl
         border-b transition-all duration-300
-        ${scrolled 
-          ? "border-amber-400/20 shadow-[0_8px_32px_rgba(251,191,36,0.1)] bg-base-100/95" 
-          : "border-amber-400/5"
-        }
       `}
     >
       {/* ── amber grid overlay (same as Hero/Footer) ── */}

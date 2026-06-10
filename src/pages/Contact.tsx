@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid lg:grid-cols-12 gap-10 items-start w-full"
+            className="grid lg:grid-cols-12 gap-10 items-center w-full"
           >
             
             {/* ── LEFT CANVAS: BRAND STORYTELLING & CHANNELS ── */}
@@ -94,7 +94,7 @@ const Contact: React.FC = () => {
                 {/* Typography Block */}
                 <motion.h1
                   variants={itemVariants}
-                  className="text-5xl sm:text-6xl font-black tracking-tight text-white leading-[1.05]"
+                  className="text-4xl sm:text-5xl font-bold tracking-tight text-white leading-[1.05]"
                 >
                   Let’s elevate your <br />
                   <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500 bg-clip-text text-transparent">

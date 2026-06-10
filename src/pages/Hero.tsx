@@ -73,7 +73,7 @@ const Hero = () => {
 
           {/* Headline */}
           <motion.div {...fadeUp(0.2)}>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-white drop-shadow-lg">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-white drop-shadow-lg">
               Redefine Your{" "}
               <br className="hidden sm:block" />
               Restaurant's{" "}

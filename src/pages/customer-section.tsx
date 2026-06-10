@@ -1,4 +1,4 @@
-﻿import { useState, useMemo, memo } from "react";
+﻿﻿import { useState, useMemo, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { QrCode, Clock, FileText, Bell, CreditCard, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
@@ -172,7 +172,7 @@ export function CustomerSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1]"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]"
           >
             Features Crafted to{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-yellow-400 to-orange-500">

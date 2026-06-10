@@ -13,8 +13,6 @@ import { Helmet } from "@dr.pogodin/react-helmet";
 import StaffSection from "../pages/StaffSection";
 
 const SwaadsetuLanding: React.FC = () => {
-  const [, setActiveSection] = useState("home");
-
   // Intersection Observer for scroll animations
   useEffect(() => {
     const observerOptions = {
@@ -35,31 +33,6 @@ const SwaadsetuLanding: React.FC = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
-
-  // Active section tracking on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["home", "features", "about", "contact"];
-      const scrollPosition = window.scrollY + 120;
-
-      for (const sectionId of sections) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const { offsetTop, clientHeight } = section;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + clientHeight
-          ) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

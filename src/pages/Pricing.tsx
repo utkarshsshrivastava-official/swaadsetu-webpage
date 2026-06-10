@@ -57,79 +57,34 @@ const fadeUp = (delay = 0) => ({
 /* ── Plan data ── */
 const plans = [
   {
-    id: "starter",
-    name: "Starter",
-    tagline: "Perfect for new restaurants just getting started",
-    price: { monthly: 999, annual: 799 },
-    badge: null,
-    accent: "from-slate-400 to-slate-500",
-    borderClass: "border-white/10",
-    features: [
-      "1 QR menu (up to 50 items)",
-      "Basic order notifications",
-      "Daily order reports",
-      "Email support",
-      "1 staff account",
-    ],
-    cta: "Get Started",
-    ctaClass:
-      "btn-outline border-amber-400/40 text-amber-300 hover:bg-amber-400/10",
-  },
-  {
-    id: "growth",
-    name: "Growth",
-    tagline: "Built for restaurants ready to scale",
-    price: { monthly: 2499, annual: 1999 },
-    badge: "Most Popular",
+    id: "standard",
+    name: "Standard Plan",
+    tagline: "Everything you need to manage your restaurant",
+    price: { monthly: 1499, annual: 1199 },
+    badge: "All-in-one",
     accent: "from-amber-400 to-orange-400",
     borderClass: "border-amber-400/40",
     features: [
-      "5 QR menus (unlimited items)",
+      "Unlimited QR menus & items",
       "Real-time order tracking",
-      "Weekly analytics dashboard",
-      "WhatsApp + email support",
-      "5 staff accounts",
-      "Custom menu branding",
-      "Upsell suggestions",
+      "Analytics dashboard",
+      "Priority Support",
+      "Unlimited staff accounts",
+      "Custom menu branding"
     ],
     cta: "Start Free Trial",
-    ctaClass:
-      "bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none shadow-[0_0_32px_rgba(251,191,36,0.35)] hover:shadow-[0_0_48px_rgba(251,191,36,0.55)]",
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
-    tagline: "For chains & cloud kitchens with multiple outlets",
-    price: { monthly: null, annual: null },
-    badge: null,
-    accent: "from-orange-400 to-rose-400",
-    borderClass: "border-white/10",
-    features: [
-      "Unlimited QR menus & items",
-      "Multi-outlet management",
-      "Advanced analytics + exports",
-      "Dedicated account manager",
-      "Unlimited staff accounts",
-      "API access & integrations",
-      "Custom onboarding",
-      "SLA-backed uptime",
-    ],
-    cta: "Contact Sales",
-    ctaClass:
-      "btn-outline border-amber-400/40 text-amber-300 hover:bg-amber-400/10",
+    ctaClass: "bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none shadow-[0_0_32px_rgba(251,191,36,0.35)] hover:shadow-[0_0_48px_rgba(251,191,36,0.55)]",
   },
 ];
 
 /* ── Feature comparison table ── */
 const tableFeatures = [
-  { label: "QR Menus", starter: "1", growth: "5", enterprise: "Unlimited" },
-  { label: "Menu Items", starter: "50", growth: "Unlimited", enterprise: "Unlimited" },
-  { label: "Staff Accounts", starter: "1", growth: "5", enterprise: "Unlimited" },
-  { label: "Analytics", starter: "Basic", growth: "Advanced", enterprise: "Enterprise" },
-  { label: "Custom Branding", starter: false, growth: true, enterprise: true },
-  { label: "API Access", starter: false, growth: false, enterprise: true },
-  { label: "Priority Support", starter: false, growth: true, enterprise: true },
-  { label: "Multi-outlet", starter: false, growth: false, enterprise: true },
+  { label: "QR Menus", standard: "Unlimited" },
+  { label: "Menu Items", standard: "Unlimited" },
+  { label: "Staff Accounts", standard: "Unlimited" },
+  { label: "Analytics", standard: "Advanced" },
+  { label: "Custom Branding", standard: true },
+  { label: "Priority Support", standard: true },
 ];
 
 const CheckIcon = () => (
@@ -177,14 +132,10 @@ const Pricing: FC = () => {
   }, []);
 
   const handleCTA = (planId: string) => {
-    if (planId === "enterprise") {
-      window.open("mailto:sales@swaadsetu.com", "_blank");
-    } else {
       window.open(
         "https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true",
         "_blank"
       );
-    }
   };
 
   return (
@@ -251,7 +202,7 @@ const Pricing: FC = () => {
 
               <motion.h1
                 {...fadeUp(0.2)}
-                className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"
               >
                 Plans that grow{" "}
                 <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
@@ -290,7 +241,7 @@ const Pricing: FC = () => {
             </div>
 
             {/* ── Pricing cards ── */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+            <div className="max-w-md mx-auto mb-20">
               {plans.map((plan, i) => {
                 const price =
                   plan.price.monthly === null
@@ -309,7 +260,7 @@ const Pricing: FC = () => {
                       delay: 0.5 + i * 0.12,
                       ease: [0.22, 1, 0.36, 1],
                     }}
-                    className={`relative flex flex-col rounded-3xl border bg-white/[0.03] backdrop-blur-sm p-8 ${plan.borderClass} ${plan.id === "growth" ? "ring-1 ring-amber-400/30 shadow-[0_0_60px_rgba(251,191,36,0.1)]" : ""}`}
+                    className={`relative flex flex-col rounded-3xl border bg-white/[0.03] backdrop-blur-sm p-8 ${plan.borderClass} ring-1 ring-amber-400/30 shadow-[0_0_60px_rgba(251,191,36,0.1)]`}
                   >
                     {/* Popular badge */}
                     {plan.badge && (
@@ -385,7 +336,7 @@ const Pricing: FC = () => {
               <h2 className="text-2xl font-bold text-center mb-2">Compare plans</h2>
               <div className="w-12 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full mx-auto mb-10" />
 
-              <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm">
+              <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm max-w-3xl mx-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-white/10">
@@ -406,8 +357,8 @@ const Pricing: FC = () => {
                         className={`border-b border-white/5 ${i % 2 === 0 ? "bg-white/[0.01]" : ""}`}
                       >
                         <td className="py-3.5 px-6 text-slate-300">{row.label}</td>
-                        {(["starter", "growth", "enterprise"] as const).map((plan) => {
-                          const val = row[plan];
+                        {(["standard"] as const).map((plan) => {
+                          const val = row[plan as keyof typeof row];
                           return (
                             <td key={plan} className="py-3.5 px-6 text-center">
                               {typeof val === "boolean" ? (

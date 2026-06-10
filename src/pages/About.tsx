@@ -307,7 +307,7 @@ const About: FC = () => {
 
               <motion.h1
                 {...fadeUp(0.2)}
-                className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-white drop-shadow-lg"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
               >
                 We're{" "}
                 <span className="relative inline-block">
@@ -372,14 +372,15 @@ const About: FC = () => {
               {/* Left: text */}
               <div>
                 <motion.div {...fadeLeft(0.05)}>
-                  <span className="text-xs font-semibold tracking-widest uppercase text-amber-400/70">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(251,191,36,0.15)] backdrop-blur-md">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                     Who We Are
-                  </span>
+                  </div>
                 </motion.div>
 
                 <motion.h2
                   {...fadeLeft(0.15)}
-                  className="mt-4 text-4xl sm:text-5xl font-black leading-tight text-white"
+                  className="mt-4 text-3xl sm:text-4xl font-bold leading-tight text-white"
                 >
                   A platform{" "}
                   <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
@@ -544,14 +545,15 @@ const About: FC = () => {
               {/* Right: mission text */}
               <div className="flex flex-col gap-6 z-10">
                 <motion.div {...fadeRight(0.05)}>
-                  <span className="text-xs font-bold tracking-widest uppercase text-amber-400">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(251,191,36,0.15)] backdrop-blur-md">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                     Our Mission
-                  </span>
+                  </div>
                 </motion.div>
 
                 <motion.h2
                   {...fadeRight(0.15)}
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] text-white drop-shadow-md"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] text-white drop-shadow-md"
                 >
                   Every restaurant deserves{" "}
                   <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
@@ -617,14 +619,15 @@ const About: FC = () => {
 
             {/* Section header */}
             <motion.div {...fadeUp(0.05)} className="text-center mb-4 flex justify-center">
-              <span className="text-xs font-bold tracking-widest uppercase text-amber-400">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(251,191,36,0.15)] backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                 How We Work
-              </span>
+              </div>
             </motion.div>
 
             <motion.h2
               {...fadeUp(0.15)}
-              className="text-4xl sm:text-5xl font-black text-center text-white mb-6 drop-shadow-md"
+              className="text-3xl sm:text-4xl font-bold text-center text-white mb-6 drop-shadow-md"
             >
               Our{" "}
               <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
@@ -641,7 +644,7 @@ const About: FC = () => {
             </motion.p>
 
             {/* Values grid — Premium Glassmorphism */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {values.map((v, idx) => (
                 <motion.div
                   key={v.title}
@@ -681,7 +684,7 @@ const About: FC = () => {
 
             <motion.h2
               {...fadeUp(0.15)}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 drop-shadow-md"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 drop-shadow-md"
             >
               Ready to{" "}
               <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">

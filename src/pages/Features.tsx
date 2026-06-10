@@ -23,8 +23,6 @@ interface Feature {
    */
   image?: string;
   imageAlt?: string;
-  wide?: boolean; // spans multiple columns in the bento grid
-  tall?: boolean; // spans multiple rows in the bento grid
 }
 
 /* ─────────────────────────────────────────
@@ -46,7 +44,6 @@ const features: Feature[] = [
     image:
       "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=900&h=420&fit=crop&auto=format",
     imageAlt: "Restaurant QR code menu on a table",
-    wide: true,
   },
   {
     icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
@@ -59,7 +56,6 @@ const features: Feature[] = [
     image:
       "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=480&h=520&fit=crop&auto=format",
     imageAlt: "Person ordering food on smartphone",
-    tall: true,
   },
   {
     icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
@@ -91,7 +87,6 @@ const features: Feature[] = [
     image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=480&h=260&fit=crop&auto=format",
     imageAlt: "Digital payment on a smartphone",
-    wide: true,
   },
   {
     icon: "M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z",
@@ -180,7 +175,7 @@ const FeatureCard = ({ feature, index, onSelect }: { feature: Feature; index: nu
         delay: index * 0.06,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={`group relative overflow-hidden rounded-[30px] border border-white/10 bg-slate-950/80 shadow-[0_20px_80px_-34px_rgba(15,23,42,0.7)] transition-all duration-500 will-change-transform cursor-pointer ${feature.wide ? "lg:col-span-3" : ""} ${feature.tall ? "lg:row-span-2" : ""}`}
+      className={`group relative flex flex-col overflow-hidden rounded-[30px] border border-white/10 bg-slate-950/80 shadow-[0_20px_80px_-34px_rgba(15,23,42,0.7)] transition-all duration-500 will-change-transform cursor-pointer`}
       style={{
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
@@ -198,8 +193,8 @@ const FeatureCard = ({ feature, index, onSelect }: { feature: Feature; index: nu
       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-70" aria-hidden="true" />
 
       {feature.image ? (
-        <div className={`flex flex-col overflow-hidden ${feature.wide ? "md:flex-row" : ""}`}>
-          <div className={`relative overflow-hidden ${feature.wide ? "md:w-1/2 h-64 md:h-auto" : "h-56"}`}>
+        <div className="flex flex-col flex-1 overflow-hidden">
+          <div className="relative overflow-hidden h-48 sm:h-56">
             <img
               src={feature.image}
               alt={feature.imageAlt ?? ""}
@@ -213,7 +208,7 @@ const FeatureCard = ({ feature, index, onSelect }: { feature: Feature; index: nu
             </div>
           </div>
 
-          <div className="flex flex-col justify-between p-6 md:p-8 space-y-4 bg-gradient-to-b from-slate-950/90 to-slate-950/70">
+          <div className="flex flex-col flex-1 justify-between p-6 md:p-8 space-y-4 bg-gradient-to-b from-slate-950/90 to-slate-950/70">
             <div className="flex items-start gap-4">
               <FeatureIcon path={feature.icon} accent={feature.accent} />
               <div className="space-y-3">
@@ -236,7 +231,7 @@ const FeatureCard = ({ feature, index, onSelect }: { feature: Feature; index: nu
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-5 p-6 md:p-8">
+        <div className="flex flex-col flex-1 gap-5 p-6 md:p-8">
           <div className="flex items-center gap-4">
             <FeatureIcon path={feature.icon} accent={feature.accent} />
             <div>
@@ -425,7 +420,7 @@ const FeatureSection = () => {
             Key Capabilities
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-base-content">
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-base-content">
             Elevate Your Service —
             <span
               className="bg-clip-text text-transparent ml-2"
@@ -446,8 +441,8 @@ const FeatureSection = () => {
           <div className="w-32 h-0.5 mt-2 rounded-full" style={{background: "linear-gradient(90deg,#fbbf24, #fb923c)"}} aria-hidden="true" />
         </motion.div>
 
-        {/* ── Responsive bento grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 auto-rows-[260px]">
+        {/* ── Responsive standard grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, i) => (
             <FeatureCard key={feature.title} feature={feature} index={i} onSelect={(f)=>setSelected(f)} />
           ))}
