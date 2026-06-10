@@ -131,7 +131,7 @@ const Pricing: FC = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
 
-  const handleCTA = (planId: string) => {
+  const handleCTA = () => {
       window.open(
         "https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true",
         "_blank"
@@ -312,7 +312,7 @@ const Pricing: FC = () => {
 
                     {/* CTA */}
                     <button
-                      onClick={() => handleCTA(plan.id)}
+                      onClick={handleCTA}
                       className={`btn w-full rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-95 ${plan.ctaClass}`}
                     >
                       {plan.cta}
