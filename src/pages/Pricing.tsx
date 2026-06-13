@@ -219,7 +219,7 @@ const Pricing: FC = () => {
               </motion.p>
 
               {/* ── Billing toggle ── */}
-              <motion.div {...fadeUp(0.45)} className="mt-8 flex items-center justify-center gap-4">
+              {/* <motion.div {...fadeUp(0.45)} className="mt-8 flex items-center justify-center gap-4">
                 <span className={`text-sm font-medium transition-colors ${billing === "monthly" ? "text-white" : "text-slate-500"}`}>
                   Monthly
                 </span>
@@ -237,11 +237,11 @@ const Pricing: FC = () => {
                     Save 20%
                   </span>
                 </span>
-              </motion.div>
+              </motion.div>*/}
             </div>
 
             {/* ── Pricing cards ── */}
-            <div className="max-w-md mx-auto mb-20">
+           {/*  <div className="max-w-md mx-auto mb-20">
               {plans.map((plan, i) => {
                 const price =
                   plan.price.monthly === null
@@ -262,7 +262,7 @@ const Pricing: FC = () => {
                     }}
                     className={`relative flex flex-col rounded-3xl border bg-white/[0.03] backdrop-blur-sm p-8 ${plan.borderClass} ring-1 ring-amber-400/30 shadow-[0_0_60px_rgba(251,191,36,0.1)]`}
                   >
-                    {/* Popular badge */}
+                   Popular badge 
                     {plan.badge && (
                       <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
                         <span className="bg-gradient-to-r from-amber-400 to-orange-400 text-black text-[11px] font-bold px-4 py-1.5 rounded-full shadow-[0_0_20px_rgba(251,191,36,0.4)]">
@@ -271,13 +271,13 @@ const Pricing: FC = () => {
                       </div>
                     )}
 
-                    {/* Gradient accent line */}
+                   Gradient accent line 
                     <div className={`h-1 w-12 rounded-full bg-gradient-to-r ${plan.accent} mb-6`} />
 
                     <h2 className="text-xl font-bold text-white mb-1">{plan.name}</h2>
                     <p className="text-sm text-slate-400 leading-snug mb-6">{plan.tagline}</p>
 
-                    {/* Price */}
+                  Price 
                     <div className="mb-6">
                       {price === null ? (
                         <div>
@@ -300,7 +300,7 @@ const Pricing: FC = () => {
                       )}
                     </div>
 
-                    {/* Features */}
+                     Features 
                     <ul className="flex flex-col gap-3 mb-8 flex-1">
                       {plan.features.map((f) => (
                         <li key={f} className="flex items-start gap-2.5 text-sm text-slate-300">
@@ -310,7 +310,7 @@ const Pricing: FC = () => {
                       ))}
                     </ul>
 
-                    {/* CTA */}
+                    CTA 
                     <button
                       onClick={handleCTA}
                       className={`btn w-full rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-95 ${plan.ctaClass}`}
@@ -323,7 +323,7 @@ const Pricing: FC = () => {
                   </motion.div>
                 );
               })}
-            </div>
+            </div>*/}
 
             {/* ── Feature comparison table ── */}
             <motion.div

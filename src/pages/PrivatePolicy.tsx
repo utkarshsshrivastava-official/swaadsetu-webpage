@@ -191,7 +191,7 @@ const PrivatePolicy = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#060812] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#060812] text-white overflow-x-clip">
 
       {/* ── Background grid ── */}
       <div
@@ -260,34 +260,16 @@ const PrivatePolicy = () => {
             We keep things simple and transparent. Here's everything you need to
             know about how we handle your data and our commitments to you.
           </motion.p>
-
-          {/* Quick-nav pills */}
-          <motion.div {...fadeUp(0.45)} className="mt-8 flex flex-wrap justify-center gap-2">
-            {sections.map((s) => (
-              <button
-                key={s.id}
-                onClick={() => scrollTo(s.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium border transition-all duration-200
-                  ${activeSection === s.id
-                    ? "bg-amber-400/15 border-amber-400/40 text-amber-300 shadow-[0_0_16px_rgba(251,191,36,0.15)]"
-                    : "border-white/10 text-slate-400 hover:border-white/20 hover:text-slate-300"
-                  }`}
-              >
-                {s.icon}
-                {s.label}
-              </button>
-            ))}
-          </motion.div>
         </div>
       </div>
 
       {/* ── Main layout: sticky sidebar + content ── */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div className="flex gap-10">
+        <div className="flex flex-col lg:flex-row gap-10 items-start">
 
           {/* ── Sticky Sidebar (desktop only) ── */}
-          <aside className="hidden lg:block w-56 shrink-0">
-            <div className="sticky top-28 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-4">
+          <aside className="hidden lg:block w-56 shrink-0 sticky top-28">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-4">
               <p className="text-[10px] text-slate-500 uppercase font-semibold tracking-widest mb-4 px-2">
                 Contents
               </p>

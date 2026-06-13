@@ -265,7 +265,7 @@ const BlogPostPage: React.FC = () => {
         {post.coverImage && <meta name="twitter:image" content={post.coverImage} />}
       </Helmet>
 
-      <div className="min-h-screen bg-[#060812] text-base-content overflow-x-hidden" data-theme="swaad-dark">
+      <div className="min-h-screen bg-[#060812] text-base-content overflow-x-clip" data-theme="swaad-dark">
         <Navbar />
 
         {/* ── Background grid (same as About / Hero) ── */}

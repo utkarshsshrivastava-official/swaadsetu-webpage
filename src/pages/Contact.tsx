@@ -121,21 +121,23 @@ const Contact: React.FC = () => {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-500">Partner Support</p>
+                    <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-100">Partner Support</p>
                     <h4 className="text-sm font-semibold text-white mt-0.5 break-all">{footerContact.email}</h4>
                   </div>
                 </motion.a>
 
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid sm:grid-cols-2 gap-2">
                   <motion.a
                     variants={itemVariants}
                     href={`tel:${footerContact.phone.replace(/\s+/g, "")}`}
                     className="group block rounded-2xl border border-white/[0.05] bg-slate-950/60 p-5 transition-all duration-300 hover:border-amber-400/20 hover:bg-slate-900/40"
                   >
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-400/10 to-transparent text-amber-400 border border-white/5 mb-4 transition-colors group-hover:bg-amber-400 group-hover:text-black">
-                      <Phone className="w-4 h-4" />
+                    <div className="flex items-center justify-start text-amber-400 mb-4 gap-3">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-400/10 to-transparent text-amber-400 border border-white/5 transition-colors group-hover:bg-amber-400 group-hover:text-black">
+                        <Phone className="w-4 h-4" />
+                      </div>
+                      <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-100">Sales & Onboarding</p>
                     </div>
-                    <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-500">Sales & Onboarding</p>
                     <h4 className="text-sm font-semibold text-white mt-1">{footerContact.phone}</h4>
                   </motion.a>
 
@@ -146,15 +148,20 @@ const Contact: React.FC = () => {
                     rel="noopener noreferrer"
                     className="group block rounded-2xl border border-white/[0.05] bg-slate-950/60 p-5 transition-all duration-300 hover:border-amber-400/20 hover:bg-slate-900/40"
                   >
-                    <div className="flex items-center justify-between text-amber-400 mb-4">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-400/10 to-transparent border border-white/5 transition-colors group-hover:bg-amber-400 group-hover:text-black">
-                        <MapPin className="w-4 h-4" />
+                    
+                    <div className="flex items-center justify-between text-amber-400 mb-4 gap-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-400/10 to-transparent border border-white/5 transition-colors group-hover:bg-amber-400 group-hover:text-black">
+                          <MapPin className="w-4 h-4" />
+                        </div>
+                        <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-100">Head Office</p>
                       </div>
+                     
                       <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
                         Map <ArrowRight className="w-3 h-3" />
                       </span>
                     </div>
-                    <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-500">Head Office</p>
+                   
                     <div className="text-xs text-slate-300 mt-1 line-clamp-2">
                       {footerContact.addressLines.join(", ")}
                     </div>
@@ -175,20 +182,20 @@ const Contact: React.FC = () => {
                 <div className="space-y-8 relative z-10">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold text-white tracking-tight">Restaurant Enquiry</h3>
+                      <h3 className="text-3xl font-bold text-white tracking-tight">Restaurant Enquiry</h3>
                       <span className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 font-mono text-[9px] text-amber-400">
                         <span className="w-1 h-1 rounded-full bg-amber-400 animate-ping" />
                         ONLINE INTAKE
                       </span>
                     </div>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-sm text-slate-400 leading-relaxed">
                       Initialize your onboarding sequence. Click below to launch our verified onboarding dashboard in a secure, full-screen environment.
                     </p>
                   </div>
 
                   {/* Informational Bento Accent Card */}
                   <div className="rounded-2xl border border-white/5 bg-black/40 p-5 shadow-inner">
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-sm text-slate-300 leading-relaxed">
                       To help our solutions engineering team structure your customized venue blueprint, the form will gather details regarding your **ordering infrastructure, operating guest capacity, and existing Point of Sale integrations**.
                     </p>
                   </div>
@@ -208,7 +215,7 @@ const Contact: React.FC = () => {
                     <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </motion.button>
 
-                  <p className="text-[10px] text-slate-500 text-center tracking-wide">
+                  <p className="text-[15px] text-slate-500 text-center tracking-wide">
                     Fast-track deployment pipeline. Redirects to secure Google Infrastructure.
                   </p>
                 </div>
@@ -229,12 +236,12 @@ const Contact: React.FC = () => {
               const StatIcon = stat.icon;
               return (
                 <div key={i} className="flex gap-4 items-start p-4 rounded-xl bg-white/[0.01] border border-white/[0.02]">
-                  <div className="w-8 h-8 rounded-lg bg-slate-900 border border-white/5 text-slate-400 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-slate-900 border border-white/5 text-slate-100 flex items-center justify-center flex-shrink-0">
                     <StatIcon size={14} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-white tracking-wide">{stat.title}</h4>
-                    <p className="text-[11px] text-slate-500 leading-normal mt-0.5">{stat.desc}</p>
+                    <h4 className="text-sm font-bold text-white tracking-wide">{stat.title}</h4>
+                    <p className="text-[14px] text-white leading-normal mt-0.5">{stat.desc}</p>
                   </div>
                 </div>
               );
