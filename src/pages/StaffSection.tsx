@@ -7,6 +7,7 @@ import {
   MonitorCheck,
   LayoutGrid,
   UtensilsCrossed,
+  BellRing,
 } from "lucide-react";
 
 const fadeUp = (delay = 0) => ({
@@ -77,6 +78,16 @@ const features = [
     size: "lg",
     tag: "Workflow",
   },
+  {
+    icon: BellRing,
+    title: "Instant Alerts",
+    description:
+      "Receive real-time notifications when guests need assistance, water, or the bill.",
+    color: "#06B6D4",
+    bg: "rgba(6,182,212,0.1)",
+    size: "sm",
+    tag: "Service",
+  },
 ];
 
 /* ── Animated number ticker ── */
@@ -91,7 +102,7 @@ const StaffSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative bg-[#060812] overflow-hidden py-24">
+    <section className="relative bg-[#060812] overflow-hidden py-12">
 
       {/* ── Background grid ── */}
       <div
@@ -150,14 +161,20 @@ const StaffSection = () => {
 
               {/* Top row: icon + tag */}
               <div className="flex items-start justify-between">
+                <div className="flex items-center gap-4">
+
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110"
                   style={{ background: f.bg, border: `1px solid ${f.color}22` }}
                 >
                   <f.icon size={20} style={{ color: f.color }} />
                 </div>
+                 <h3 className="text-base font-bold text-white group-hover:text-white transition-colors">
+                  {f.title}
+                </h3>
+                </div>
                 <span
-                  className="text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full"
+                  className="text-[10px] font-semibold tracking-widest uppercase px-2.5 py-2 rounded-full"
                   style={{ background: f.bg, color: f.color }}
                 >
                   {f.tag}
@@ -166,9 +183,7 @@ const StaffSection = () => {
 
               {/* Text */}
               <div className="flex flex-col gap-1.5 flex-1">
-                <h3 className="text-base font-bold text-white group-hover:text-white transition-colors">
-                  {f.title}
-                </h3>
+               
                 <p className="text-sm text-slate-500 leading-relaxed group-hover:text-slate-400 transition-colors">
                   {f.description}
                 </p>

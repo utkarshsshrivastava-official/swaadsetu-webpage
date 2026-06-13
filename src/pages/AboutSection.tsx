@@ -20,7 +20,7 @@ const AboutSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative bg-[#060812] overflow-hidden py-24 px-4 md:px-8">
+    <section className="relative bg-[#060812] overflow-hidden py-12 md:py-8 px-12 md:px-24">
 
       {/* ── Background grid ── */}
       <div

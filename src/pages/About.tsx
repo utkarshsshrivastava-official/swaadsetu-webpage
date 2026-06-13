@@ -361,7 +361,7 @@ const About: FC = () => {
         {/* ════════════════════════════════════
             SECTION 1 — Intro + image grid
         ════════════════════════════════════ */}
-        <section className="relative py-28 overflow-hidden">
+        <section className="relative py-8 overflow-hidden">
 
           {/* Radial glow */}
           <div className="absolute top-0 right-[-15%] w-[600px] h-[500px] rounded-full bg-amber-500/8 blur-[120px] pointer-events-none" />
@@ -519,7 +519,7 @@ const About: FC = () => {
         {/* ════════════════════════════════════
             SECTION 3 — Mission
         ════════════════════════════════════ */}
-        <section className="relative py-28 overflow-hidden">
+        <section className="relative py-8 overflow-hidden">
 
           {/* Left glow */}
           <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-amber-600/10 blur-[150px] pointer-events-none" />
@@ -602,7 +602,7 @@ const About: FC = () => {
         {/* ════════════════════════════════════
             SECTION 4 — Team Values
         ════════════════════════════════════ */}
-        <section className="relative py-28 overflow-hidden">
+        <section className="relative py-6 md:py-10 overflow-hidden">
 
           {/* Grid background — same as Hero */}
           <div
@@ -618,7 +618,7 @@ const About: FC = () => {
           <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
 
             {/* Section header */}
-            <motion.div {...fadeUp(0.05)} className="text-center mb-4 flex justify-center">
+            <motion.div {...fadeUp(0.05)} className="mb-4">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(251,191,36,0.15)] backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                 How We Work
@@ -627,7 +627,7 @@ const About: FC = () => {
 
             <motion.h2
               {...fadeUp(0.15)}
-              className="text-3xl sm:text-4xl font-bold text-center text-white mb-6 drop-shadow-md"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 drop-shadow-md leading-[1.1]"
             >
               Our{" "}
               <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
@@ -637,7 +637,7 @@ const About: FC = () => {
 
             <motion.p
               {...fadeUp(0.25)}
-              className="text-slate-300 text-center text-lg max-w-2xl mx-auto mb-16 font-light drop-shadow-sm"
+              className="text-slate-300 text-lg max-w-2xl mb-16 font-light drop-shadow-sm leading-relaxed"
             >
               A small, focused team obsessed with solving real problems for
               restaurants. These are the core principles we live by everyday.
@@ -656,10 +656,12 @@ const About: FC = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="p-8 relative z-10 flex flex-col h-full">
-                    <div className="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-400 text-xl group-hover:bg-amber-400/20 group-hover:scale-110 transition-all duration-300 shadow-[0_0_10px_rgba(251,191,36,0.1)] mb-6">
-                      {v.icon}
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-400 text-xl group-hover:bg-amber-400/20 group-hover:scale-110 transition-all duration-300 shadow-[0_0_10px_rgba(251,191,36,0.1)] shrink-0">
+                        {v.icon}
+                      </div>
+                      <h3 className="text-white text-lg font-bold tracking-wide leading-tight">{v.title}</h3>
                     </div>
-                    <h3 className="text-white text-xl font-bold mb-3 tracking-wide">{v.title}</h3>
                     <p className="text-slate-400 text-sm leading-relaxed font-light flex-grow">{v.text}</p>
                   </div>
                 </motion.div>
@@ -671,7 +673,7 @@ const About: FC = () => {
         {/* ════════════════════════════════════
             CTA BAND
         ════════════════════════════════════ */}
-        <section className="relative py-24 overflow-hidden">
+        <section className="relative py-4 overflow-hidden">
           <div className="w-full h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent mb-24" />
 
           <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 text-center relative z-10">

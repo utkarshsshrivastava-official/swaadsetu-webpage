@@ -3,6 +3,7 @@
 import { Suspense, lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import BlogPostPage from "./pages/BlogDetails";
 const SwaadsetuLanding = lazy(
   () => import("./pages/swaadsetu-landing"),
 );
@@ -32,6 +33,7 @@ function App() {
           {/* -------------------------------------------------- */}
           <Route path="/" element={<SwaadsetuLanding />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/features" element={<Features />} />
           <Route path="/about" element={<About />} />

@@ -29,7 +29,7 @@ export function CTASection() {
   };
 
   return (
-    <section className="relative bg-[#060812] overflow-hidden py-28 px-4 md:px-8">
+    <section className="relative bg-[#060812] overflow-hidden py-10 px-4 md:px-8">
 
       {/* ── Background grid ── */}
       <div

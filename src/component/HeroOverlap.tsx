@@ -17,10 +17,10 @@ const HeroOverlap: React.FC<Props> = ({
   fgSrc = "/mnt/data/IMG_20251205_110334182_HDR_PCT.jpg",
 }) => {
   return (
-    <section className="w-full min-h-screen flex items-center justify-center bg-[#060812]">
+    <section className="w-full py-12 md:py-16 flex items-center justify-center bg-[#060812]">
       {/* Background container */}
       <div
-        className="relative w-full max-w-6xl mx-auto px-6 py-20 rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(251,191,36,0.05)] border border-amber-400/10"
+        className="relative w-full max-w-6xl mx-auto px-12 md:px-24 py-10 md:py-12 rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(251,191,36,0.05)] border border-amber-400/10"
         aria-hidden={false}
       >
         {/* Background image with subtle dark overlay */}

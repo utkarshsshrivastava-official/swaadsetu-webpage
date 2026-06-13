@@ -138,20 +138,28 @@ export function CustomerSection() {
   const currentFeature = useMemo(() => FEATURES_DATA[activeTab], [activeTab]);
 
   return (
-    <section className="relative bg-[#03050c] text-slate-100 py-20 lg:py-32 px-4 overflow-hidden selection:bg-amber-400 selection:text-black">
+    <section className="relative bg-[#060812] text-slate-100 py-12 md:py-4 px-12 md:px-24 overflow-hidden selection:bg-amber-400 selection:text-black">
       
-      {/* Ultra-high-fidelity Ambient Lighting Mesh Layers */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen overflow-hidden">
-        <div className="absolute -top-[20%] -left-[10%] w-[60%] aspect-square rounded-full bg-indigo-900/20 blur-[160px]" />
+      {/* ── Background grid ── */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(251,191,36,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.04) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
+      />
+
+      {/* ── Ambient glow blobs ── */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[500px] rounded-full bg-amber-500/8 blur-[120px]" />
         <motion.div 
           animate={{ background: currentFeature.bg }}
           transition={{ duration: 0.7, ease: "easeInOut" }}
-          className="absolute top-1/4 right-[-10%] w-[50%] aspect-square rounded-full blur-[180px]" 
+          className="absolute top-1/4 right-[-10%] w-[50%] aspect-square rounded-full blur-[180px] mix-blend-screen opacity-40" 
         />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[400px] rounded-full bg-orange-500/6 blur-[100px]" />
       </div>
-
-      {/* Background Matrix Linear Structure Grid System */}
-      <div className="absolute inset-0 z-0 opacity-[0.015] pointer-events-none bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-16 lg:gap-24">
         
@@ -209,6 +217,8 @@ export function CustomerSection() {
                       : "bg-transparent border-transparent hover:bg-slate-900/20 hover:border-white/5"
                   }`}
                 >
+                  
+
                   <div 
                     className="flex-shrink-0 w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300"
                     style={{
@@ -223,13 +233,14 @@ export function CustomerSection() {
                   </div>
 
                   <div className="flex-1 space-y-1">
-                    <h4 className={`font-semibold text-sm transition-colors duration-200 ${isActive ? "text-white" : "text-slate-400 group-hover:text-slate-200"}`}>
+                    <h4 className={`font-semibold text-[12px] transition-colors duration-200 ${isActive ? "text-white" : "text-slate-400 group-hover:text-slate-200"}`}>
                       {item.title}
                     </h4>
+                  </div>
                     <p className={`text-xs leading-relaxed transition-opacity duration-300 ${isActive ? "text-slate-300 opacity-100" : "text-slate-500 opacity-0 h-0 overflow-hidden"}`}>
                       {item.description}
                     </p>
-                  </div>
+                  
                 </button>
               );
             })}
@@ -317,7 +328,7 @@ export function CustomerSection() {
         </div>
 
         {/* Global Bottom Summary Analytics Showcase Grid Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 border-t border-white/5 pt-12 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 border-t border-white/5  mt-2">
           {[
             { icon: QrCode, color: "text-amber-400", title: "Frictionless Onboarding", text: "Drastically reduce table abandonment rates with intuitive scan workflows needing absolutely zero manual setups." },
             { icon: ShieldCheck, color: "text-emerald-400", title: "Bank-Grade Encryption", text: "Secure enterprise operational parameters. Rest assured with native end-to-end continuous validation checks." },
@@ -326,10 +337,13 @@ export function CustomerSection() {
             const CardIcon = card.icon;
             return (
               <div key={i} className="group p-6 rounded-3xl border border-white/[0.05] bg-gradient-to-b from-slate-900/30 to-slate-950/50 space-y-3 hover:border-white/10 transition-all duration-300">
+                <div className="flex items-center justify-start gap-4">
+
                 <div className={`w-9 h-9 rounded-xl flex items-center justify-center bg-white/[0.03] ${card.color} group-hover:scale-105 transition-transform duration-300`}>
                   <CardIcon size={16} />
                 </div>
                 <h5 className="font-semibold text-sm text-white tracking-wide">{card.title}</h5>
+                </div>
                 <p className="text-xs text-slate-400 leading-relaxed font-light">{card.text}</p>
               </div>
             );
