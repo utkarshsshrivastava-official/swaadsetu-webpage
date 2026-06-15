@@ -124,19 +124,19 @@ const faqs = [
 ];
 
 const Pricing: FC = () => {
-  const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
+  // const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
 
-  const handleCTA = () => {
-      window.open(
-        "https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true",
-        "_blank"
-      );
-  };
+  // const handleCTA = () => {
+  //     window.open(
+  //       "https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true",
+  //       "_blank"
+  //     );
+  // };
 
   return (
     <>
