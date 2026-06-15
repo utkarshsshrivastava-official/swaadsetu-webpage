@@ -74,11 +74,11 @@ const Contact: React.FC = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid lg:grid-cols-12 gap-10 items-center w-full"
+            className="grid lg:grid-cols-12 gap-10 items-stretch w-full"
           >
             
             {/* ── LEFT CANVAS: BRAND STORYTELLING & CHANNELS ── */}
-            <div className="lg:col-span-5 space-y-10 flex flex-col justify-between">
+            <div className="lg:col-span-6 space-y-10 flex flex-col justify-between h-full ">
               
               <div className="space-y-6">
                 {/* Premium Floating Badge */}
@@ -170,10 +170,10 @@ const Contact: React.FC = () => {
             </div>
 
             {/* ── RIGHT CANVAS: HIGH-FIDELITY INTERACTIVE LAUNCHPAD ── */}
-            <div className="lg:col-span-7 w-full flex justify-center lg:justify-end">
+            <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
               <motion.div
                 variants={itemVariants}
-                className="w-full max-w-xl bg-white/[0.03] border border-amber-400/10 rounded-[32px] p-8 md:p-10 shadow-2xl backdrop-blur-2xl relative overflow-hidden"
+                className="w-full max-w-xl bg-white/[0.03] border border-amber-400/10 rounded-[32px] p-8 md:p-10 shadow-2xl backdrop-blur-2xl relative overflow-hidden h-full flex flex-col justify-center"
               >
                 {/* Visual Accent Glow */}
                 <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-amber-400/[0.03] blur-[50px] pointer-events-none" />
