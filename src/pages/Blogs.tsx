@@ -13,6 +13,7 @@ import Navbar from "../component/Navbar";
 import { Footer } from "../component/Footer";
 import BackButton from "../component/ui/BackButton";
 import { Helmet } from "@dr.pogodin/react-helmet";
+import { CTASection } from "../component/cta-section";
 
 /* ─────────────────────────────────────────────
    Animation helpers
@@ -169,10 +170,26 @@ const BlogsPage: React.FC = () => {
         <meta name="twitter:image" content="https://www.swaadsetu.com/logo.png" />
       </Helmet>
 
-      <div data-theme="swaad-dark" className="min-h-screen bg-base-100 text-base-content overflow-x-hidden">
+      <div data-theme="swaad-dark" className="min-h-screen bg-[#060812] text-base-content overflow-x-hidden">
 
         {/* ── Fixed header ── */}
-        <header className="fixed top-0 left-0 w-full z-50 bg-base-100/80 backdrop-blur-md border-b border-primary/10">
+        {/* ── Global background grid (matches Hero exactly) ── */}
+        <div
+          className="fixed inset-0 pointer-events-none z-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(251,191,36,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.03) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+          aria-hidden="true"
+        />
+        {/* ── Global radial glows (matches Hero) ── */}
+        <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
+          <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] rounded-full bg-amber-500/10 blur-[150px]" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-orange-600/10 blur-[140px]" />
+        </div>
+
+        <header className="fixed top-0 left-0 w-full z-50 bg-[#060812]/80 backdrop-blur-md border-b border-amber-400/10">
           <Navbar />
           <div className="px-0 -mx-6 py-2">
             <BackButton />
@@ -208,7 +225,7 @@ const BlogsPage: React.FC = () => {
 
             <motion.h1
               {...fadeUp(0.12)}
-              className="text-[clamp(2.8rem,8vw,6.5rem)] font-black leading-[0.95] tracking-tighter text-white mb-6"
+              className="text-4xl sm:text-5xl lg:text-5xl font-black leading-tight tracking-tight text-white mb-6"
             >
               Insights for
               <br />
@@ -233,7 +250,7 @@ const BlogsPage: React.FC = () => {
                   placeholder="Search articles..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full bg-base-200 border border-amber-400/15 text-white placeholder-slate-500 rounded-xl pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:border-amber-400/40 focus:ring-1 focus:ring-amber-400/20 transition-colors"
+                  className="w-full bg-white/[0.04] border border-amber-400/15 text-white placeholder-slate-500 rounded-xl pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:border-amber-400/40 focus:ring-1 focus:ring-amber-400/20 transition-colors"
                 />
               </div>
 
@@ -291,7 +308,7 @@ const BlogsPage: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: idx * 0.06, ease: [0.22, 1, 0.36, 1] }}
                         whileHover={{ y: -4, boxShadow: `0 0 36px 2px ${accent.bg}` }}
-                        className="group flex flex-col rounded-2xl border border-amber-400/10 bg-base-200 overflow-hidden transition-all duration-300 hover:border-amber-400/25 cursor-pointer"
+                        className="group flex flex-col rounded-2xl border border-amber-400/10 bg-white/[0.03] overflow-hidden transition-all duration-300 hover:border-amber-400/25 cursor-pointer"
                       >
                         {/* Cover image */}
                         <Link to={`/blog/${post.slug}`} className="block relative overflow-hidden h-44 shrink-0">
@@ -399,7 +416,7 @@ const BlogsPage: React.FC = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="flex-1 bg-base-100 border border-amber-400/20 text-white placeholder-slate-500 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amber-400/40 focus:ring-1 focus:ring-amber-400/20 transition-colors"
+                        className="flex-1 bg-white/[0.04] border border-amber-400/20 text-white placeholder-slate-500 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amber-400/40 focus:ring-1 focus:ring-amber-400/20 transition-colors"
                       />
                       <button
                         type="submit"
@@ -418,7 +435,7 @@ const BlogsPage: React.FC = () => {
         {/* ════════════════════════════════════
             CTA BAND
         ════════════════════════════════════ */}
-        <section className="relative py-24 overflow-hidden">
+        {/* <section className="relative py-24 overflow-hidden">
           <div className="w-full h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent mb-24" />
           <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
             <motion.div {...fadeUp(0.05)} className="mb-4">
@@ -453,8 +470,9 @@ const BlogsPage: React.FC = () => {
               </button>
             </motion.div>
           </div>
-        </section>
-
+        </section> */}
+         
+         <CTASection/>
         <Footer />
       </div>
     </>

@@ -257,11 +257,26 @@ const About: FC = () => {
       */}
       <div
         data-theme="swaad-dark"
-        className="min-h-screen bg-base-100 text-base-content overflow-x-hidden"
+        className="min-h-screen bg-[#060812] text-base-content overflow-x-hidden"
       >
+        {/* ── Global background grid (matches Hero exactly) ── */}
+        <div
+          className="fixed inset-0 pointer-events-none z-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(251,191,36,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.03) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+          aria-hidden="true"
+        />
+        {/* ── Global radial glows (matches Hero) ── */}
+        <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
+          <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] rounded-full bg-amber-500/10 blur-[150px]" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-orange-600/10 blur-[140px]" />
+        </div>
 
         {/* ── Fixed header ── */}
-        <header className="fixed top-0 left-0 w-full z-50 bg-base-100/80 backdrop-blur-md border-b border-primary/10">
+        <header className="fixed top-0 left-0 w-full z-50 bg-[#060812]/80 backdrop-blur-md border-b border-amber-400/10">
           <Navbar />
           <div className="px-0 -mx-6 py-2">
             <BackButton />
@@ -307,7 +322,7 @@ const About: FC = () => {
 
               <motion.h1
                 {...fadeUp(0.2)}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
+                className="text-4xl sm:text-5xl lg:text-4xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
               >
                 We're{" "}
                 <span className="relative inline-block">
@@ -471,7 +486,7 @@ const About: FC = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.8, duration: 0.5 }}
-                  className="absolute -bottom-5 -left-6 bg-base-200 border border-amber-400/20 rounded-2xl px-4 py-3 flex items-center gap-3 shadow-xl backdrop-blur-sm"
+                  className="absolute -bottom-5 -left-6 bg-[#0d1020] border border-amber-400/20 rounded-2xl px-4 py-3 flex items-center gap-3 shadow-xl backdrop-blur-sm"
                 >
                   <div className="w-8 h-8 rounded-xl bg-amber-400/15 flex items-center justify-center shrink-0">
                     <svg className="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -503,7 +518,7 @@ const About: FC = () => {
                   {...fadeUp(i * 0.1)}
                   className="flex flex-col items-center text-center gap-1"
                 >
-                  <span className="text-4xl lg:text-5xl font-black tabular-nums bg-gradient-to-b from-amber-200 to-amber-500 bg-clip-text text-transparent">
+                  <span className="text-4xl lg:text-4xl font-black tabular-nums bg-gradient-to-b from-amber-200 to-amber-500 bg-clip-text text-transparent">
                     <Counter target={s.value} suffix={s.suffix} />
                   </span>
                   <span className="text-sm font-semibold text-white mt-1">{s.label}</span>
@@ -553,7 +568,7 @@ const About: FC = () => {
 
                 <motion.h2
                   {...fadeRight(0.15)}
-                  className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] text-white drop-shadow-md"
+                  className="text-3xl sm:text-4xl lg:text-4xl font-bold leading-[1.1] text-white drop-shadow-md"
                 >
                   Every restaurant deserves{" "}
                   <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
@@ -627,7 +642,7 @@ const About: FC = () => {
 
             <motion.h2
               {...fadeUp(0.15)}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 drop-shadow-md leading-[1.1]"
+              className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white mb-6 drop-shadow-md leading-[1.1]"
             >
               Our{" "}
               <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
@@ -637,7 +652,7 @@ const About: FC = () => {
 
             <motion.p
               {...fadeUp(0.25)}
-              className="text-slate-300 text-lg max-w-2xl mb-16 font-light drop-shadow-sm leading-relaxed"
+              className="text-slate-300 text-lg max-w-2xl mb-10 font-light drop-shadow-sm leading-relaxed"
             >
               A small, focused team obsessed with solving real problems for
               restaurants. These are the core principles we live by everyday.
@@ -673,34 +688,81 @@ const About: FC = () => {
         {/* ════════════════════════════════════
             CTA BAND
         ════════════════════════════════════ */}
-        <section className="relative py-4 overflow-hidden">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent mb-24" />
+        <section className="relative py-24 overflow-hidden">
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent" />
+          {/* ── Background grid ── */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(251,191,36,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.04) 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+            }}
+          />
 
-          <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 text-center relative z-10">
-            <motion.div {...fadeUp(0.05)} className="mb-6 flex justify-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(251,191,36,0.15)] backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+          {/* ── Glow blobs ── */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-amber-500/10 blur-[140px]" />
+            <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[400px] rounded-full bg-orange-600/6 blur-[120px]" />
+            <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[400px] rounded-full bg-amber-400/5 blur-[120px]" />
+          </div>
+
+          {/* ── Decorative rings ── */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-[600px] h-[600px] rounded-full border border-amber-400/5" />
+            <div className="absolute w-[400px] h-[400px] rounded-full border border-amber-400/8" />
+            <div className="absolute w-[200px] h-[200px] rounded-full border border-amber-400/10" />
+          </div>
+
+          <div className="relative z-10 max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            {/* ── Badge ── */}
+            <motion.div {...fadeUp(0)} className="flex justify-center mb-6">
+              <div className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                 Join the platform
               </div>
-            </motion.div>
+            </motion.div> 
 
-            <motion.h2
-              {...fadeUp(0.15)}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 drop-shadow-md"
-            >
+            {/* ── Headline ── */}
+            <motion.h2 {...fadeUp(0.1)} className="text-4xl sm:text-5xl lg:text-5xl font-bold tracking-tight text-white leading-[1.05] mb-6">
               Ready to{" "}
-              <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
-                transform
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                  Transform
+                </span>
+                <motion.span
+                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "100%" }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.8, duration: 0.7, ease: "easeOut" }}
+                />
               </span>{" "}
-              your restaurant?
+              Your Restaurant?
             </motion.h2>
 
-            <motion.p {...fadeUp(0.25)} className="text-slate-300 text-lg mb-10 max-w-xl mx-auto font-light drop-shadow-sm">
-              Get a personalised demo and see SwaadSetu live in your restaurant
-              in under 30 minutes.
+            {/* ── Subtext ── */}
+            <motion.p {...fadeUp(0.2)} className="text-slate-400 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-10">
+              Get a personalised demo and see SwaadSetu live in your restaurant in under 30 minutes.
             </motion.p>
 
-            <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* ── Benefit pills ── */}
+            <motion.div {...fadeUp(0.28)} className="flex flex-wrap justify-center gap-3 mb-10">
+              {["No Setup Fee", "24/7 Support", "No Credit Card Required"].map((label, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 bg-white/[0.05] border border-white/10 backdrop-blur-sm rounded-full px-4 py-2"
+                >
+                  <svg className="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-sm font-medium text-slate-300">{label}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* ── CTA buttons ── */}
+            <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <button
                 onClick={() =>
                   window.open(
@@ -708,23 +770,23 @@ const About: FC = () => {
                     "_blank",
                   )
                 }
-                className="btn btn-lg h-[56px] px-8 bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none rounded-2xl shadow-[0_0_30px_rgba(251,191,36,0.3)] hover:shadow-[0_0_50px_rgba(251,191,36,0.5)] hover:-translate-y-1 active:translate-y-0 transition-all duration-300 group flex items-center justify-center gap-2"
+                className="btn btn-lg bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none shadow-[0_0_40px_rgba(251,191,36,0.4)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] hover:scale-[1.03] active:scale-95 transition-all duration-200 group cursor-pointer flex items-center justify-center gap-2 px-3 py-2 rounded-2xl"
               >
                 Book a Free Demo
-                <svg className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <svg className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </button>
+
               <button
-                className="btn btn-lg h-[56px] px-8 btn-ghost border border-white/20 text-white hover:bg-white/10 hover:border-white/40 rounded-2xl transition-all duration-300 backdrop-blur-sm"
                 onClick={() => (window.location.href = "https://www.swaadsetu.com/features")}
+                className="btn btn-lg btn-ghost border border-amber-400/30 text-amber-300 hover:bg-amber-400/10 hover:border-amber-400/60 transition-all duration-200 cursor-pointer group px-3 py-2 rounded-2xl"
               >
                 See How It Works
               </button>
             </motion.div>
           </div>
         </section>
-
         <Footer />
       </div>
     </>

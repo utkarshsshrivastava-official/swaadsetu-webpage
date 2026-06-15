@@ -333,7 +333,7 @@ const Pricing: FC = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="mb-20"
             >
-              <h2 className="text-2xl font-bold text-center mb-2">Compare plans</h2>
+              <h2 className="text-2xl font-bold text-center mb-2">All-in-one</h2>
               <div className="w-12 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full mx-auto mb-10" />
 
               <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm max-w-3xl mx-auto">
@@ -410,10 +410,10 @@ const Pricing: FC = () => {
                   />
                 ))}
                 <span className="ml-3 text-slate-300 text-sm font-medium">
-                  58+ restaurants live
+                   restaurants live
                 </span>
               </div>
-              <p className="text-2xl md:text-3xl font-bold text-white max-w-lg mx-auto leading-snug">
+              <p className="text-2xl md:text-3xl font-bold text-white max-w-2xl mx-auto leading-snug">
                 "SwaadSetu paid for itself in the{" "}
                 <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
                   first week.
@@ -465,6 +465,7 @@ const Pricing: FC = () => {
                   </div>
                 ))}
               </div>
+              
 
               {/* Bottom CTA */}
               <div className="text-center mt-12">
@@ -481,7 +482,105 @@ const Pricing: FC = () => {
             </motion.div>
           </div>
         </div>
-
+<section className="relative py-24 overflow-hidden">
+              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent" />
+              {/* ── Background grid ── */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgba(251,191,36,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.04) 1px, transparent 1px)",
+                  backgroundSize: "48px 48px",
+                }}
+              />
+    
+              {/* ── Glow blobs ── */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-amber-500/10 blur-[140px]" />
+                <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[400px] rounded-full bg-orange-600/6 blur-[120px]" />
+                <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[400px] rounded-full bg-amber-400/5 blur-[120px]" />
+              </div>
+    
+              {/* ── Decorative rings ── */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-[600px] h-[600px] rounded-full border border-amber-400/5" />
+                <div className="absolute w-[400px] h-[400px] rounded-full border border-amber-400/8" />
+                <div className="absolute w-[200px] h-[200px] rounded-full border border-amber-400/10" />
+              </div>
+    
+              <div className="relative z-10 max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                {/* ── Badge ── */}
+                <motion.div {...fadeUp(0)} className="flex justify-center mb-6">
+                  <div className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    Join the platform
+                  </div>
+                </motion.div> 
+    
+                {/* ── Headline ── */}
+                <motion.h2 {...fadeUp(0.1)} className="text-4xl sm:text-5xl lg:text-5xl font-black tracking-tight text-white leading-[1.05] mb-6">
+                  Ready to{" "}
+                  <span className="relative inline-block">
+                    <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                      Transform
+                    </span>
+                    <motion.span
+                      className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "100%" }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.8, duration: 0.7, ease: "easeOut" }}
+                    />
+                  </span>{" "}
+                  Your Restaurant?
+                </motion.h2>
+    
+                {/* ── Subtext ── */}
+                <motion.p {...fadeUp(0.2)} className="text-slate-400 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-10">
+                  Get a personalised demo and see SwaadSetu live in your restaurant in under 30 minutes.
+                </motion.p>
+    
+                {/* ── Benefit pills ── */}
+                <motion.div {...fadeUp(0.28)} className="flex flex-wrap justify-center gap-3 mb-10">
+                  {["No Setup Fee", "24/7 Support", "No Credit Card Required"].map((label, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-2 bg-white/[0.05] border border-white/10 backdrop-blur-sm rounded-full px-4 py-2"
+                    >
+                      <svg className="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm font-medium text-slate-300">{label}</span>
+                    </div>
+                  ))}
+                </motion.div>
+    
+                {/* ── CTA buttons ── */}
+                <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                  <button
+                    onClick={() =>
+                      window.open(
+                        "https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true",
+                        "_blank",
+                      )
+                    }
+                    className="btn btn-lg bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none shadow-[0_0_40px_rgba(251,191,36,0.4)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] hover:scale-[1.03] active:scale-95 transition-all duration-200 group cursor-pointer flex items-center justify-center gap-2 px-3 py-2 rounded-2xl"
+                  >
+                    Book a Free Demo
+                    <svg className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </button>
+    
+                  <button
+                    onClick={() => (window.location.href = "https://www.swaadsetu.com/features")}
+                    className="btn btn-lg btn-ghost border border-amber-400/30 text-amber-300 hover:bg-amber-400/10 hover:border-amber-400/60 transition-all duration-200 cursor-pointer group px-3 py-2 rounded-2xl"
+                  >
+                    See How It Works
+                  </button>
+                </motion.div>
+              </div>
+            </section>
         <Footer />
       </div>
     </>

@@ -49,24 +49,23 @@ const Contact: React.FC = () => {
         />
       </Helmet>
 
-      <div data-theme="swaad-dark" className="min-h-screen bg-base-100 text-base-content flex flex-col font-sans antialiased overflow-x-hidden selection:bg-amber-400 selection:text-black relative">
+      <div data-theme="swaad-dark" className="min-h-screen bg-[#060812] text-base-content flex flex-col font-sans antialiased overflow-x-hidden selection:bg-amber-400 selection:text-black">
         <Navbar />
 
-        {/* ── CINEMATIC AMBIENT ENGINE ── */}
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-slate-950/40 to-black opacity-95" />
-          <div className="absolute top-[-10%] right-[-10%] w-[65vw] aspect-square rounded-full bg-amber-500/[0.03] blur-[130px]" />
-          <div className="absolute bottom-[15%] left-[-5%] w-[45vw] aspect-square rounded-full bg-orange-600/[0.02] blur-[120px]" />
-          <div
-            className="absolute inset-0 opacity-[0.015]"
-            style={{
-              backgroundImage: `
-                linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px)
-              `,
-              backgroundSize: '48px 48px'
-            }}
-          />
+        {/* ── Global background grid (matches Hero exactly) ── */}
+        <div
+          className="fixed inset-0 pointer-events-none z-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(251,191,36,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.03) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+          aria-hidden="true"
+        />
+        {/* ── Global radial glows (matches Hero) ── */}
+        <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
+          <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] rounded-full bg-amber-500/10 blur-[150px]" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-orange-600/10 blur-[140px]" />
         </div>
 
         {/* ── MAIN CONTENT LAYER ── */}
@@ -115,13 +114,13 @@ const Contact: React.FC = () => {
                 <motion.a
                   variants={itemVariants}
                   href={`mailto:${footerContact.email}`}
-                  className="group flex items-center gap-5 rounded-2xl border border-white/[0.05] bg-slate-950/60 p-5 transition-all duration-300 hover:border-amber-400/20 hover:bg-slate-900/40"
+                  className="group flex items-center gap-5 rounded-2xl border border-white/[0.05] bg-white/[0.03] p-5 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/[0.04]"
                 >
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-400/10 to-transparent text-amber-400 border border-white/5 transition-colors group-hover:bg-amber-400 group-hover:text-black">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-100">Partner Support</p>
+                    <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100">Partner Support</p>
                     <h4 className="text-sm font-semibold text-white mt-0.5 break-all">{footerContact.email}</h4>
                   </div>
                 </motion.a>
@@ -130,13 +129,13 @@ const Contact: React.FC = () => {
                   <motion.a
                     variants={itemVariants}
                     href={`tel:${footerContact.phone.replace(/\s+/g, "")}`}
-                    className="group block rounded-2xl border border-white/[0.05] bg-slate-950/60 p-5 transition-all duration-300 hover:border-amber-400/20 hover:bg-slate-900/40"
+                    className="group block rounded-2xl border border-white/[0.05] bg-white/[0.03] p-5 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/[0.04]"
                   >
                     <div className="flex items-center justify-start text-amber-400 mb-4 gap-3">
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-400/10 to-transparent text-amber-400 border border-white/5 transition-colors group-hover:bg-amber-400 group-hover:text-black">
                         <Phone className="w-4 h-4" />
                       </div>
-                      <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-100">Sales & Onboarding</p>
+                      <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100  ">Sales & Onboarding</p>
                     </div>
                     <h4 className="text-sm font-semibold text-white mt-1">{footerContact.phone}</h4>
                   </motion.a>
@@ -146,7 +145,7 @@ const Contact: React.FC = () => {
                     href="https://maps.google.com/?q=Durg+Chhattisgarh"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group block rounded-2xl border border-white/[0.05] bg-slate-950/60 p-5 transition-all duration-300 hover:border-amber-400/20 hover:bg-slate-900/40"
+                    className="group block rounded-2xl border border-white/[0.05] bg-white/[0.03] p-5 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/[0.04]"
                   >
                     
                     <div className="flex items-center justify-between text-amber-400 mb-4 gap-3">
@@ -154,7 +153,7 @@ const Contact: React.FC = () => {
                         <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-400/10 to-transparent border border-white/5 transition-colors group-hover:bg-amber-400 group-hover:text-black">
                           <MapPin className="w-4 h-4" />
                         </div>
-                        <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-100">Head Office</p>
+                        <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100">Head Office</p>
                       </div>
                      
                       <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
@@ -174,7 +173,7 @@ const Contact: React.FC = () => {
             <div className="lg:col-span-7 w-full flex justify-center lg:justify-end">
               <motion.div
                 variants={itemVariants}
-                className="w-full max-w-xl bg-gradient-to-b from-slate-900/40 to-slate-950/90 border border-white/[0.08] rounded-[32px] p-8 md:p-10 shadow-2xl backdrop-blur-2xl relative overflow-hidden"
+                className="w-full max-w-xl bg-white/[0.03] border border-amber-400/10 rounded-[32px] p-8 md:p-10 shadow-2xl backdrop-blur-2xl relative overflow-hidden"
               >
                 {/* Visual Accent Glow */}
                 <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-amber-400/[0.03] blur-[50px] pointer-events-none" />
@@ -194,7 +193,7 @@ const Contact: React.FC = () => {
                   </div>
 
                   {/* Informational Bento Accent Card */}
-                  <div className="rounded-2xl border border-white/5 bg-black/40 p-5 shadow-inner">
+                  <div className="rounded-2xl border border-amber-400/10 bg-white/[0.03] p-5">
                     <p className="text-sm text-slate-300 leading-relaxed">
                       To help our solutions engineering team structure your customized venue blueprint, the form will gather details regarding your **ordering infrastructure, operating guest capacity, and existing Point of Sale integrations**.
                     </p>
@@ -236,7 +235,7 @@ const Contact: React.FC = () => {
               const StatIcon = stat.icon;
               return (
                 <div key={i} className="flex gap-4 items-start p-4 rounded-xl bg-white/[0.01] border border-white/[0.02]">
-                  <div className="w-8 h-8 rounded-lg bg-slate-900 border border-white/5 text-slate-100 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-amber-400/10 border border-amber-400/15 text-amber-400 flex items-center justify-center flex-shrink-0">
                     <StatIcon size={14} />
                   </div>
                   <div>

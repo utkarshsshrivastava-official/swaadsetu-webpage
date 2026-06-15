@@ -100,6 +100,16 @@ const sections = [
       </svg>
     ),
   },
+  {
+    id: "cookies",
+    label: "Cookies Policy",
+    icon: (
+      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 10a1 1 0 01-1-1 1 1 0 011-1 1 1 0 011 1 1 1 0 01-1 1zm6 4a1 1 0 01-1-1 1 1 0 011-1 1 1 0 011 1 1 1 0 01-1 1zm-3 2a1 1 0 01-1-1 1 1 0 011-1 1 1 0 011 1 1 1 0 01-1 1z" />
+      </svg>
+    ),
+  },
 ];
 
 /* ── Reusable section block ── */
@@ -463,34 +473,52 @@ const PrivatePolicy = () => {
               </P>
             </LegalBlock>
 
-            {/* ── Contact card ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="rounded-3xl border border-amber-400/15 bg-amber-400/5 p-8 text-center"
-            >
-              <div className="w-10 h-10 rounded-xl bg-amber-400/10 flex items-center justify-center mx-auto mb-4">
-                <svg className="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-white font-bold text-lg mb-1">Have a question about these policies?</h3>
-              <p className="text-slate-400 text-sm mb-5">
-                Our team is happy to clarify anything. Reach out and we'll get back to you within one business day.
-              </p>
-              <a
-                href="mailto:hello@swaadsetu.com"
-                className="btn bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none shadow-[0_0_24px_rgba(251,191,36,0.3)] hover:shadow-[0_0_36px_rgba(251,191,36,0.5)] hover:scale-[1.02] active:scale-95 transition-all rounded-xl px-8"
-              >
-                Contact Us
-              </a>
-            </motion.div>
+            {/* ── Cookies Policy ── */}
+            <LegalBlock id="cookies" title="Cookies Policy" lastUpdated="Jan 1, 2025">
+              <P>
+                We use cookies and similar technologies to keep you logged in and secure
+                your sessions, remember preferences, analyze usage and performance of
+                the Swaad Setu Platform, and improve features and user experience. You
+                can manage cookies through your browser settings, but disabling certain
+                cookies may impact functionality.
+              </P>
+            </LegalBlock>
 
           </main>
         </div>
       </div>
+
+      <section className="relative py-24 overflow-hidden">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent" />
+        <div className="max-w-4xl mx-auto px-4 text-center relative z-10 mt-24">
+          <motion.div {...fadeUp(0.05)} className="mb-6 flex justify-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(251,191,36,0.15)] backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              Get in touch
+            </div>
+          </motion.div>
+          <motion.h2
+            {...fadeUp(0.15)}
+            className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white leading-tight mb-6 drop-shadow-md"
+          >
+            Have a question about these policies?
+          </motion.h2>
+          <motion.p {...fadeUp(0.25)} className="text-slate-300 text-lg mb-10 max-w-xl mx-auto font-light drop-shadow-sm">
+            Our team is happy to clarify anything. Reach out and we'll get back to you within one business day.
+          </motion.p>
+          <motion.div {...fadeUp(0.35)}>
+            <a
+              href="mailto:hello@swaadsetu.com"
+              className="btn btn-lg h-[56px] px-8 bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none rounded-2xl shadow-[0_0_30px_rgba(251,191,36,0.3)] hover:shadow-[0_0_50px_rgba(251,191,36,0.5)] hover:-translate-y-1 active:translate-y-0 transition-all duration-300 group flex items-center justify-center gap-2"
+            >
+              Contact Us
+              <svg className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </motion.div>
+        </div>
+      </section>
 
       <Footer />
     </div>

@@ -8,17 +8,15 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] as const },
 });
 
+
+
 const benefits = [
   { icon: CheckCircle2, label: "No Setup Fee" },
   { icon: CheckCircle2, label: "24/7 Support" },
   { icon: CheckCircle2, label: "No Credit Card Required" },
 ];
 
-// const socialProof = [
-//   { icon: Users,  value: "500+", label: "Restaurants onboarded" },
-//   { icon: Zap,    value: "35%",  label: "Avg. order increase"   },
-//   { icon: Clock,  value: "−40%", label: "Wait time reduction"   },
-// ];
+
 
 export function CTASection() {
   const handleRedirect = () => {
@@ -63,10 +61,10 @@ export function CTASection() {
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
             Get started today
           </div>
-        </motion.div>
+        </motion.div> 
 
         {/* ── Headline ── */}
-        <motion.h2 {...fadeUp(0.1)} className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white leading-[1.05] mb-6">
+        <motion.h2 {...fadeUp(0.1)} className="text-4xl sm:text-5xl lg:text-5xl font-black tracking-tight text-white leading-[1.05] mb-6">
           Ready to{" "}
           <span className="relative inline-block">
             <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
