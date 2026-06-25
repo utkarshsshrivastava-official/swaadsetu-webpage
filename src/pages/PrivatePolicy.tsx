@@ -845,162 +845,162 @@ const PrivatePolicy = () => {
 
 
             {/* ── Cookies Policy ── */}
-           ```tsx
-<LegalBlock
-  id="cookies"
-  title="Cookies Policy"
-  lastUpdated="April 1, 2026"
->
-  <P>
-    This Cookies Policy explains how SwaadSetu uses cookies and similar
-    technologies when you access or use our platform.
-  </P>
+          
+            <LegalBlock
+              id="cookies"
+              title="Cookies Policy"
+              lastUpdated="April 1, 2026"
+            >
+              <P>
+                This Cookies Policy explains how SwaadSetu uses cookies and similar
+                technologies when you access or use our platform.
+              </P>
 
-  <P>
-    By continuing to use SwaadSetu, you agree to the use of cookies as
-    described in this policy.
-  </P>
+              <P>
+                By continuing to use SwaadSetu, you agree to the use of cookies as
+                described in this policy.
+              </P>
 
-  <H3>What Are Cookies?</H3>
+              <H3>What Are Cookies?</H3>
 
-  <P>
-    Cookies are small text files stored on your device when you visit a
-    website or use an online service. They help improve functionality,
-    remember preferences, enhance security, and provide insights into
-    platform performance.
-  </P>
+              <P>
+                Cookies are small text files stored on your device when you visit a
+                website or use an online service. They help improve functionality,
+                remember preferences, enhance security, and provide insights into
+                platform performance.
+              </P>
 
-  <H3>How We Use Cookies</H3>
+              <H3>How We Use Cookies</H3>
 
-  <P>SwaadSetu uses cookies and similar technologies to:</P>
+              <P>SwaadSetu uses cookies and similar technologies to:</P>
 
-  <UL
-    items={[
-      "Keep users securely logged in",
-      "Maintain account sessions",
-      "Remember preferences and settings",
-      "Improve platform functionality and performance",
-      "Understand how features are used",
-      "Identify and troubleshoot technical issues",
-      "Enhance overall user experience",
-    ]}
-  />
+              <UL
+                items={[
+                  "Keep users securely logged in",
+                  "Maintain account sessions",
+                  "Remember preferences and settings",
+                  "Improve platform functionality and performance",
+                  "Understand how features are used",
+                  "Identify and troubleshoot technical issues",
+                  "Enhance overall user experience",
+                ]}
+              />
 
-  <H3>Types of Cookies We Use</H3>
+              <H3>Types of Cookies We Use</H3>
 
-  <H3>Essential Cookies</H3>
+              <H3>Essential Cookies</H3>
 
-  <P>
-    These cookies are necessary for the platform to function properly.
-  </P>
+              <P>
+                These cookies are necessary for the platform to function properly.
+              </P>
 
-  <P>They help with:</P>
+              <P>They help with:</P>
 
-  <UL
-    items={[
-      "User authentication",
-      "Session management",
-      "Security and fraud prevention",
-      "Core platform functionality",
-    ]}
-  />
+              <UL
+                items={[
+                  "User authentication",
+                  "Session management",
+                  "Security and fraud prevention",
+                  "Core platform functionality",
+                ]}
+              />
 
-  <P>
-    Disabling essential cookies may prevent certain features from working
-    correctly.
-  </P>
+              <P>
+                Disabling essential cookies may prevent certain features from working
+                correctly.
+              </P>
 
-  <H3>Preference Cookies</H3>
+              <H3>Preference Cookies</H3>
 
-  <P>
-    These cookies remember your preferences and settings, helping provide
-    a more personalized experience.
-  </P>
+              <P>
+                These cookies remember your preferences and settings, helping provide
+                a more personalized experience.
+              </P>
 
-  <P>Examples include:</P>
+              <P>Examples include:</P>
 
-  <UL
-    items={[
-      "Language preferences",
-      "Interface settings",
-      "Saved user preferences",
-    ]}
-  />
+              <UL
+                items={[
+                  "Language preferences",
+                  "Interface settings",
+                  "Saved user preferences",
+                ]}
+              />
 
-  <H3>Analytics Cookies</H3>
+              <H3>Analytics Cookies</H3>
 
-  <P>
-    Analytics cookies help us understand how users interact with the
-    platform.
-  </P>
+              <P>
+                Analytics cookies help us understand how users interact with the
+                platform.
+              </P>
 
-  <P>This information may be used to:</P>
+              <P>This information may be used to:</P>
 
-  <UL
-    items={[
-      "Measure platform performance",
-      "Identify popular features",
-      "Improve usability and user experience",
-      "Monitor system reliability",
-    ]}
-  />
+              <UL
+                items={[
+                  "Measure platform performance",
+                  "Identify popular features",
+                  "Improve usability and user experience",
+                  "Monitor system reliability",
+                ]}
+              />
 
-  <P>
-    Analytics information is generally collected in an aggregated and
-    anonymized manner.
-  </P>
+              <P>
+                Analytics information is generally collected in an aggregated and
+                anonymized manner.
+              </P>
 
-  <H3>Third-Party Services</H3>
+              <H3>Third-Party Services</H3>
 
-  <P>
-    Some third-party services integrated with SwaadSetu may also use
-    cookies or similar technologies to provide functionality, security,
-    analytics, or payment-related services.
-  </P>
+              <P>
+                Some third-party services integrated with SwaadSetu may also use
+                cookies or similar technologies to provide functionality, security,
+                analytics, or payment-related services.
+              </P>
 
-  <P>
-    These services operate under their own privacy and cookie policies.
-  </P>
+              <P>
+                These services operate under their own privacy and cookie policies.
+              </P>
 
-  <H3>Managing Cookies</H3>
+              <H3>Managing Cookies</H3>
 
-  <P>
-    Most web browsers allow you to control, disable, or delete cookies
-    through browser settings.
-  </P>
+              <P>
+                Most web browsers allow you to control, disable, or delete cookies
+                through browser settings.
+              </P>
 
-  <P>
-    Please note that restricting certain cookies may affect the
-    functionality, security, or performance of the platform.
-  </P>
+              <P>
+                Please note that restricting certain cookies may affect the
+                functionality, security, or performance of the platform.
+              </P>
 
-  <H3>Updates to This Policy</H3>
+              <H3>Updates to This Policy</H3>
 
-  <P>
-    We may update this Cookies Policy periodically to reflect changes in
-    technology, legal requirements, or platform functionality.
-  </P>
+              <P>
+                We may update this Cookies Policy periodically to reflect changes in
+                technology, legal requirements, or platform functionality.
+              </P>
 
-  <P>
-    Any updates will be published on this page with the revised effective
-    date.
-  </P>
+              <P>
+                Any updates will be published on this page with the revised effective
+                date.
+              </P>
 
-  <H3>Contact Us</H3>
+              <H3>Contact Us</H3>
 
-  <P>
-    If you have any questions regarding our use of cookies or related
-    technologies, please contact us at:
-    <br />
-    <a
-      href="mailto:connect@swaadsetu.com"
-      className="text-amber-400 hover:underline"
-    >
-      connect@swaadsetu.com
-    </a>
-  </P>
-</LegalBlock>
-```
+              <P>
+                If you have any questions regarding our use of cookies or related
+                technologies, please contact us at:
+                <br />
+                <a
+                  href="mailto:connect@swaadsetu.com"
+                  className="text-amber-400 hover:underline"
+                >
+                  connect@swaadsetu.com
+                </a>
+              </P>
+            </LegalBlock>
+
 
 
 
