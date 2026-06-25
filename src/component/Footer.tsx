@@ -59,6 +59,8 @@ const productLinks = [
 
 const companyLinks = [
   { label: "About Us", to: "/about" },
+  { label: "About Zager",     to: "https://www.zager.in/"},
+  { label: "Contac Us",     to: "/contact" },
   { label: "Blog",     to: "/blogs" },
 ];
 
@@ -126,8 +128,7 @@ export function Footer() {
             </button>
 
             <p className="text-slate-400 leading-relaxed text-sm">
-              India's premier QR-based restaurant management system. Empowering
-              restaurants to deliver exceptional experiences.
+             SwaadSetu is the operating system for modern food services, helping businesses streamline operations and deliver better customer experiences.
             </p>
 
             {/* Social icons */}

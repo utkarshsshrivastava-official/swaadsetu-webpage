@@ -56,6 +56,24 @@ import userf3 from "../assets/user-f-3.jpeg";
 import userf4 from "../assets/user-f-4.jpeg";
 import userf5 from "../assets/user-f-5.jpeg";
 
+//Product img of blogs
+import product_1 from "../assets/Product/img_1.png"
+import product_2 from "../assets/Product/img_2.png"
+import product_3 from "../assets/Product/img_3.png"
+import product_4 from "../assets/Product/img_4.png"
+import product_5 from "../assets/Product/img_5.png";
+//Operations Img of blogs
+import opt_1 from "../assets/Operations/img_1.png"
+import opt_2 from "../assets/Operations/img_2.png"
+import opt_3 from "../assets/Operations/img_3.png"
+import opt_4 from "../assets/Operations/img_4.png"
+
+//Growth Img of blogs
+import grw_1 from "../assets/Growth/img_1.png"
+import grw_2 from "../assets/Growth/img_2.png"
+import grw_3 from "../assets/Growth/img_3.png"
+import grw_4 from "../assets/Growth/img_4.png"
+
 // Updated Images object:
 export const Images = {
   swadLogo,
@@ -117,4 +135,25 @@ export const Images = {
   userf3,
   userf4,
   userf5,
+
+  // Product Imgaes of blogs
+  product_1,
+  product_2,
+  product_3,
+  product_4,
+  product_5,
+
+  //Operation Imgaes of blogs
+  opt_1,
+  opt_2,
+  opt_3,
+  opt_4,
+
+  //Growth Images of blogs
+  grw_1,
+  grw_2,
+  grw_3,
+  grw_4,
+
+
 };

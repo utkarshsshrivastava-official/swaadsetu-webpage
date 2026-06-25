@@ -21,67 +21,155 @@ const FEATURES_DATA: Feature[] = [
   {
     icon: QrCode,
     title: "QR Code Ordering",
-    description: "Customers scan and order instantly. No app downloads, no waiting for staff. Pure convenience.",
+    description:
+      "Transform customer ordering with QR-powered menus, no app downloads, and a seamless scan-to-service experience.",
     color: "#FBBF24",
     bg: "rgba(251,191,36,0.08)",
     image: Images.userFront,
-    stat: { value: "3s", label: "avg. scan to order" },
+    stat: {
+      value: "No App",
+      label: "Required",
+    },
     metrics: [
-      { label: "Engagement lift", value: "+32%" },
-      { label: "Friction Drop", value: "94%" }
-    ]
+      {
+        label: "Customer Experience",
+        value: "Scan, Order & Pay Instantly",
+      },
+      {
+        label: "Faster Ordering",
+        value: "Reduced Waiting Time",
+      },
+      {
+        label: "Digital Payments",
+        value: "UPI & Online Checkout",
+      },
+    ],
+    badges: [
+      "QR-Based Ordering",
+      "Live Order Tracking",
+      "Digital Billing",
+      "Instant Waiter Call",
+    ],
   },
+
   {
     icon: Clock,
     title: "Live Order Tracking",
-    description: "Real-time order status updates from kitchen to table. Complete transparency for customers.",
+    description:
+      "Keep customers informed with real-time order updates from preparation to service, improving transparency and enhancing the overall dining experience.",
     color: "#22C55E",
     bg: "rgba(34,197,94,0.08)",
     image: Images.orderStatus,
-    stat: { value: "0 calls", label: "to check order status" },
+    stat: {
+      value: "0 Calls",
+      label: "to check order status",
+    },
     metrics: [
-      { label: "Faster turns", value: "18%" },
-      { label: "Kitchen Sync", value: "Realtime" }
-    ]
+      {
+        label: "Faster Service",
+        value: "Real-Time Updates",
+      },
+      {
+        label: "Order Transparency",
+        value: "Track Every Stage",
+      },
+    ],
+    badges: [
+      "Live Order Tracking",
+      "Kitchen-to-Table Updates",
+      "Real-Time Status Alerts",
+      "Better Customer Experience",
+    ],
   },
+
   {
     icon: FileText,
     title: "Digital Bill Management",
-    description: "Generate and share bills instantly. Support for split payments and custom discounts.",
+    description:
+      "Simplify billing with instant digital invoices, flexible discounts, tax calculations, and seamless payment experiences for customers.",
     color: "#3B82F6",
     bg: "rgba(59,130,246,0.08)",
     image: Images.Bill,
-    stat: { value: "1 tap", label: "to split & settle" },
+    stat: {
+      value: "Instant",
+      label: "Digital Bills",
+    },
     metrics: [
-      { label: "Table Throughput", value: "+22%" },
-      { label: "Split Latency", value: "Instant" }
-    ]
+      {
+        label: "Custom Discounts",
+        value: "Flexible Billing",
+      },
+      {
+        label: "Faster Checkout",
+        value: "Seamless Payments",
+      },
+    ],
+    badges: [
+      "Digital Invoicing",
+      "Tax Calculations",
+      "Discount Management",
+      "Bill Sharing",
+    ],
   },
+
   {
     icon: Bell,
     title: "Instant Waiter Call",
-    description: "Direct notification system for customer service. No more waiting or looking around.",
+    description:
+      "Connect customers and staff instantly through one-tap service requests, reducing wait times and improving operational efficiency.",
     color: "#F59E0B",
     bg: "rgba(245,158,11,0.08)",
     image: Images.placeOrder,
-    stat: { value: "<5s", label: "staff response time" },
+    stat: {
+      value: "1 Tap",
+      label: "to request assistance",
+    },
     metrics: [
-      { label: "Staff Efficiency", value: "+40%" },
-      { label: "Guest Frustration", value: "-85%" }
-    ]
+      {
+        label: "Staff Efficiency",
+        value: "Faster Response Times",
+      },
+      {
+        label: "Customer Satisfaction",
+        value: "Better Dining Experience",
+      },
+    ],
+    badges: [
+      "One-Tap Waiter Call",
+      "Instant Service Requests",
+      "Faster Response Times",
+      "Improved Guest Experience",
+    ],
   },
+
   {
     icon: CreditCard,
     title: "Secure Payments",
-    description: "Integrated UPI, cards, wallets. PCI-DSS compliant with instant payment reconciliation.",
+    description:
+      "Enable secure digital payments through UPI and online payment gateways, ensuring fast, reliable, and seamless transactions for customers.",
     color: "#A78BFA",
     bg: "rgba(167,139,250,0.08)",
     image: Images.custDetails,
-    stat: { value: "100%", label: "PCI-DSS compliant" },
+    stat: {
+      value: "100%",
+      label: "Digital Payments",
+    },
     metrics: [
-      { label: "Fail Rate", value: "0.01%" },
-      { label: "Payout Sync", value: "Instant" }
-    ]
+      {
+        label: "UPI Ready",
+        value: "Instant Payments",
+      },
+      {
+        label: "Trusted Transactions",
+        value: "Secure Checkout",
+      },
+    ],
+    badges: [
+      "UPI Payments",
+      "Online Payment Gateway",
+      "Faster Checkout",
+      "Secure Transactions",
+    ],
   },
 ];
 
@@ -161,41 +249,42 @@ export function CustomerSection() {
         <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[400px] rounded-full bg-orange-500/6 blur-[100px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-16 lg:gap-24">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col justify-start gap-16 lg:gap-24">
         
         {/* Header Block Section Component */}
-        <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-4 max-w-3xl">
           <motion.div 
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 text-xs font-semibold uppercase tracking-wider text-amber-300 shadow-sm"
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase"
           >
-            <Sparkles size={13} className="animate-spin-slow text-amber-400" />
-            <span>Hyper-engineered Guest Flow</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+            Hyper-engineered Guest Flow
           </motion.div>
           
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]"
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="text-3xl lg:text-5xl font-bold tracking-tight text-white leading-tight"
           >
-            Features Crafted to{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-yellow-400 to-orange-500">
-              Captivate
+            From Scan to{" "}
+            <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              Service
             </span>
           </motion.h2>
 
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-slate-400 text-base sm:text-lg font-light leading-relaxed max-w-2xl"
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.65, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="text-slate-400 text-base lg:text-lg leading-relaxed font-light max-w-2xl"
           >
-            Empower your restaurant workspace layout ecosystem. Give diners access to seamless mobile ordering menus, frictionless checkout channels, and immediate table requests.
+            Transform customer ordering into a seamless digital experience — from QR scan and order placement to preparation and service.
           </motion.p>
         </div>
 
@@ -269,7 +358,7 @@ export function CustomerSection() {
 
               <div className="space-y-4">
                 <div>
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-slate-500 block mb-1">Performance Benchmark</span>
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-slate-500 block mb-1">Customer Experience</span>
                   <motion.div 
                     key={currentFeature.stat.value}
                     initial={{ opacity: 0, x: -10 }}
@@ -298,12 +387,15 @@ export function CustomerSection() {
 
             {/* Micro Badges Sub Grid Container */}
             <div className="flex flex-wrap gap-2">
-              {["UPI Auto-Settle", "Appless Infrastructure", "Fault-Tolerant Queue", "Multilingual Localisation"].map((badge) => (
-                <div key={badge} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-white/[0.06] bg-slate-900/40 text-[10px] font-semibold tracking-wider text-slate-400 uppercase">
-                  <div className="w-1 h-1 rounded-full bg-slate-500" />
-                  {badge}
-                </div>
-              ))}
+             {currentFeature.badges.map((badge) => (
+  <div
+    key={badge}
+    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-white/[0.06] bg-slate-900/40 text-[10px] font-semibold tracking-wider text-slate-400 uppercase"
+  >
+    <div className="w-1 h-1 rounded-full bg-slate-500" />
+    {badge}
+  </div>
+))}
             </div>
 
             {/* Action Call to Action Button Layout Container Rows */}
@@ -312,7 +404,7 @@ export function CustomerSection() {
                 onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true', '_blank')}
                 className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-bold text-sm bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-black shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <span>Request Live Sandbox Demo</span>
+                <span>Book a Live  Demo</span>
                 <ArrowRight size={15} strokeWidth={2.5} />
               </button>
               
@@ -320,7 +412,7 @@ export function CustomerSection() {
                 onClick={() => navigate('/features')}
                 className="inline-flex items-center justify-center px-6 py-3.5 rounded-2xl font-semibold text-sm border border-white/10 bg-white/[0.02] text-slate-200 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-200"
               >
-                Explore Structural Architecture
+                Explore Features
               </button>
             </div>
 
@@ -330,10 +422,25 @@ export function CustomerSection() {
         {/* Global Bottom Summary Analytics Showcase Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 border-t border-white/5  mt-2">
           {[
-            { icon: QrCode, color: "text-amber-400", title: "Frictionless Onboarding", text: "Drastically reduce table abandonment rates with intuitive scan workflows needing absolutely zero manual setups." },
-            { icon: ShieldCheck, color: "text-emerald-400", title: "Bank-Grade Encryption", text: "Secure enterprise operational parameters. Rest assured with native end-to-end continuous validation checks." },
-            { icon: Bell, color: "text-indigo-400", title: "Optimized Waiter Routing", text: "Intelligent layout communication queues decrease internal transit overhead and improve staff synchronization speed." }
-          ].map((card, i) => {
+  {
+    icon: QrCode,
+    color: "text-amber-400",
+    title: "Effortless Customer Experience",
+    text: "Modern dining experiences powered by QR ordering and real-time updates.",
+  },
+  {
+    icon: ShieldCheck,
+    color: "text-emerald-400",
+    title: "Unified Business Management",
+    text: "Manage operations, billing, inventory, expenses, and payments from one platform.",
+  },
+  {
+    icon: Bell,
+    color: "text-indigo-400",
+    title: "Faster Service Operations",
+    text: "Faster service, better coordination, and improved operational efficiency.",
+  },
+].map((card, i) => {
             const CardIcon = card.icon;
             return (
               <div key={i} className="group p-6 rounded-3xl border border-white/[0.05] bg-gradient-to-b from-slate-900/30 to-slate-950/50 space-y-3 hover:border-white/10 transition-all duration-300">

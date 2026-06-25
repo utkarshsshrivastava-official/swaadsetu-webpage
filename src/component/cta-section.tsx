@@ -11,9 +11,9 @@ const fadeUp = (delay = 0) => ({
 
 
 const benefits = [
-  { icon: CheckCircle2, label: "No Setup Fee" },
-  { icon: CheckCircle2, label: "24/7 Support" },
-  { icon: CheckCircle2, label: "No Credit Card Required" },
+  { icon: CheckCircle2, label: "QR Ordering & Payments" },
+  { icon: CheckCircle2, label: "Business Insights" },
+  { icon: CheckCircle2, label: "Complete Operational Control" },
 ];
 
 
@@ -79,13 +79,12 @@ export function CTASection() {
               transition={{ delay: 0.8, duration: 0.7, ease: "easeOut" }}
             />
           </span>{" "}
-          Your Restaurant?
+          Your Food Business?
         </motion.h2>
 
         {/* ── Subtext ── */}
         <motion.p {...fadeUp(0.2)} className="text-slate-400 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-10">
-          Join restaurants already using Swaad Setu to deliver
-          exceptional dining experiences and grow their business — with zero setup hassle.
+          Join restaurants, cafés, QSRs, cloud kitchens, and food courts using SwaadSetu to streamline operations, improve customer experience, and grow profitably.
         </motion.p>
 
         {/* ── Benefit pills ── */}
@@ -107,7 +106,7 @@ export function CTASection() {
             onClick={handleRedirect}
             className="btn btn-lg bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none shadow-[0_0_40px_rgba(251,191,36,0.4)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] hover:scale-[1.03] active:scale-95 transition-all duration-200 group cursor-pointer flex items-center justify-center gap-2 px-3 py-2 rounded-2xl"
           >
-            Connect with Team
+            Talk to Our Team
             <ArrowRight
               size={18}
               className="ml-1 group-hover:translate-x-1 transition-transform"

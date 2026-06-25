@@ -67,19 +67,19 @@ const Hero = () => {
           <motion.div {...fadeUp(0.1)} className="flex justify-center lg:justify-start">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(251,191,36,0.15)] backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-              The Future of Dining
+              THE FOOD SERVICE OS
             </div>
           </motion.div>
 
           {/* Headline */}
           <motion.div {...fadeUp(0.2)}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-white drop-shadow-lg">
-              Redefine Your{" "}
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-white drop-shadow-lg">
+              Operating System{" "}
               <br className="hidden sm:block" />
-              Restaurant's{" "}
+              for{" "}
               <span className="relative inline-block mt-2 sm:mt-0">
                 <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
-                  Experience.
+                  Modern Food Service.
                 </span>
                 <motion.span
                   className="absolute -bottom-2 left-0 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full shadow-[0_0_15px_rgba(251,191,36,0.5)]"
@@ -93,7 +93,7 @@ const Hero = () => {
 
           {/* Subtext */}
           <motion.p {...fadeUp(0.35)} className="text-slate-300 text-lg sm:text-xl leading-relaxed font-light drop-shadow-sm max-w-xl mx-auto lg:mx-0">
-            SwaadSetu is a comprehensive digital operating system for modern restaurants. Deliver instant QR menus, flawless table management, and seamless contactless ordering.
+          SwaadSetu is the operating system for modern food services, helping businesses manage ordering, billing, inventory, expenses, profit tracking, and daily operations through one connected platform.
           </motion.p>
 
           {/* CTA buttons */}
@@ -123,7 +123,7 @@ const Hero = () => {
           
           {/* Quick tags */}
           <motion.div {...fadeUp(0.6)} className="flex flex-wrap justify-center lg:justify-start gap-3 mt-2">
-             {["No Setup Fee", "Instant Deploy", "24/7 Support"].map((tag, i) => (
+             {["Smart Ordering", "Business Insights", "Operational Control"].map((tag, i) => (
                 <div key={i} className="flex items-center gap-1.5 text-xs font-medium text-slate-400">
                    <svg className="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

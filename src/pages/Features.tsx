@@ -13,6 +13,7 @@ import Navbar from "../component/Navbar";
 import { Footer } from "../component/Footer";
 import BackButton from "../component/ui/BackButton";
 import { Helmet } from "@dr.pogodin/react-helmet";
+import { CTASection } from "../component/cta-section";
 // import { CTASection } from "../component/cta-section";
 
 /* ─────────────────────────────────────────────
@@ -68,74 +69,137 @@ interface Feature {
   title: string;
   description: string;
   bullets: string[];
-  stat: { value: string; label: string };
+ workflow: {
+  label: string;
+  title: string;
+  description: string;
+};
   image: string;
   imageAlt: string;
   flip?: boolean; // alternate image side
 }
 
-const features: Feature[] = [
-  {
-    number: "01",
-    eyebrow: "Smart QR",
-    title: "Instant QR Menus",
-    description:
-      "Generate beautiful, scannable QR menus in seconds. Customers point their camera and your full menu loads — zero app download, zero friction. Update prices and items live without reprinting a single sheet.",
-    bullets: ["Live menu edits in real time", "Works on any camera app", "Multi-language support"],
-    stat: { value: "0.3s", label: "Average load time" },
-    image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=900&h=700&fit=crop&auto=format",
-    imageAlt: "Restaurant QR code menu on a table",
-    flip: false,
-  },
-  {
-    number: "02",
-    eyebrow: "Contactless",
-    title: "One-Tap Ordering",
-    description:
-      "Guests browse, customise, and place orders without ever flagging a waiter. Orders hit the kitchen display the moment they're confirmed — no paper tickets, no miscommunication.",
-    bullets: ["Custom modifiers & add-ons", "Reorder in one tap", "Live order status for guests"],
-    stat: { value: "−40%", label: "Average wait time" },
-    image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=900&h=700&fit=crop&auto=format",
-    imageAlt: "Person ordering food on smartphone",
-    flip: true,
-  },
-  {
-    number: "03",
-    eyebrow: "Analytics",
-    title: "Real-Time Insights",
-    description:
-      "Live dashboards surface your top-selling dishes, peak hours, and table turnover rates. Stop guessing what to 86 — know it before the rush starts.",
-    bullets: ["Hourly & daily sales breakdown", "Dish-level profitability", "Staff performance tracking"],
-    stat: { value: "2.4×", label: "Faster decisions" },
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=700&fit=crop&auto=format",
-    imageAlt: "Analytics dashboard on a laptop",
-    flip: false,
-  },
-  {
-    number: "04",
-    eyebrow: "Payments",
-    title: "Integrated Billing",
-    description:
-      "UPI, cards, wallets — all in one seamless flow. Split bills, apply offers, and close tables in under 30 seconds. No separate POS device, no manual settlement at end of shift.",
-    bullets: ["UPI, cards & all major wallets", "Split-bill in one tap", "Auto GST calculation"],
-    stat: { value: "28s", label: "Avg. table close time" },
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&h=700&fit=crop&auto=format",
-    imageAlt: "Digital payment on a smartphone",
-    flip: true,
-  },
-  {
-    number: "05",
-    eyebrow: "Marketing",
-    title: "Push Promotions",
-    description:
-      "Send targeted offers, happy-hour alerts, and seasonal specials directly to diners who've ordered before. Turn one-time visitors into regulars with zero ad spend.",
-    bullets: ["Segment by order history", "Scheduled campaigns", "Coupon & offer management"],
-    stat: { value: "3.2×", label: "Repeat visit rate" },
-    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=900&h=700&fit=crop&auto=format",
-    imageAlt: "Restaurant promotional notification on phone",
-    flip: false,
-  },
+const features = [
+{
+number: "01",
+eyebrow: "SMART QR ORDERING",
+title: "Instant QR Ordering",
+description: "Enable guests to browse menus, place orders, and interact with your business through a simple QR scan. No app downloads, no printed menus, and no unnecessary waiting. Keep menus updated in real time while delivering a faster, more seamless service experience.",
+bullets: [
+"Real-Time Menu Updates",
+"No App Downloads Required",
+"Multi-Language Support"
+],
+workflow: {
+label: "CUSTOMER EXPERIENCE",
+title: "Scan → Browse → Order",
+description: "Seamless ordering journey with zero installation or onboarding friction."
+}
+},
+
+{
+number: "02",
+eyebrow: "ORDER VISIBILITY",
+title: "Real-Time Order Tracking",
+description: "Track every order from placement to delivery with live status updates. Keep guests informed while improving kitchen coordination and service efficiency.",
+bullets: [
+"Live Order Status Updates",
+"Kitchen-to-Table Visibility",
+"Transparent Guest Experience"
+],
+workflow: {
+label: "ORDER JOURNEY",
+title: "Placed → Preparing → Ready → Served",
+description: "Real-time visibility across every stage of the service flow."
+}
+},
+
+{
+number: "03",
+eyebrow: "BILLING & PAYMENTS",
+title: "Digital Billing & Payments",
+description: "Generate bills instantly, apply taxes and discounts, and accept secure digital payments through a seamless checkout experience. Simplify settlements, reduce billing errors, and deliver a faster payment experience for every guest.",
+bullets: [
+"Instant Bill Generation",
+"Split Payments & Discounts",
+"Secure UPI & Digital Payments"
+],
+workflow: {
+label: "PAYMENT EXPERIENCE",
+title: "Bill → Pay → Complete",
+description: "Fast, accurate, and hassle-free checkout for guests and staff."
+}
+},
+
+{
+number: "04",
+eyebrow: "SERVICE OPERATIONS",
+title: "Staff & Service Management",
+description: "Empower your team with waiter call alerts, table assistance requests, and streamlined service workflows for faster response times. Reduce service delays, improve staff coordination, and ensure guests receive timely assistance throughout their dining experience.",
+bullets: [
+"Instant Waiter Call Alerts",
+"Table Assistance Requests",
+"Faster Service Coordination"
+],
+workflow: {
+label: "SERVICE FLOW",
+title: "Request → Alert → Assist",
+description: "Ensure every guest request reaches the right staff member instantly."
+}
+},
+
+{
+number: "05",
+eyebrow: "BUSINESS INSIGHTS",
+title: "Business Insights & Analytics",
+description: "Monitor sales, orders, customer trends, and operational performance through actionable reports that support smarter decisions. Gain complete visibility into your business with real-time data.",
+bullets: [
+"Sales & Revenue Tracking",
+"Order Performance Analytics",
+"Operational Reports & Insights"
+],
+workflow: {
+label: "DECISION MAKING",
+title: "Data → Insights → Growth",
+description: "Turn everyday business data into actions that improve performance."
+}
+},
+
+{
+number: "06",
+eyebrow: "INVENTORY & COST CONTROL",
+title: "Inventory & Expense Control",
+description: "Track stock consumption, manage expenses, and gain visibility into operational costs without relying on spreadsheets.",
+bullets: [
+"Inventory Consumption Tracking",
+"Expense Management & Records",
+"Cost Visibility & Control"
+],
+workflow: {
+label: "OPERATIONAL CONTROL",
+title: "Track → Analyze → Optimize",
+description: "Stay informed about stock usage and business expenses in one place."
+}
+},
+
+{
+number: "07",
+eyebrow: "QSR OPERATIONS",
+title: "QSR & Self-Service Workflows",
+description: "Enable customers to scan, order, and pay independently through a seamless self-service experience. Built for QSRs, food courts, cafeterias, theatres, and high-footfall food environments.",
+bullets: [
+"Self-Service Ordering",
+"Order Number Based Fulfillment",
+"Faster Service Operations"
+],
+workflow: {
+label: "HIGH-FOOTFALL READY",
+title: "Scan → Order → Collect",
+description: "Designed to handle peak-hour demand with faster and more efficient service workflows."
+}
+}
 ];
+
 
 /* ═══════════════════════════════════════════
    PAGE COMPONENT
@@ -229,12 +293,12 @@ const FeatureSection: FC = () => {
 
               <motion.h1
                 {...fadeUp(0.2)}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
+                className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
               >
-                Every tool your{" "}
+                Everything  your{" "}
                 <span className="relative inline-block">
                   <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
-                    kitchen
+                    Food Business
                   </span>
                   <motion.span
                     className="absolute -bottom-2 left-0 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full shadow-[0_0_15px_rgba(251,191,36,0.5)]"
@@ -244,14 +308,14 @@ const FeatureSection: FC = () => {
                   />
                 </span>
                 <br />
-                deserves.
+                Needs.
               </motion.h1>
 
               <motion.p
                 {...fadeUp(0.35)}
                 className="text-slate-300 text-lg sm:text-xl leading-relaxed font-light drop-shadow-sm max-w-xl mx-auto lg:mx-0"
               >
-                Five features. Zero compromise. Built ground-up for the realities of Indian dining.
+               Purpose-built tools designed to simplify food service operations, improve guest experiences, and help teams work more efficiently. Everything you need to manage daily operations from one connected platform.
               </motion.p>
             </div>
 
@@ -351,15 +415,20 @@ const FeatureSection: FC = () => {
 
                     {/* Stat — large, stark */}
                     <motion.div
-                      {...(f.flip ? fadeRight(0.36) : fadeLeft(0.36))}
+                      {...(f.workflow ? fadeRight(0.36) : fadeLeft(0.36))}
                       className="flex items-baseline gap-3 pt-4 mt-2 border-t border-amber-400/10"
                     >
-                      <span className="text-5xl font-black tabular-nums bg-gradient-to-b from-amber-200 to-amber-500 bg-clip-text text-transparent">
-                        {f.stat.value}
-                      </span>
-                      <span className="text-xs tracking-widest uppercase text-slate-500 max-w-[8rem] leading-relaxed">
-                        {f.stat.label}
-                      </span>
+                     <span className="text-[10px] tracking-[0.2em] uppercase text-amber-400 font-semibold block mb-2">
+    {f.workflow.label}
+  </span>
+
+  <h4 className="text-lg font-bold text-white mb-2">
+    {f.workflow.title}
+  </h4>
+
+  <p className="text-sm text-slate-400 leading-relaxed">
+    {f.workflow.description}
+  </p>
                     </motion.div>
                   </div>
 
@@ -414,10 +483,22 @@ const FeatureSection: FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 relative z-10">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-amber-400/10 rounded-3xl overflow-hidden border border-amber-400/10">
               {[
-                { icon: "◎", title: "99.9% Uptime SLA", text: "Redundant infrastructure so your menu is live even during dinner rush. We've never gone dark during a service." },
-                { icon: "✦", title: "Under 30-min Setup", text: "Go live before your next lunch service. No IT team, no complicated onboarding, no enterprise contracts." },
-                { icon: "❋", title: "Dedicated Local Support", text: "A real support team in your timezone — not a chatbot. Call, WhatsApp, or email, we respond within the hour." },
-              ].map((item, i) => (
+{
+icon: "☁️",
+title: "Reliable Cloud Platform",
+text: "Built on secure cloud infrastructure with continuous monitoring and regular backups to keep your restaurant operations running smoothly."
+},
+{
+icon: "⚡",
+title: "Quick & Guided Setup",
+text: "Get started with menu setup, QR generation, and onboarding support without complex configurations or technical expertise."
+},
+{
+icon: "🤝",
+title: "Human Support Team",
+text: "Receive assistance through call, WhatsApp, or email from a dedicated team focused on helping your business succeed."
+}
+].map((item, i) => (
                 <motion.div
                   key={item.title}
                   {...fadeUp(i * 0.1)}
@@ -432,63 +513,11 @@ const FeatureSection: FC = () => {
           </div>
         </section>
 
-        {/* ════════════════════════════════════
-            CTA BAND
-        ════════════════════════════════════ */}
-        {/* <section className="relative py-4 overflow-hidden">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent mb-24" />
-
-          <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <motion.div {...fadeUp(0.05)} className="mb-4">
-              <div className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                Join 58+ restaurants already live
-              </div>
-            </motion.div>
-
-            <motion.h2
-              {...fadeUp(0.15)}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6"
-            >
-              Ready to{" "}
-              <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                transform
-              </span>{" "}
-              your restaurant?
-            </motion.h2>
-
-            <motion.p {...fadeUp(0.25)} className="text-slate-400 text-lg mb-10 max-w-xl mx-auto">
-              Get a personalised demo and see SwaadSetu live in your restaurant in under 30 minutes.
-            </motion.p>
-
-            <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() =>
-                  window.open(
-                    "https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true",
-                    "_blank",
-                  )
-                }
-                className="btn btn-lg bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none shadow-[0_0_32px_rgba(251,191,36,0.4)] hover:shadow-[0_0_48px_rgba(251,191,36,0.6)] hover:scale-[1.03] active:scale-95 transition-all duration-200 rounded-xl flex items-center justify-center gap-2 px-3 py-2 cursor-pointer"
-              >
-                Book a Free Demo
-                <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </button>
-              <button
-                className="btn btn-lg btn-ghost border border-amber-400/30 text-amber-300 hover:bg-amber-400/10 hover:border-amber-400/60 transition-all duration-200 rounded-xl px-3 py-2 cursor-pointer"
-                onClick={() => (window.location.href = "https://www.swaadsetu.com/about")}
-              >
-                Learn About Us
-              </button>
-            </motion.div>
-          </div>
-        </section> */}
-
-     <section className="relative py-24 overflow-hidden">
+       
+<CTASection/>
+     {/* <section className="relative py-24 overflow-hidden">
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent" />
-              {/* ── Background grid ── */}
+              {/* ── Background grid ── 
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -498,14 +527,14 @@ const FeatureSection: FC = () => {
                 }}
               />
     
-              {/* ── Glow blobs ── */}
+              {/* ── Glow blobs ── 
               <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-amber-500/10 blur-[140px]" />
                 <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[400px] rounded-full bg-orange-600/6 blur-[120px]" />
                 <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[400px] rounded-full bg-amber-400/5 blur-[120px]" />
               </div>
     
-              {/* ── Decorative rings ── */}
+              {/* ── Decorative rings ── 
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="w-[600px] h-[600px] rounded-full border border-amber-400/5" />
                 <div className="absolute w-[400px] h-[400px] rounded-full border border-amber-400/8" />
@@ -513,7 +542,7 @@ const FeatureSection: FC = () => {
               </div>
     
               <div className="relative z-10 max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-                {/* ── Badge ── */}
+                {/* ── Badge ── 
                 <motion.div {...fadeUp(0)} className="flex justify-center mb-6">
                   <div className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
@@ -521,7 +550,7 @@ const FeatureSection: FC = () => {
                   </div>
                 </motion.div> 
     
-                {/* ── Headline ── */}
+                {/* ── Headline ── 
                 <motion.h2 {...fadeUp(0.1)} className="text-4xl sm:text-5xl lg:text-5xl font-black tracking-tight text-white leading-[1.05] mb-6">
                   Ready to{" "}
                   <span className="relative inline-block">
@@ -539,12 +568,12 @@ const FeatureSection: FC = () => {
                   Your Restaurant?
                 </motion.h2>
     
-                {/* ── Subtext ── */}
+                {/* ── Subtext ── 
                 <motion.p {...fadeUp(0.2)} className="text-slate-400 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-10">
                   Get a personalised demo and see SwaadSetu live in your restaurant in under 30 minutes.
                 </motion.p>
     
-                {/* ── Benefit pills ── */}
+                {/* ── Benefit pills ── 
                 <motion.div {...fadeUp(0.28)} className="flex flex-wrap justify-center gap-3 mb-10">
                   {["No Setup Fee", "24/7 Support", "No Credit Card Required"].map((label, i) => (
                     <div
@@ -559,7 +588,7 @@ const FeatureSection: FC = () => {
                   ))}
                 </motion.div>
     
-                {/* ── CTA buttons ── */}
+                {/* ── CTA buttons ── 
                 <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                   <button
                     onClick={() =>
@@ -584,7 +613,7 @@ const FeatureSection: FC = () => {
                   </button>
                 </motion.div>
               </div>
-            </section>
+            </section> */}
 
         <Footer />
       </div>

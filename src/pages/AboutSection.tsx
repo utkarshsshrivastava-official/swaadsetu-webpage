@@ -10,10 +10,10 @@ const fadeUp = (delay = 0) => ({
 });
 
 const features = [
-  "Complete contactless ordering with QR technology",
-  "Real-time kitchen display and order management",
-  "Integrated payment gateway with UPI support",
-  "Advanced analytics and business intelligence",
+  "Smart Ordering Experience",
+  "Complete Operational Control",
+  " Real-Time Business Insights",
+  "Scalable Food Service Workflows",
 ];
 
 const AboutSection = () => {
@@ -52,21 +52,20 @@ const AboutSection = () => {
             </motion.div>
 
             <motion.h2 {...fadeUp(0.1)} className="text-3xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-              Revolutionizing{" "}
+              One Platform, {" "}
               <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                Restaurant
+              <br className="hidden lg:block" />  Complete Operations.
               </span>
-              <br className="hidden lg:block" /> Management in India
+              {/*  Management in India */}
             </motion.h2>
 
             <motion.p {...fadeUp(0.2)} className="text-slate-400 text-base lg:text-lg leading-relaxed font-light">
-              From street food stalls to fine dining — we empower every food business
-              with QR menus, digital systems, and contactless dining solutions.
+              SwaadSetu is the operating system for modern food services, helping businesses manage ordering, billing, inventory, and daily operations through one connected platform.
             </motion.p>
 
             <motion.p {...fadeUp(0.25)} className="text-slate-400 text-base lg:text-lg leading-relaxed">
-              Swaad Setu is India's most comprehensive restaurant management platform,
-              designed for Indian restaurants of all sizes.
+             Designed for restaurants, cafes, QSRs, and food courts, SwaadSetu simplifies operations with integrated workflows and real-time business insights.
+
             </motion.p>
 
             <motion.div {...fadeUp(0.3)} className="mt-2">

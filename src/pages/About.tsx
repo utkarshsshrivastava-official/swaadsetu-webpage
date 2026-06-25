@@ -110,34 +110,34 @@ const particles = [
 ───────────────────────────────────────────── */
 const values = [
   {
-    icon: "✦",
-    title: "Be World-Class",
-    text: "We build tools as polished as the best global SaaS — rooted in Indian restaurant reality.",
+    icon: "⚡",
+    title: "Operational Efficiency",
+    text: "Built to reduce complexity and make daily operations effortless.",
   },
   {
-    icon: "◈",
-    title: "Share Everything",
-    text: "We document, teach, and share. When one person learns, everyone — including our partners — benefits.",
+    icon: "❤️",
+    title: "Customer-First Experiences",
+    text: "Designed to create smoother, faster, and more satisfying customer journeys.",
   },
   {
-    icon: "⟳",
-    title: "Always Learning",
-    text: "From customer feedback to new tech, we stay curious and ship improvements one release at a time.",
+    icon: "👁️",
+    title: "Real-Time Visibility",
+    text: "Giving teams the information they need, when they need it.",
   },
   {
-    icon: "❋",
-    title: "Be Supportive",
-    text: "Great service behind the scenes leads to great service at the table. We lift each other up.",
+    icon: "📊",
+    title: "Business-First Thinking",
+    text: "Every feature is built to improve efficiency and operational control.",
   },
   {
-    icon: "◎",
-    title: "Own Outcomes",
-    text: "We own the result, not just the task. If something breaks, we fix it, learn from it, move forward.",
+    icon: "🚀",
+    title: "Continuous Innovation",
+    text: "Evolving constantly to meet the changing needs of food services.",
   },
   {
-    icon: "◑",
-    title: "Enjoy Downtime",
-    text: "Sustainable pace builds better products. Happy, rested teams serve customers better.",
+    icon: "🤝",
+    title: "Reliable Partnership",
+    text: "Supporting businesses beyond implementation and onboarding.",
   },
 ];
 
@@ -324,28 +324,26 @@ const About: FC = () => {
                 {...fadeUp(0.2)}
                 className="text-4xl sm:text-5xl lg:text-4xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
               >
-                We're{" "}
-                <span className="relative inline-block">
-                  <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
-                    changing
+               Building The {" "}
+                <span className="relative inline-block mb-3">
+                  <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent drop-shadow-xl ">
+                    Operating System For
                   </span>
                   <motion.span
-                    className="absolute -bottom-2 left-0 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full shadow-[0_0_15px_rgba(251,191,36,0.5)]"
+                    className="absolute -bottom-2 left-0 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full shadow-[0_0_15px_rgba(251,191,36,0.5)] "
                     initial={{ width: 0 }}
                     animate={{ width: "100%" }}
                     transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
                   />
                 </span>
-                <br />how India dines.
+                <br />Modern Food Services
               </motion.h1>
 
               <motion.p
                 {...fadeUp(0.35)}
                 className="text-slate-300 text-lg sm:text-xl leading-relaxed font-light drop-shadow-sm max-w-xl mx-auto lg:mx-0"
               >
-                SwaadSetu bridges restaurants and guests through seamless,
-                contactless technology — built for the speed, scale, and warmth
-                of Indian hospitality. We believe every restaurant deserves world-class software.
+                SwaadSetu helps restaurants, cafés, QSRs, cloud kitchens, and food courts streamline operations through a unified platform for ordering, billing, payments, and business management.
               </motion.p>
             </div>
 
@@ -397,28 +395,29 @@ const About: FC = () => {
                   {...fadeLeft(0.15)}
                   className="mt-4 text-3xl sm:text-4xl font-bold leading-tight text-white"
                 >
-                  A platform{" "}
+                  Built for { " "}
                   <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
-                    built for<br />Indian restaurants
+                  Modern Food Businesses
                   </span>
                 </motion.h2>
 
                 <motion.p {...fadeLeft(0.28)} className="mt-6 text-slate-400 leading-relaxed">
-                  SwaadSetu is a modern restaurant management platform designed
-                  for the nuances of Indian dining. We bridge restaurants and
-                  customers through a QR-based system that enables contactless
-                  ordering, real-time order tracking, and smoother kitchen
-                  operations — without the enterprise price tag.
+                 SwaadSetu is designed to help food businesses run smarter, faster, and more efficiently. We bring essential operational workflows into one connected platform, enabling teams to manage customer experiences, streamline service operations, and gain better visibility across their business.
                 </motion.p>
 
                 <motion.p {...fadeLeft(0.38)} className="mt-4 text-slate-500 leading-relaxed text-sm">
-                  From small neighbourhood cafés to busy multi-outlet brands,
-                  every team deserves world-class tools. We make that possible.
+                 From improving guest experiences to streamlining day-to-day operations, SwaadSetu gives teams the clarity and control needed to grow confidently.
                 </motion.p>
 
                 {/* Inline highlight pills */}
                 <motion.div {...fadeLeft(0.48)} className="mt-8 flex flex-wrap gap-3">
-                  {["QR Ordering", "Live Kitchen Display", "Real-time Analytics", "Contactless Payments", "Multi-outlet Ready"].map((tag) => (
+                  {[
+                      "Modern Food Services",
+                      "Unified Operations",
+                      "Real-Time Insights",
+                      "Efficient Workflows",
+                      "Scalable Platform"
+                      ].map((tag) => (
                     <span
                       key={tag}
                       className="px-3 py-1.5 rounded-full text-xs font-medium border border-amber-400/25 text-amber-300/80 bg-amber-400/5"
@@ -570,35 +569,28 @@ const About: FC = () => {
                   {...fadeRight(0.15)}
                   className="text-3xl sm:text-4xl lg:text-4xl font-bold leading-[1.1] text-white drop-shadow-md"
                 >
-                  Every restaurant deserves{" "}
+                  Every Food Business  Deserves{" "}
                   <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
-                    world-class tools.
+                    World-Class Tools.
                   </span>
                 </motion.h2>
 
                 <motion.p {...fadeRight(0.28)} className="text-slate-300 text-lg leading-relaxed font-light drop-shadow-sm">
-                  We want every restaurant — from small cafés to busy
-                  multi-outlet brands — to have access to reliable restaurant
-                  management software built specifically for Indian restaurants,
-                  without complexity or high costs.
+                 We believe great hospitality is powered by great operations. SwaadSetu helps food businesses streamline workflows, improve coordination, and create better experiences for both teams and guests.
                 </motion.p>
 
                 <motion.p {...fadeRight(0.38)} className="text-slate-400 leading-relaxed text-base font-light">
-                  SwaadSetu is built for the realities of Indian dining: high
-                  volume, diverse menus, and guests who value both speed and
-                  warmth. As a cloud-based platform, we bring QR ordering,
-                  real-time order tracking, and kitchen visibility together — so
-                  your team can focus on hospitality, not paper tickets.
+                 Built for modern food service environments, our platform enables businesses to operate with greater clarity, control, and confidence.
                 </motion.p>
 
                 {/* Checklist */}
                 <motion.ul {...fadeRight(0.48)} className="mt-4 space-y-4">
                   {[
-                    "Zero complexity setup — live in under 30 minutes",
-                    "Works on any device, any network",
-                    "Priced for Indian restaurant margins",
-                    "Dedicated local support team",
-                  ].map((item) => (
+                      "Operational Simplicity",
+                      "Connected Workflows",
+                      "Real-Time Visibility",
+                      "Growth-Focused Platform"
+                      ].map((item) => (
                     <li key={item} className="flex items-start gap-4 text-base text-slate-300 font-medium">
                       <span className="w-6 h-6 rounded-full bg-amber-400/20 border border-amber-400/40 flex items-center justify-center shrink-0 mt-0.5 shadow-[0_0_10px_rgba(251,191,36,0.2)]">
                         <svg className="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -644,18 +636,18 @@ const About: FC = () => {
               {...fadeUp(0.15)}
               className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white mb-6 drop-shadow-md leading-[1.1]"
             >
-              Our{" "}
+             The  {" "}
               <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
-                Team Values
+               Principles
               </span>
+              Behind SwaadSetu
             </motion.h2>
 
             <motion.p
               {...fadeUp(0.25)}
               className="text-slate-300 text-lg max-w-2xl mb-10 font-light drop-shadow-sm leading-relaxed"
             >
-              A small, focused team obsessed with solving real problems for
-              restaurants. These are the core principles we live by everyday.
+              Every decision we make is guided by a simple goal: helping food businesses operate more efficiently, serve better experiences, and grow with confidence.
             </motion.p>
 
             {/* Values grid — Premium Glassmorphism */}
@@ -738,17 +730,17 @@ const About: FC = () => {
                   transition={{ delay: 0.8, duration: 0.7, ease: "easeOut" }}
                 />
               </span>{" "}
-              Your Restaurant?
+              Your Food Business?
             </motion.h2>
 
             {/* ── Subtext ── */}
             <motion.p {...fadeUp(0.2)} className="text-slate-400 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-10">
-              Get a personalised demo and see SwaadSetu live in your restaurant in under 30 minutes.
+             Join restaurants, cafés, QSRs, cloud kitchens, and food courts using SwaadSetu to streamline operations, improve customer experience, and grow profitably.
             </motion.p>
 
             {/* ── Benefit pills ── */}
             <motion.div {...fadeUp(0.28)} className="flex flex-wrap justify-center gap-3 mb-10">
-              {["No Setup Fee", "24/7 Support", "No Credit Card Required"].map((label, i) => (
+              {["QR Ordering & Payments" , "Business Insights" , "Complete Operational Control"].map((label, i) => (
                 <div
                   key={i}
                   className="flex items-center gap-2 bg-white/[0.05] border border-white/10 backdrop-blur-sm rounded-full px-4 py-2"
@@ -782,7 +774,7 @@ const About: FC = () => {
                 onClick={() => (window.location.href = "https://www.swaadsetu.com/features")}
                 className="btn btn-lg btn-ghost border border-amber-400/30 text-amber-300 hover:bg-amber-400/10 hover:border-amber-400/60 transition-all duration-200 cursor-pointer group px-3 py-2 rounded-2xl"
               >
-                See How It Works
+               Talk to Our Team
               </button>
             </motion.div>
           </div>

@@ -42,10 +42,10 @@ const Contact: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Swaad Setu</title>
+        <title>Contact SwaadSetu | Food Business Operations Platform</title>
         <meta
           name="description"
-          content="Reach out to Swaad Setu for smarter restaurant ordering, guest engagement, and menu automation."
+          content="Contact SwaadSetu to learn about QR ordering, billing, payments, inventory management, operational workflows, and business growth solutions."
         />
       </Helmet>
 
@@ -87,7 +87,7 @@ const Contact: React.FC = () => {
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(251,191,36,0.15)] backdrop-blur-md"
                 >
                   <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                  Restaurant Partner Network
+                 GET IN TOUCH
                 </motion.div>
 
                 {/* Typography Block */}
@@ -95,9 +95,9 @@ const Contact: React.FC = () => {
                   variants={itemVariants}
                   className="text-4xl sm:text-5xl font-bold tracking-tight text-white leading-[1.05]"
                 >
-                  Let’s elevate your <br />
+                  Let’s Elevate Your <br />
                   <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500 bg-clip-text text-transparent">
-                    restaurant experience
+                    Food Business Operations
                   </span>
                 </motion.h1>
 
@@ -105,7 +105,7 @@ const Contact: React.FC = () => {
                   variants={itemVariants}
                   className="text-slate-300 text-lg sm:text-xl leading-relaxed font-light max-w-xl"
                 >
-                  Reach out for restaurant ordering, table flow, and guest engagement solutions built specifically for modern Indian dining spaces.
+                 Reach out for restaurant ordering, table flow, and guest engagement solutions built specifically for modern Indian dining spaces.
                 </motion.p>
               </div>
 
@@ -120,7 +120,7 @@ const Contact: React.FC = () => {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100">Partner Support</p>
+                    <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100">SUPPORT & ENQUIRIES</p>
                     <h4 className="text-sm font-semibold text-white mt-0.5 break-all">{footerContact.email}</h4>
                   </div>
                 </motion.a>
@@ -153,7 +153,7 @@ const Contact: React.FC = () => {
                         <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-400/10 to-transparent border border-white/5 transition-colors group-hover:bg-amber-400 group-hover:text-black">
                           <MapPin className="w-4 h-4" />
                         </div>
-                        <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100">Head Office</p>
+                        <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100">OFFICE ADDRESS</p>
                       </div>
                      
                       <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
@@ -181,21 +181,25 @@ const Contact: React.FC = () => {
                 <div className="space-y-8 relative z-10">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-3xl font-bold text-white tracking-tight">Restaurant Enquiry</h3>
+                      <h3 className="text-3xl font-bold text-white tracking-tight">Business Enquiry</h3>
                       <span className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 font-mono text-[9px] text-amber-400">
                         <span className="w-1 h-1 rounded-full bg-amber-400 animate-ping" />
                         ONLINE INTAKE
                       </span>
                     </div>
                     <p className="text-sm text-slate-400 leading-relaxed">
-                      Initialize your onboarding sequence. Click below to launch our verified onboarding dashboard in a secure, full-screen environment.
+                 Tell us about your business requirements and our team will review your enquiry and get back to you with the most suitable solution.
                     </p>
                   </div>
 
                   {/* Informational Bento Accent Card */}
                   <div className="rounded-2xl border border-amber-400/10 bg-white/[0.03] p-5">
                     <p className="text-sm text-slate-300 leading-relaxed">
-                      To help our solutions engineering team structure your customized venue blueprint, the form will gather details regarding your **ordering infrastructure, operating guest capacity, and existing Point of Sale integrations**.
+                      Share a few details about your business, current operations, and requirements.
+
+Our team will review your enquiry to understand your goals, answer your questions, and recommend the most suitable setup for your business.
+
+Once submitted, we'll get in touch with relevant information, platform details, pricing, and onboarding guidance.
                     </p>
                   </div>
 
@@ -210,12 +214,12 @@ const Contact: React.FC = () => {
                     {/* Glossy sheen swipe animation on hover */}
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
                     
-                    <span>Open Enquiry Form</span>
+                    <span>Submit Enquiry Form</span>
                     <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </motion.button>
 
                   <p className="text-[15px] text-slate-500 text-center tracking-wide">
-                    Fast-track deployment pipeline. Redirects to secure Google Infrastructure.
+                    Our team will review your requirements and reach out with the most relevant information and next steps.
                   </p>
                 </div>
               </motion.div>
@@ -226,12 +230,29 @@ const Contact: React.FC = () => {
 
         {/* ── SECURITY ENCRYPTION METRICS FOOTER BADGES ── */}
         <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 pb-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 pt-8 border-t border-white/[0.05]">
+          <div className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 border-t border-white/[0.05]">
             {[
-              { icon: Shield, title: "Secure Guest Payments", desc: "Safe, compliant financial transaction layers for restaurant checkouts." },
-              { icon: Cpu, title: "Reliable KOT Flow Engine", desc: "Digital tickets move instantly and securely from table endpoints to kitchen." },
-              { icon: Globe, title: "Domestic Hospitality Support", desc: "Dedicated optimization service structured specifically for Indian operators." }
-            ].map((stat, i) => {
+  {
+    icon: Shield,
+    title: "Operational Excellence",
+    desc: "Built to simplify ordering, billing, payments, and day-to-day business operations."
+  },
+  {
+    icon: Globe,
+    title: "Reliable Platform",
+    desc: "Secure cloud-based infrastructure designed for consistent performance and accessibility."
+  },
+  {
+    icon: Cpu,
+    title: "Business Insights",
+    desc: "Make informed decisions with real-time reports, sales trends, and operational visibility."
+  },
+  {
+    icon: Shield,
+    title: "Dedicated Support",
+    desc: "Friendly onboarding and support assistance whenever your team needs help."
+  }
+].map((stat, i) => {
               const StatIcon = stat.icon;
               return (
                 <div key={i} className="flex gap-4 items-start p-4 rounded-xl bg-white/[0.01] border border-white/[0.02]">

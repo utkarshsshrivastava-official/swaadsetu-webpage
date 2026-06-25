@@ -221,7 +221,7 @@ const FAQ: React.FC = () => {
                   }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                  Help Centre
+                  FAQ
                 </div>
               </motion.div>
 
@@ -229,12 +229,12 @@ const FAQ: React.FC = () => {
                 {...fadeUp(0.08)}
                 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.06] text-white mb-5"
               >
-                Got questions?{" "}
+                Everything You{" "}
                 <span
                   className="bg-clip-text text-transparent"
                   style={{ backgroundImage: "linear-gradient(90deg,#fbbf24,#fb923c)" }}
                 >
-                  We've got answers.
+                  Need to Know.
                 </span>
               </motion.h1>
 
@@ -242,8 +242,7 @@ const FAQ: React.FC = () => {
                 {...fadeUp(0.14)}
                 className="text-slate-400 text-lg leading-relaxed max-w-xl mx-auto font-light"
               >
-                Everything you need to know about SwaadSetu's QR-based
-                ordering platform, features, setup, and more.
+                Explore answers to common questions about setup, features, billing, support, and running your food business with SwaadSetu.
               </motion.p>
             </div>
           </section>
