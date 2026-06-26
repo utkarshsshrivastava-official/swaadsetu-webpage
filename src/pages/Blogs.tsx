@@ -49,11 +49,18 @@ const particles = [
    Types & Data
 ───────────────────────────────────────────── */
 type BlogCategory = "All" | "Product"  | "Updates" | "Operations" | "Growth" ;
+type AccentCategory = BlogPost["category"] | "Article";
+type Accent = {
+  bg: string;
+  text: string;
+  border: string;
+};
 
 export interface BlogBullet {
   title: string;
   description: string;
 }
+
 
 export interface BlogSection {
   heading?: string;
@@ -868,43 +875,50 @@ const BLOG_POSTS: BlogPost[] = [
 
 const CATEGORIES: BlogCategory[] = ["All", "Product", "Operations", "Growth", "Updates"]
 
-const categoryAccent = {
+const categoryAccent: Record<AccentCategory, Accent> = {
   Product: {
     bg: "rgba(34,197,94,0.10)",
     text: "#22c55e",
     border: "rgba(34,197,94,0.25)",
   },
+
   Operations: {
     bg: "rgba(59,130,246,0.10)",
     text: "#60a5fa",
     border: "rgba(59,130,246,0.25)",
   },
+
   Growth: {
     bg: "rgba(251,191,36,0.12)",
     text: "#fbbf24",
-    border: "rgba(251,191,36,0.3)",
+    border: "rgba(251,191,36,0.30)",
   },
+
   Updates: {
     bg: "rgba(139,92,246,0.12)",
     text: "#a78bfa",
-    border: "rgba(139,92,246,0.3)",
+    border: "rgba(139,92,246,0.30)",
   },
+
   Article: {
     bg: "rgba(251,191,36,0.08)",
     text: "#fbbf24",
-    border: "rgba(251,191,36,0.2)",
+    border: "rgba(251,191,36,0.20)",
   },
 };
-const getAccent = (cat: string) => categoryAccent[cat ] ?? categoryAccent["Article"];
 
+
+const getAccent = (category: BlogPost["category"]): Accent => {
+  return categoryAccent[category];
+};
 /* ═══════════════════════════════════════════
    PAGE COMPONENT
 ═══════════════════════════════════════════ */
 const BlogsPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<BlogCategory>("All");
   const [search, setSearch] = useState("");
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
+  // const [email, setEmail] = useState("");
+  // const [subscribed, setSubscribed] = useState(false);
 
   const filteredPosts = useMemo(() => {
     return BLOG_POSTS.filter((post) => {

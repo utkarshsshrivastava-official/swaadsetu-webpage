@@ -14,6 +14,7 @@ import { Footer } from "../component/Footer";
 import BackButton from "../component/ui/BackButton";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { CTASection } from "../component/cta-section";
+// import { image } from "framer-motion/client";
 // import { CTASection } from "../component/cta-section";
 
 /* ─────────────────────────────────────────────
@@ -60,6 +61,15 @@ const particles = [
   { x: "55%", y: "8%",  size: 4, delay: 0.5 },
 ];
 
+
+const qrImage = "https://images.pexels.com/photos/2451622/pexels-photo-2451622.jpeg";
+const trackingImage = "https://picsum.photos/800/600?random=2";
+const billingImage = "https://picsum.photos/800/600?random=3";
+const serviceImage = "https://picsum.photos/800/600?random=4";
+const analyticsImage = "https://picsum.photos/800/600?random=5";
+const inventoryImage = "https://picsum.photos/800/600?random=6";
+const qsrImage = "https://picsum.photos/800/600?random=7";
+
 /* ─────────────────────────────────────────────
    Feature data
 ───────────────────────────────────────────── */
@@ -69,32 +79,37 @@ interface Feature {
   title: string;
   description: string;
   bullets: string[];
- workflow: {
-  label: string;
-  title: string;
-  description: string;
-};
+  workflow: {
+    label: string;
+    title: string;
+    description: string;
+  };
   image: string;
   imageAlt: string;
-  flip?: boolean; // alternate image side
+  flip?: boolean;
 }
 
-const features = [
+const features: Feature[] = [
 {
-number: "01",
-eyebrow: "SMART QR ORDERING",
-title: "Instant QR Ordering",
-description: "Enable guests to browse menus, place orders, and interact with your business through a simple QR scan. No app downloads, no printed menus, and no unnecessary waiting. Keep menus updated in real time while delivering a faster, more seamless service experience.",
-bullets: [
-"Real-Time Menu Updates",
-"No App Downloads Required",
-"Multi-Language Support"
-],
-workflow: {
-label: "CUSTOMER EXPERIENCE",
-title: "Scan → Browse → Order",
-description: "Seamless ordering journey with zero installation or onboarding friction."
-}
+  number: "01",
+  eyebrow: "SMART QR ORDERING",
+  title: "Instant QR Ordering",
+  description:
+    "Enable guests to browse menus, place orders, and interact with your business through a simple QR scan. No app downloads, no printed menus, and no unnecessary waiting. Keep menus updated in real time while delivering a faster, more seamless service experience.",
+  bullets: [
+    "Real-Time Menu Updates",
+    "No App Downloads Required",
+    "Multi-Language Support",
+  ],
+  workflow: {
+    label: "CUSTOMER EXPERIENCE",
+    title: "Scan → Browse → Order",
+    description:
+      "Seamless ordering journey with zero installation or onboarding friction.",
+  },
+  image: qrImage,
+  imageAlt: "QR Ordering",
+  flip: false,
 },
 
 {
@@ -111,7 +126,10 @@ workflow: {
 label: "ORDER JOURNEY",
 title: "Placed → Preparing → Ready → Served",
 description: "Real-time visibility across every stage of the service flow."
-}
+},
+ image: trackingImage,
+  imageAlt: "Order Tracking",
+  flip: true,
 },
 
 {
@@ -128,7 +146,10 @@ workflow: {
 label: "PAYMENT EXPERIENCE",
 title: "Bill → Pay → Complete",
 description: "Fast, accurate, and hassle-free checkout for guests and staff."
-}
+},
+ image: billingImage,
+  imageAlt: "Digital Billing",
+  flip: false,
 },
 
 {
@@ -145,7 +166,10 @@ workflow: {
 label: "SERVICE FLOW",
 title: "Request → Alert → Assist",
 description: "Ensure every guest request reaches the right staff member instantly."
-}
+},
+image: serviceImage,
+  imageAlt: "Staff Management",
+  flip: true,
 },
 
 {
@@ -162,7 +186,10 @@ workflow: {
 label: "DECISION MAKING",
 title: "Data → Insights → Growth",
 description: "Turn everyday business data into actions that improve performance."
-}
+},
+ image: analyticsImage,
+  imageAlt: "Business Analytics",
+  flip: false,
 },
 
 {
@@ -179,7 +206,10 @@ workflow: {
 label: "OPERATIONAL CONTROL",
 title: "Track → Analyze → Optimize",
 description: "Stay informed about stock usage and business expenses in one place."
-}
+},
+ image: inventoryImage,
+  imageAlt: "Inventory",
+  flip: true,
 },
 
 {
@@ -196,7 +226,10 @@ workflow: {
 label: "HIGH-FOOTFALL READY",
 title: "Scan → Order → Collect",
 description: "Designed to handle peak-hour demand with faster and more efficient service workflows."
-}
+},
+ image: qsrImage,
+  imageAlt: "QSR",
+  flip: false,
 }
 ];
 
@@ -292,6 +325,7 @@ const FeatureSection: FC = () => {
               </motion.div>
 
               <motion.h1
+              
                 {...fadeUp(0.2)}
                 className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
               >
@@ -390,7 +424,7 @@ const FeatureSection: FC = () => {
 
                     {/* Description */}
                     <motion.p
-                      {...(f.flip ? fadeRight(0.2) : fadeLeft(0.2))}
+                      {...(f.flip ? fadeRight(0.05) : fadeLeft(0.05))}
                       className="text-slate-400 leading-relaxed text-base"
                     >
                       {f.description}
@@ -398,7 +432,7 @@ const FeatureSection: FC = () => {
 
                     {/* Bullets */}
                     <motion.ul
-                      {...(f.flip ? fadeRight(0.28) : fadeLeft(0.28))}
+                     
                       className="space-y-2.5"
                     >
                       {f.bullets.map((b) => (

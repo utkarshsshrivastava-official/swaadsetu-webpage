@@ -1,7 +1,7 @@
 ﻿﻿import { useState, useMemo, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { QrCode, Clock, FileText, Bell, CreditCard, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
+import { QrCode, Clock, FileText, Bell, CreditCard, ArrowRight,  ShieldCheck } from "lucide-react";
 import { Images } from "../assets/assets";
 
 // Types
@@ -12,8 +12,15 @@ interface Feature {
   color: string;
   bg: string;
   image: string;
-  stat: { value: string; label: string };
-  metrics: { label: string; value: string }[];
+  stat: {
+    value: string;
+    label: string;
+  };
+  metrics: {
+    label: string;
+    value: string;
+  }[];
+  badges: string[];
 }
 
 // Immutable Feature Configuration Data
