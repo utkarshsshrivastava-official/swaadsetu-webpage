@@ -60,7 +60,7 @@ const productLinks = [
 const companyLinks = [
   { label: "About Us", to: "/about" },
   { label: "About Zager",     to: "https://www.zager.in/"},
-  { label: "Contac Us",     to: "/contact" },
+  { label: "Contact Us",     to: "/contact" },
   { label: "Blog",     to: "/blogs" },
 ];
 
@@ -77,7 +77,7 @@ export const footerContact = {
 
 const bottomLinks = [
   { label: "Home",           to: "/"              },
-  { label: "Contact",        to: "/#contact"      },
+  { label: "Contact",        to: "/contact"       },
   { label: "Privacy Policy", to: "/legal#privacy" },
   { label: "Terms of Service", to: "/legal#terms" },
   { label: "Cookie Policy",  to: "/legal#cookies" },

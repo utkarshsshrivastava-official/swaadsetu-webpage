@@ -28,10 +28,10 @@ export const faqData: FaqCategory[] = [
     items: [
       {
         id: "general-1",
-        question: "What is SWAAD SETU?",
+        question: "What is SwaadSetu?",
         answer: (
           <>
-            <p className="mt-4 mb-3 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               SwaadSetu is an all-in-one food business operating platform that helps manage ordering, billing, payments, inventory, expenses, customer engagement, and daily operations through a unified system.
 
             </p>
@@ -44,7 +44,7 @@ export const faqData: FaqCategory[] = [
         question: "Who is SwaadSetu designed for?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
              SwaadSetu is suitable for restaurants, cafés, QSRs, cloud kitchens, food courts, and other food service businesses looking to streamline operations and improve customer experiences.
             </p>
           </>
@@ -54,7 +54,7 @@ export const faqData: FaqCategory[] = [
         id: "general-3",
         question: "Do customers need to download an app?",
         answer: (
-          <p className="mt-4 mb-3 text-sm text-[#666666] leading-relaxed">
+          <p className="text-sm text-slate-400 leading-relaxed">
             <strong>No!</strong> Customers simply scan a QR code and access the menu directly through their mobile browser without installing any application.
 
           </p>
@@ -65,7 +65,7 @@ export const faqData: FaqCategory[] = [
         question: "How quickly can I get started?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
                Most businesses can be onboarded within a short time. Our team assists with setup, menu configuration, staff onboarding, and initial guidance.
             </p>
            
@@ -77,27 +77,9 @@ export const faqData: FaqCategory[] = [
         question: "Can I migrate from another platform?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
              Yes. Our team can help transfer menus and operational data wherever possible to ensure a smooth transition.
             </p>
-          </>
-        ),
-      },
-      {
-        id: "general-6",
-        question: "How dose SWAAD SETU compare with competitors?",
-        answer: (
-          <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
-              <strong> SWAAD SETU</strong> stands out because :
-            </p>
-            <ul className="ml-5 mb-3 list-disc text-sm text-[#666666]">
-              <li>No app download required</li>
-              <li>Affordable pricing tailored for Indian restaurants</li>
-              <li>Local support in your timezone</li>
-              <li>Quick implementation </li>
-              <li>Strong focus on small to medium restaurants</li>
-            </ul>
           </>
         ),
       },
@@ -117,7 +99,7 @@ export const faqData: FaqCategory[] = [
         question: "How does QR ordering work?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
              Customers scan a table QR code, browse the menu, place orders, and receive updates directly from their mobile device.
             </p>
           </>
@@ -128,7 +110,7 @@ export const faqData: FaqCategory[] = [
         question: "Can customers track their orders?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
              Yes. Customers can view real-time order status updates from placement to completion.
 
             </p>
@@ -140,7 +122,7 @@ export const faqData: FaqCategory[] = [
         question: "Can customers call staff through SwaadSetu?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
              Yes. Guests can send waiter assistance requests directly from their table without searching for staff.
             </p>
           </>
@@ -152,7 +134,7 @@ export const faqData: FaqCategory[] = [
           "Can menus be updated instantly?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               Absolutely. Menu items, pricing, availability, and categories can be updated at any time without replacing QR codes.
             </p>
           </>
@@ -163,7 +145,7 @@ export const faqData: FaqCategory[] = [
         question: "Does SwaadSetu support dine-in and takeaway?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
              Yes. Businesses can manage different order types through a single platform.
             </p>
           </>
@@ -182,7 +164,7 @@ export const faqData: FaqCategory[] = [
         question: "Does SwaadSetu include billing?",
         answer: (
           <>
-            <p className="mt-4 mb-1 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               Yes. Generate digital bills, apply taxes and discounts, and manage transactions through a streamlined billing workflow.
             </p>
           </>
@@ -193,7 +175,7 @@ export const faqData: FaqCategory[] = [
         question: "Can I manage multiple staff members?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               Yes. Create staff accounts and assign access based on operational responsibilities.
             </p>
           </>
@@ -204,10 +186,30 @@ export const faqData: FaqCategory[] = [
         question: "Does the platform include inventory tracking?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               Yes. Track stock consumption and maintain better visibility over inventory levels.
             </p>
           </>
+        ),
+      },
+      {
+        id: "features-4",
+        question: "Can I record business expenses?",
+        answer: (
+          <p className="text-sm text-slate-400 leading-relaxed">
+            Yes. SwaadSetu includes expense tracking to help monitor
+            operational costs and profitability.
+          </p>
+        ),
+      },
+      {
+        id: "features-5",
+        question: "Are business reports available?",
+        answer: (
+          <p className="text-sm text-slate-400 leading-relaxed">
+            Yes. Access reports related to orders, sales, expenses, customer
+            activity, and operational performance.
+          </p>
         ),
       },
     ],
@@ -223,7 +225,7 @@ export const faqData: FaqCategory[] = [
         question: "Is there a setup fee?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
              No. Pricing is transparent with no hidden setup charges.
             </p>
           </>
@@ -234,10 +236,7 @@ export const faqData: FaqCategory[] = [
         question: "Is there a long-term contract?",
         answer: (
           <>
-            {/* <p className="mt-4 mb-1 text-sm text-[#666666] leading-relaxed">
-            <strong>Minimum:</strong> 2 Mbps (stable connection)
-          </p> */}
-            <p className="mb-1 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               No. Businesses can choose the subscription plan that best suits their requirements.
             </p>
           </>
@@ -248,18 +247,18 @@ export const faqData: FaqCategory[] = [
         question: "What is included in the subscription?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
              The subscription includes platform access, feature updates, support, onboarding assistance, and ongoing improvements.
             </p>
           </>
         ),
       },
       {
-        id: "setup-3",
+        id: "setup-4",
         question: "Can I upgrade my plan later?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
             Yes. As your requirements evolve, additional features and upgrades can be discussed with our team.
             </p>
           </>
@@ -278,7 +277,7 @@ export const faqData: FaqCategory[] = [
         question: "What kind of support is available?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
              Support is available through WhatsApp, phone, and email for onboarding, training, and operational assistance.
             </p>
           </>
@@ -289,7 +288,7 @@ export const faqData: FaqCategory[] = [
         question: "Do you provide staff training?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               Yes. We guide teams through platform usage and best practices during onboarding
             </p>
           </>
@@ -300,7 +299,7 @@ export const faqData: FaqCategory[] = [
         question: "What if I need help after setup?",
         answer: (
           <>
-            <p className="mt-4 mb-3 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               Our support team remains available to assist with product-related queries and operational challenges.
             </p>
           </>
@@ -311,7 +310,7 @@ export const faqData: FaqCategory[] = [
         question: "Do I need technical knowledge to use SwaadSetu?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               No. The platform is designed for everyday business users and requires no technical expertise.
             </p>
           </>
@@ -324,14 +323,14 @@ export const faqData: FaqCategory[] = [
 
   {
     id: "support",
-    label: "Support & Training",
+    label: "Security & Reliability",
     items: [
       {
         id: "support-1",
         question: "Is my business data secure?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
              Yes. SwaadSetu uses secure cloud infrastructure, controlled access permissions, and regular backups.
             </p>
           </>
@@ -342,7 +341,7 @@ export const faqData: FaqCategory[] = [
         question: "Does SwaadSetu work on mobile devices?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
             Yes. The platform works across smartphones, tablets, laptops, and desktop devices.
 
             </p>
@@ -354,7 +353,7 @@ export const faqData: FaqCategory[] = [
         question: "Will my QR codes stop working if I update my menu?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               No. QR codes remain the same while menu changes update automatically.
             </p>
           </>
@@ -365,7 +364,7 @@ export const faqData: FaqCategory[] = [
         question: "Is internet required to use SwaadSetu?",
         answer: (
           <>
-            <p className="mt-4 mb-2 text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               Yes. An active internet connection is required to access real-time platform functionality.
             </p>
           </>

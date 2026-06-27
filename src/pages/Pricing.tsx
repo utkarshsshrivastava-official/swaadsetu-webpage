@@ -55,29 +55,6 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] as const },
 });
 
-/* ── Plan data ── */
-const plans = [
-  {
-    id: "standard",
-    name: "Include",
-    tagline: "Everything you need to manage your restaurant",
-    price: { monthly: 1499, annual: 1199 },
-    badge: "All-in-one",
-    accent: "from-amber-400 to-orange-400",
-    borderClass: "border-amber-400/40",
-    features: [
-      "Unlimited QR menus & items",
-      "Real-time order tracking",
-      "Analytics dashboard",
-      "Priority Support",
-      "Unlimited staff accounts",
-      "Custom menu branding"
-    ],
-    cta: "Start Free Trial",
-    ctaClass: "bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none shadow-[0_0_32px_rgba(251,191,36,0.35)] hover:shadow-[0_0_48px_rgba(251,191,36,0.55)]",
-  },
-];
-
 /* ── Feature comparison table ── */
 const tableFeatures = [
   { label: "QR Ordering System", value: "Unlimited" },
@@ -109,53 +86,52 @@ const CrossIcon = () => (
 
 /* ── FAQ ── */
 const faqs = [
-{
-q: "Do customers need to install an app?",
-a: "No. Customers simply scan the QR code and access the digital menu directly through their mobile browser. No app downloads or registrations are required."
-},
-{
-q: "How long does setup take?",
-a: "Most businesses can get started within a day. Our team helps with menu setup, QR generation, staff onboarding, and initial configuration."
-},
-{
-q: "What payment methods are supported?",
-a: "SwaadSetu supports UPI, cards, and other digital payment methods through integrated payment gateways, depending on your setup."
-},
-{
-q: "Can I manage multiple staff members?",
-a: "Yes. You can create separate staff accounts and provide role-based access for managers, cashiers, waiters, and other team members."
-},
-{
-q: "Does SwaadSetu provide order tracking?",
-a: "Yes. Customers can view real-time order status updates while staff and kitchen teams can track orders from placement to completion."
-},
-{
-q: "Can I update my menu anytime?",
-a: "Absolutely. Add, edit, remove, or update menu items, pricing, and availability instantly without reprinting QR codes."
-},
-{
-q: "Is inventory and expense management included?",
-a: "Yes. SwaadSetu helps track stock consumption, manage expenses, and gain better visibility into daily operational costs."
-},
-{
-q: "Is there any setup fee or hidden charge?",
-a: "No. Our pricing is transparent with no hidden fees. You only pay for the selected subscription plan."
-},
-{
-q: "What kind of support do you provide?",
-a: "We offer support through WhatsApp, phone, and email to help with onboarding, setup, and operational queries."
-},
-{
-q: "Is my business data secure?",
-a: "Yes. We use secure cloud infrastructure, controlled access permissions, and regular backups to protect your operational data."
-}
+  {
+    q: "Do customers need to install an app?",
+    a: "No. Customers simply scan the QR code and access the digital menu directly through their mobile browser. No app downloads or registrations are required."
+  },
+  {
+    q: "How long does setup take?",
+    a: "Most businesses can get started within a day. Our team helps with menu setup, QR generation, staff onboarding, and initial configuration."
+  },
+  {
+    q: "What payment methods are supported?",
+    a: "SwaadSetu supports UPI, cards, and other digital payment methods through integrated payment gateways, depending on your setup."
+  },
+  {
+    q: "Can I manage multiple staff members?",
+    a: "Yes. You can create separate staff accounts and provide role-based access for managers, cashiers, waiters, and other team members."
+  },
+  {
+    q: "Does SwaadSetu provide order tracking?",
+    a: "Yes. Customers can view real-time order status updates while staff and kitchen teams can track orders from placement to completion."
+  },
+  {
+    q: "Can I update my menu anytime?",
+    a: "Absolutely. Add, edit, remove, or update menu items, pricing, and availability instantly without reprinting QR codes."
+  },
+  {
+    q: "Is inventory and expense management included?",
+    a: "Yes. SwaadSetu helps track stock consumption, manage expenses, and gain better visibility into daily operational costs."
+  },
+  {
+    q: "Is there any setup fee or hidden charge?",
+    a: "No. Our pricing is transparent with no hidden fees. You only pay for the selected subscription plan."
+  },
+  {
+    q: "What kind of support do you provide?",
+    a: "We offer support through WhatsApp, phone, and email to help with onboarding, setup, and operational queries."
+  },
+  {
+    q: "Is my business data secure?",
+    a: "Yes. We use secure cloud infrastructure, controlled access permissions, and regular backups to protect your operational data."
+  }
 ];
 
 
 
 
 const Pricing: FC = () => {
-  // const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
@@ -236,7 +212,7 @@ const Pricing: FC = () => {
                 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"
               >
                 Simple Pricing.{" "}
-                <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent block sm:inline">
                    Powerful Operations.
                 </span>
               </motion.h1>
@@ -270,91 +246,6 @@ const Pricing: FC = () => {
               </motion.div>*/}
             </div>
 
-            {/* ── Pricing cards ── */}
-           {/*  <div className="max-w-md mx-auto mb-20">
-              {plans.map((plan, i) => {
-                const price =
-                  plan.price.monthly === null
-                    ? null
-                    : billing === "monthly"
-                    ? plan.price.monthly
-                    : plan.price.annual;
-
-                return (
-                  <motion.div
-                    key={plan.id}
-                    initial={{ opacity: 0, y: 32 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.65,
-                      delay: 0.5 + i * 0.12,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    className={`relative flex flex-col rounded-3xl border bg-white/[0.03] backdrop-blur-sm p-8 ${plan.borderClass} ring-1 ring-amber-400/30 shadow-[0_0_60px_rgba(251,191,36,0.1)]`}
-                  >
-                   Popular badge 
-                    {plan.badge && (
-                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                        <span className="bg-gradient-to-r from-amber-400 to-orange-400 text-black text-[11px] font-bold px-4 py-1.5 rounded-full shadow-[0_0_20px_rgba(251,191,36,0.4)]">
-                          {plan.badge}
-                        </span>
-                      </div>
-                    )}
-
-                   Gradient accent line 
-                    <div className={`h-1 w-12 rounded-full bg-gradient-to-r ${plan.accent} mb-6`} />
-
-                    <h2 className="text-xl font-bold text-white mb-1">{plan.name}</h2>
-                    <p className="text-sm text-slate-400 leading-snug mb-6">{plan.tagline}</p>
-
-                  Price 
-                    <div className="mb-6">
-                      {price === null ? (
-                        <div>
-                          <span className="text-3xl font-black text-white">Custom</span>
-                          <p className="text-xs text-slate-500 mt-1">Tailored to your scale</p>
-                        </div>
-                      ) : (
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-slate-400 text-lg font-medium">₹</span>
-                          <span className="text-4xl font-black text-white tabular-nums">
-                            {price.toLocaleString("en-IN")}
-                          </span>
-                          <span className="text-slate-500 text-sm">/mo</span>
-                        </div>
-                      )}
-                      {billing === "annual" && price !== null && (
-                        <p className="text-[11px] text-amber-400/70 mt-1">
-                          Billed annually · Save ₹{((plan.price.monthly! - plan.price.annual!) * 12).toLocaleString("en-IN")}/yr
-                        </p>
-                      )}
-                    </div>
-
-                     Features 
-                    <ul className="flex flex-col gap-3 mb-8 flex-1">
-                      {plan.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2.5 text-sm text-slate-300">
-                          <CheckIcon />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-
-                    CTA 
-                    <button
-                      onClick={handleCTA}
-                      className={`btn w-full rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-95 ${plan.ctaClass}`}
-                    >
-                      {plan.cta}
-                      <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                      </svg>
-                    </button>
-                  </motion.div>
-                );
-              })}
-            </div>*/}
-
             {/* ── Feature comparison table ── */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -363,21 +254,19 @@ const Pricing: FC = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="mb-20"
             >
-              <h2 className="text-2xl font-bold text-center mb-2">All-in-one Plan</h2>
+              <h2 className="text-2xl font-bold text-center mb-2">All-in-One Plan</h2>
               <div className="w-12 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full mx-auto mb-10" />
 
               <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm max-w-3xl mx-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-white/10">
-                      <th className="text-left py-4 px-6 text-slate-400 font-medium">Feature</th>
-                      {plans.map((p) => (
-                        <th key={p.id} className="py-4 px-6 text-center font-bold text-white">
-                          <span className={`bg-gradient-to-r ${p.accent} bg-clip-text text-transparent`}>
-                            {p.name}
-                          </span>
-                        </th>
-                      ))}
+                      <th className="text-left py-4 px-6 text-slate-400 font-medium w-2/3">Feature</th>
+                      <th className="py-4 px-6 text-center font-bold text-white">
+                        <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
+                          Included
+                        </span>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -387,7 +276,7 @@ const Pricing: FC = () => {
                         className={`border-b border-white/5 ${i % 2 === 0 ? "bg-white/[0.01]" : ""}`}
                       >
                         <td className="py-3.5 px-6 text-slate-300">{row.label}</td>
-                       <td className="py-3.5 px-6 text-center">
+                       <td className="py-3.5 px-6 text-center flex justify-center">
   {typeof row.value === "boolean" ? (
     row.value ? (
       <CheckIcon />
@@ -413,61 +302,33 @@ const Pricing: FC = () => {
   </h3>
 
   <p className="text-slate-400 max-w-2xl mx-auto mb-6">
-    Get in touch with our team to understand plans, features,
-    onboarding, and everything included with SwaadSetu.
+    Get in touch with our team to understand plans, features, onboarding, and everything included with SwaadSetu.
   </p>
 
-  <button className="btn bg-gradient-to-r from-amber-400 to-orange-400 text-black border-none">
+  <button className="btn bg-gradient-to-r from-amber-400 to-orange-400 text-black border-none" onClick={() => window.open('mailto:connect@swaadsetu.com')}>
     Talk to Our Team
   </button>
 </div>
 
 
-            {/* ── Trust strip ── */}
+            {/*── Pricing Benefits (3 cards) ──*/}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="rounded-3xl border border-amber-400/15 bg-amber-400/5 backdrop-blur-sm p-8 md:p-12 mb-20 text-center"
+              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
             >
-              <p className="text-slate-400 text-sm mb-3 uppercase tracking-widest font-semibold">
-                Trusted by restaurants across India
-              </p>
-              {/*
-                IMAGES NOTE:
-                Replace the three placeholder images below with real photos.
-                Recommended: 80×80px circular restaurant/chef photos or logo images.
-                Source: your own assets, or royalty-free from Unsplash.
-                Example Unsplash URLs (replace with your own):
-                  https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=80&h=80&fit=crop&crop=faces
-              */}
-              <div className="flex items-center justify-center gap-3 mb-4">
-                {[
-                  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=80&h=80&fit=crop&crop=faces",
-                  "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=80&h=80&fit=crop&crop=faces",
-                  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=80&h=80&fit=crop&crop=faces",
-                ].map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt="Restaurant"
-                    className="w-10 h-10 rounded-full object-cover border-2 border-amber-400/30"
-                    style={{ marginLeft: i > 0 ? "-8px" : 0 }}
-                  />
-                ))}
-                <span className="ml-3 text-slate-300 text-sm font-medium">
-                   restaurants live
-                </span>
-              </div>
-              <p className="text-2xl md:text-3xl font-bold text-white max-w-2xl mx-auto leading-snug">
-                "SwaadSetu paid for itself in the{" "}
-                <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
-                  first week.
-                </span>
-                "
-              </p>
-              <p className="text-slate-500 text-sm mt-3">— Ravi Sharma, Owner at Spice Garden, Raipur</p>
+              {[
+                { title: "No Setup Fees", text: "Start without additional onboarding or installation charges." },
+                { title: "Unlimited Growth", text: "No restrictions on menus, orders, or staff accounts." },
+                { title: "Dedicated Support", text: "Real humans available through WhatsApp, call, and email." }
+              ].map((card, i) => (
+                <div key={i} className="rounded-2xl border border-amber-400/15 bg-amber-400/5 p-6">
+                  <h4 className="text-base font-bold text-white mb-2">{card.title}</h4>
+                  <p className="text-sm text-slate-400">{card.text}</p>
+                </div>
+              ))}
             </motion.div>
 
             {/* ── FAQ ── */}
@@ -517,12 +378,11 @@ const Pricing: FC = () => {
               {/* Bottom CTA */}
               <div className="text-center mt-12">
                 <p className="text-slate-400 text-sm mb-5">
-                Still have questions?
-                  We're happy to help. Talk to our team and see how SwaadSetu can fit your business operations.
+                  Still have questions? We're happy to help. Talk to our team and see how SwaadSetu can fit your business operations.
                 </p>
                 <a
-                  href="mailto:hello@swaadsetu.com"
-                  className="btn btn-outline border-amber-400/40 text-amber-300 hover:bg-amber-400/10 rounded-xl px-8"
+                  href="mailto:connect@swaadsetu.com"
+                  className="btn btn-outline border-amber-400/40 text-amber-300 hover:bg-amber-400/10 rounded-xl px-8 group"
                 >
                   Talk to Our Team →
                 </a>

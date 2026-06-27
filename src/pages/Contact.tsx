@@ -95,7 +95,7 @@ const Contact: React.FC = () => {
                   variants={itemVariants}
                   className="text-4xl sm:text-5xl font-bold tracking-tight text-white leading-[1.05]"
                 >
-                  Let’s Elevate Your <br />
+                  Let's Elevate Your<br />
                   <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500 bg-clip-text text-transparent">
                     Food Business Operations
                   </span>
@@ -105,7 +105,7 @@ const Contact: React.FC = () => {
                   variants={itemVariants}
                   className="text-slate-300 text-lg sm:text-xl leading-relaxed font-light max-w-xl"
                 >
-                 Reach out for restaurant ordering, table flow, and guest engagement solutions built specifically for modern Indian dining spaces.
+                 Have questions about SwaadSetu? Whether you're exploring digital ordering, billing, inventory management, or customer engagement, our team is here to help you find the right solution.
                 </motion.p>
               </div>
 
@@ -113,31 +113,31 @@ const Contact: React.FC = () => {
               <div className="space-y-4 pt-4">
                 <motion.a
                   variants={itemVariants}
-                  href={`mailto:${footerContact.email}`}
+                  href="tel:+919407655717"
                   className="group flex items-center gap-5 rounded-2xl border border-white/[0.05] bg-white/[0.03] p-5 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/[0.04]"
                 >
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-400/10 to-transparent text-amber-400 border border-white/5 transition-colors group-hover:bg-amber-400 group-hover:text-black">
-                    <Mail className="w-5 h-5" />
+                    <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100">SUPPORT & ENQUIRIES</p>
-                    <h4 className="text-sm font-semibold text-white mt-0.5 break-all">{footerContact.email}</h4>
+                    <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100">Sales & Onboarding</p>
+                    <h4 className="text-sm font-semibold text-white mt-0.5">+91 9407655717</h4>
                   </div>
                 </motion.a>
 
-                <div className="grid sm:grid-cols-2 gap-2">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <motion.a
                     variants={itemVariants}
-                    href={`tel:${footerContact.phone.replace(/\s+/g, "")}`}
+                    href={`mailto:${footerContact.email}`}
                     className="group block rounded-2xl border border-white/[0.05] bg-white/[0.03] p-5 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/[0.04]"
                   >
                     <div className="flex items-center justify-start text-amber-400 mb-4 gap-3">
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-400/10 to-transparent text-amber-400 border border-white/5 transition-colors group-hover:bg-amber-400 group-hover:text-black">
-                        <Phone className="w-4 h-4" />
+                        <Mail className="w-4 h-4" />
                       </div>
-                      <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100  ">Sales & Onboarding</p>
+                      <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100">SUPPORT & ENQUIRIES</p>
                     </div>
-                    <h4 className="text-sm font-semibold text-white mt-1">{footerContact.phone}</h4>
+                    <h4 className="text-sm font-semibold text-white mt-1 break-all">connect@swaadsetu.com</h4>
                   </motion.a>
 
                   <motion.a
@@ -147,7 +147,6 @@ const Contact: React.FC = () => {
                     rel="noopener noreferrer"
                     className="group block rounded-2xl border border-white/[0.05] bg-white/[0.03] p-5 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/[0.04]"
                   >
-                    
                     <div className="flex items-center justify-between text-amber-400 mb-4 gap-3">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-400/10 to-transparent border border-white/5 transition-colors group-hover:bg-amber-400 group-hover:text-black">
@@ -155,14 +154,12 @@ const Contact: React.FC = () => {
                         </div>
                         <p className="text-[13px] font-mono uppercase tracking-[0.2em] text-slate-100">OFFICE ADDRESS</p>
                       </div>
-                     
                       <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
                         Map <ArrowRight className="w-3 h-3" />
                       </span>
                     </div>
-                   
                     <div className="text-xs text-slate-300 mt-1 line-clamp-2">
-                      {footerContact.addressLines.join(", ")}
+                      Zager Digital Services, Startup Enclave, CSIT Durg, Chhattisgarh 491001
                     </div>
                   </motion.a>
                 </div>
@@ -214,7 +211,7 @@ Once submitted, we'll get in touch with relevant information, platform details, 
                     {/* Glossy sheen swipe animation on hover */}
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
                     
-                    <span>Submit Enquiry Form</span>
+                    <span>Submit Business Enquiry</span>
                     <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </motion.button>
 
@@ -230,7 +227,7 @@ Once submitted, we'll get in touch with relevant information, platform details, 
 
         {/* ── SECURITY ENCRYPTION METRICS FOOTER BADGES ── */}
         <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 pb-16">
-          <div className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 border-t border-white/[0.05]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 border-t border-white/[0.05]">
             {[
   {
     icon: Shield,
@@ -248,7 +245,7 @@ Once submitted, we'll get in touch with relevant information, platform details, 
     desc: "Make informed decisions with real-time reports, sales trends, and operational visibility."
   },
   {
-    icon: Shield,
+    icon: Shield, // Assuming this is correct, as per the code. If another icon is needed, it can be changed.
     title: "Dedicated Support",
     desc: "Friendly onboarding and support assistance whenever your team needs help."
   }
@@ -260,8 +257,8 @@ Once submitted, we'll get in touch with relevant information, platform details, 
                     <StatIcon size={14} />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white tracking-wide">{stat.title}</h4>
-                    <p className="text-[14px] text-white leading-normal mt-0.5">{stat.desc}</p>
+                    <h4 className="text-sm font-bold text-white tracking-wide leading-tight">{stat.title}</h4>
+                    <p className="text-xs text-slate-400 leading-relaxed mt-1">{stat.desc}</p>
                   </div>
                 </div>
               );

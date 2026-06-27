@@ -38,7 +38,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-[#060812] overflow-hidden flex items-center pt-24 pb-16">
+    <section className="relative min-h-screen bg-[#060812] overflow-hidden flex items-center pt-16 pb-16">
       {/* ── Background grid ── */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -114,7 +114,7 @@ const Hero = () => {
               </svg>
             </button>
             <button
-              onClick={() => (window.location.href = "https://www.swaadsetu.com/features")}
+              onClick={() => (window.location.href = "/features")}
               className="btn btn-lg h-[56px] px-8 btn-ghost border border-white/20 text-white hover:bg-white/10 hover:border-white/40 rounded-2xl transition-all duration-300 backdrop-blur-sm"
             >
               Explore Features

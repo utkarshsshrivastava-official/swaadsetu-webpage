@@ -322,7 +322,7 @@ const About: FC = () => {
 
               <motion.h1
                 {...fadeUp(0.2)}
-                className="text-4xl sm:text-5xl lg:text-4xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
+                className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
               >
                Building The {" "}
                 <span className="relative inline-block mb-3">
@@ -393,7 +393,7 @@ const About: FC = () => {
 
                 <motion.h2
                   {...fadeLeft(0.15)}
-                  className="mt-4 text-3xl sm:text-4xl font-bold leading-tight text-white"
+                  className="mt-4 text-3xl sm:text-5xl font-bold leading-tight text-white"
                 >
                   Built for { " "}
                   <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
@@ -517,7 +517,7 @@ const About: FC = () => {
                   {...fadeUp(i * 0.1)}
                   className="flex flex-col items-center text-center gap-1"
                 >
-                  <span className="text-4xl lg:text-4xl font-black tabular-nums bg-gradient-to-b from-amber-200 to-amber-500 bg-clip-text text-transparent">
+                  <span className="text-4xl lg:text-5xl font-black tabular-nums bg-gradient-to-b from-amber-200 to-amber-500 bg-clip-text text-transparent">
                     <Counter target={s.value} suffix={s.suffix} />
                   </span>
                   <span className="text-sm font-semibold text-white mt-1">{s.label}</span>
@@ -567,7 +567,7 @@ const About: FC = () => {
 
                 <motion.h2
                   {...fadeRight(0.15)}
-                  className="text-3xl sm:text-4xl lg:text-4xl font-bold leading-[1.1] text-white drop-shadow-md"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] text-white drop-shadow-md"
                 >
                   Every Food Business  Deserves{" "}
                   <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
@@ -634,11 +634,11 @@ const About: FC = () => {
 
             <motion.h2
               {...fadeUp(0.15)}
-              className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white mb-6 drop-shadow-md leading-[1.1]"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 drop-shadow-md leading-[1.1]"
             >
              The  {" "}
               <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-xl">
-               Principles
+               Principles {" "}
               </span>
               Behind SwaadSetu
             </motion.h2>

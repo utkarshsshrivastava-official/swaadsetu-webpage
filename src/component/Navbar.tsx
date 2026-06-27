@@ -116,25 +116,15 @@ const Navbar = () => {
 
     // If the path contains a hash (e.g., /#contact) or is exactly "/"
     if (path.includes("#") || path === "/") {
-      if (location.pathname !== "/") {
+      if (path === "/") {
+        // If it's the home link, always scroll to top if on the home page, otherwise navigate.
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        if (location.pathname !== "/") navigate("/");
+      } else if (location.pathname !== "/") {
         // If we are on another page (like /about) and click a hash link meant for home,
         // we navigate to it. (React Router will handle the jump if configured, or we jump on load).
         navigate(path);
-      } else {
-        // We are already on the home page, so let's smoothly scroll to the ID.
-        // Extract the ID (e.g., from "/#contact" get "contact", from "/" get "home")
-        const targetId = path === "/" ? "home" : path.split("#")[1];
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80, // Offset for navbar height
-            behavior: "smooth"
-          });
-        } else if (path === "/") {
-          // Fallback for home if no #home element exists
-          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-        }
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
       }
     } else {
       // Standard route navigation for other pages (like /about, /pricing)
@@ -162,6 +152,7 @@ const Navbar = () => {
       />
 
       {/* ── subtle top accent line ── */}
+      
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400/50 to-transparent" />
 
       {/* ── floating micro-particles ── */}

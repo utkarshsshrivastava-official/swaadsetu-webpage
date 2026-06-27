@@ -5,6 +5,7 @@ import Navbar from "../component/Navbar";
 import { Footer } from "../component/Footer";
 import BackButton from "../component/ui/BackButton";
 import { Helmet } from "@dr.pogodin/react-helmet";
+import { BLOG_POSTS, type BlogSection } from "../data/blogData";
 
 /* ─────────────────────────── animation helpers (same as About / Hero) ── */
 const fadeUp = (delay = 0) => ({
@@ -15,204 +16,43 @@ const fadeUp = (delay = 0) => ({
 });
 
 /* ─────────────────────────── types ─────────────────────────── */
-type BlogCategory = "All" | "Product" | "Design" | "Restaurants" | "Updates";
-
-interface BlogPost {
-  id: number;
-  title: string;
-  slug: string;
-  excerpt: string;
-  category: BlogCategory;
-  readTime: string;
-  date: string;
-  author: string;
-  coverImage?: string;
-  content?: string;
-}
-
-/* ─────────────────────────── data ──────────────────────────── */
-const BLOG_POSTS: BlogPost[] = [
-  {
-    id: 1,
-    title: "How Digital Menus Are Transforming Restaurants in India",
-    slug: "digital-menus-transforming-restaurants-india",
-    excerpt:
-      "From QR-based ordering to live kitchen updates, see how modern tools are changing the way guests experience dining.",
-    category: "Restaurants",
-    readTime: "6 min read",
-    date: "Dec 01, 2025",
-    author: "Swaad Setu Team",
-    coverImage:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop",
-    content: `The restaurant industry in India is undergoing a quiet revolution. Walk into any mid-tier or premium dining establishment in a metro city and you'll notice something different: fewer printed menus, more QR codes, and guests who order without ever flagging down a waiter.
-
-This shift is not cosmetic. Digital menus backed by real-time kitchen integrations are changing fundamental dynamics — order accuracy, table turnover, and the quality of the guest experience.
-
-Why QR Ordering Works Here
-
-India's smartphone penetration crossed 800 million active users in 2024. Nearly every guest at a restaurant already has the device needed to scan a code and browse a menu. There's no app download required, no learning curve, and no dependency on staff availability.
-
-For restaurant owners, the benefits compound quickly. A digital menu can be updated in seconds — no reprinting costs when prices change or a dish runs out. Seasonal specials can go live the moment they're ready. Allergen information and photos can be embedded directly into each item.
-
-Live Kitchen Updates
-
-The more transformative layer is real-time kitchen status. When a table's order flows directly to a KDS (Kitchen Display System), the margin for error collapses. No ticket gets lost in transit. Modifications — "no onion," "extra spice" — travel with the order, not as a verbal relay.
-
-Guests can also see estimated wait times on their phones. This reduces the anxiety of waiting and, anecdotally, reduces the number of times staff are asked "how long?"
-
-What Operators Are Saying
-
-Operators who've made the switch consistently cite two outcomes above all: fewer order errors and higher average order values. When guests browse at their own pace, they explore more of the menu. Upsell prompts — "Pairs well with…" — convert at rates traditional staff-led upselling rarely matches.`,
-  },
-  {
-    id: 2,
-    title: "Designing a Delightful QR Ordering Experience",
-    slug: "designing-delightful-qr-ordering-experience",
-    excerpt:
-      "Good UX can make the difference between a confused guest and a loyal customer. Here's how we think about flows.",
-    category: "Design",
-    readTime: "5 min read",
-    date: "Nov 25, 2025",
-    author: "Product Design",
-    coverImage:
-      "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=1200&auto=format&fit=crop",
-    content: `A QR menu is only as good as what happens after the scan. Most implementations stop at "it's digital now" — the items are there, prices are listed, and technically the job is done. But technically done is miles from delightful.
-
-The Three-Second Rule
-
-When a guest scans a code and your menu loads, you have roughly three seconds before frustration sets in. If the page is slow, confusing, or doesn't immediately signal "this is the right place," they'll put the phone down and wait for a waiter.
-
-This means fast load times are a design requirement, not a nice-to-have. It also means the first screen needs to orient the guest instantly — which restaurant, which table, what to do next.
-
-Clear Information Hierarchy
-
-Every menu item needs a clear title, a price, and enough description to help someone decide. Photos help, but only if they're honest. A beautiful food photo that doesn't match the actual dish destroys trust immediately.
-
-Modifiers — extra toppings, spice levels, portion sizes — should feel guided, not overwhelming. We use a step-by-step approach: pick the base item, then see modifiers, one layer at a time. Presenting everything at once leads to decision paralysis.
-
-Cart and Confirmation
-
-The cart is where most QR ordering flows fail. Guests want to review their order before committing. They want to see the total. They want to know what "place order" actually does. Clarity at this moment is the difference between a confident tap and an abandoned cart.`,
-  },
-  {
-    id: 3,
-    title: "Product Update: Advanced Analytics for Multi-Outlet Brands",
-    slug: "product-update-advanced-analytics",
-    excerpt:
-      "Introducing cross-outlet performance, peak hour analysis, and deep item-level insights for serious operators.",
-    category: "Product",
-    readTime: "4 min read",
-    date: "Nov 18, 2025",
-    author: "Product Team",
-    coverImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
-    content: `Running one restaurant is hard. Running five is a different discipline entirely. The data you need to manage a multi-outlet brand isn't just more of the same — it's fundamentally different in structure and purpose.
-
-Today we're shipping advanced analytics capabilities designed specifically for operators with more than one location.
-
-Cross-Outlet Performance
-
-The new dashboard gives you a side-by-side view of every outlet. Revenue, order volume, average order value, and top-selling items — all in one screen, all comparable at a glance.
-
-Peak Hour Analysis
-
-Every outlet has its own rhythm. The lunch rush at a business-district location behaves nothing like a residential area's dinner peak. Our peak hour heatmaps now show you, hour by hour and day by day, exactly when each outlet is busiest.
-
-Item-Level Insights
-
-The most granular new view is item-level performance across outlets. See which dishes sell across all locations, which are outlet-specific favourites, and which items consistently appear in high-value orders.
-
-Getting Access
-
-Advanced analytics is available to all Swaad Setu Pro and Enterprise customers starting today. Log into your dashboard and look for the Analytics tab — it's been rebuilt from the ground up.`,
-  },
-  {
-    id: 4,
-    title: "How to Reduce Wait Times Without Hiring More Staff",
-    slug: "reduce-wait-times-without-more-staff",
-    excerpt:
-      "Smart routing, live order tracking, and self-service ordering can dramatically shorten customer wait times.",
-    category: "Restaurants",
-    readTime: "7 min read",
-    date: "Nov 10, 2025",
-    author: "Operations",
-    coverImage:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1200&auto=format&fit=crop",
-    content: `Long wait times are the single most common reason guests leave a restaurant unhappy — and the most common reason they don't come back. Yet most operators treat this as a staffing problem: more people means faster service.
-
-That logic breaks down quickly. More staff costs more, and beyond a certain point, additional people in a small kitchen or on a crowded floor create their own inefficiencies. The smarter path is to reduce the time wasted in the process itself.
-
-Where Time Actually Goes
-
-Most waits in a restaurant happen at three moments: getting a menu and placing an order, waiting for food, and getting the bill. Of these, the first and the last are almost entirely eliminable with the right tools.
-
-Self-Service Ordering
-
-When guests can browse and order from their phones, the "getting a menu" step disappears. More importantly, the order goes to the kitchen the moment the guest taps "confirm" — not when a server finds a free moment to relay it.
-
-In busy periods, this compression matters enormously. An order that would have taken four to six minutes to reach the kitchen now takes under a minute.
-
-Smart Order Routing
-
-Once orders are digital, you can route them intelligently. Quick orders — a coffee, a dessert — can be routed to a dedicated station. Combined, these changes can reduce perceived and actual wait times by 20–35% without adding a single person to your payroll.`,
-  },
-  {
-    id: 5,
-    title: "Our Vision for the Future of Contactless Dining",
-    slug: "vision-future-contactless-dining",
-    excerpt:
-      "From discovery to re-ordering, we're building a connected experience for guests, staff, and owners.",
-    category: "Updates",
-    readTime: "3 min read",
-    date: "Nov 02, 2025",
-    author: "Founder's Note",
-    coverImage:
-      "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=1200&auto=format&fit=crop",
-    content: `When we started building Swaad Setu, the brief was simple: make it easier for restaurants to take orders. The problem felt tactical — QR codes, digital menus, a cleaner way to manage tables.
-
-Two years in, we see something larger. The restaurants we've worked with most closely are not just using technology to take orders faster. They're using data to understand their guests, their kitchen, and their business in ways that weren't possible before.
-
-A chef who knows which dish is consistently returned or modified can improve the recipe. An owner who can see, in real time, which tables have been waiting too long can intervene before a guest gets frustrated.
-
-What We're Building Toward
-
-In the near term, we're focused on three areas. First, personalisation — menus that surface items a returning guest has ordered before. Second, integrated loyalty — rewards built into the ordering flow, not bolted on as a separate app. Third, predictive operations — tools that help owners get ahead of busy periods, staffing gaps, and inventory shortages.
-
-The operators who will thrive in the next decade are the ones who use every tool available to run a tighter, smarter operation — without losing the warmth and hospitality that makes a great restaurant great.`,
-  },
-];
+type BlogCategory = "All" | "Product" | "Updates" | "Operations" | "Growth";
 
 /* ─────────────────────────── category colour map ───────────────────────── */
 const categoryStyle: Record<BlogCategory, string> = {
   All:         "bg-amber-400/10 text-amber-300 border-amber-400/25",
   Product:     "bg-amber-400/10 text-amber-300 border-amber-400/25",
-  Design:      "bg-orange-400/10 text-orange-300 border-orange-400/25",
-  Restaurants: "bg-amber-400/10 text-amber-300 border-amber-400/25",
+  Operations:  "bg-blue-400/10 text-blue-300 border-blue-400/25",
+  Growth:      "bg-green-400/10 text-green-300 border-green-400/25",
   Updates:     "bg-yellow-400/10 text-yellow-300 border-yellow-400/25",
 };
 
 /* ─────────────────────────── content renderer ──────────────────────────── */
-const renderContent = (raw: string) => {
-  const paragraphs = raw.trim().split(/\n\n+/);
-  return paragraphs.map((block, i) => {
-    const lines = block.split("\n");
-    // Single short line with no period at the end → treat as sub-heading
-    if (lines.length === 1 && block.length < 60 && !block.endsWith(".")) {
-      return (
-        <h4
-          key={i}
-          className="text-lg font-bold text-white mt-8 mb-2 first:mt-0"
-        >
-          {block}
+const renderContent = (sections: BlogSection[]) => {
+  return sections.map((section, i) => (
+    <div key={i}>
+      {section.heading && (
+        <h4 className="text-lg font-bold text-white mt-8 mb-2 first:mt-0">
+          {section.heading}
         </h4>
-      );
-    }
-    return (
-      <p key={i} className="text-slate-400 leading-relaxed">
-        {block}
-      </p>
-    );
-  });
+      )}
+      {section.paragraphs?.map((p, pIdx) => (
+        <p key={pIdx} className="text-slate-400 leading-relaxed mt-4">
+          {p}
+        </p>
+      ))}
+      {section.bullets && (
+        <ul className="space-y-4 mt-4">
+          {section.bullets.map((bullet, bIdx) => (
+            <li key={bIdx} className="p-4 rounded-lg bg-white/5 border border-white/10">
+              <p className="font-semibold text-white">{bullet.title}</p>
+              <p className="text-slate-400 text-sm mt-1">{bullet.description}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  ));
 };
 
 /* ─────────────────────────── component ─────────────────────── */
@@ -384,7 +224,7 @@ const BlogPostPage: React.FC = () => {
                     {...fadeUp(0.14)}
                     className="space-y-5 text-[15px]"
                   >
-                    {renderContent(post.content ?? "No content available.")}
+                    {renderContent(post.sections ?? [])}
                   </motion.div>
 
                   {/* Bottom CTA */}

@@ -95,7 +95,7 @@ const features: Feature[] = [
   eyebrow: "SMART QR ORDERING",
   title: "Instant QR Ordering",
   description:
-    "Enable guests to browse menus, place orders, and interact with your business through a simple QR scan. No app downloads, no printed menus, and no unnecessary waiting. Keep menus updated in real time while delivering a faster, more seamless service experience.",
+    "Enable guests to browse menus, place orders, and interact with your business through a simple QR scan. No app downloads, no printed menus, and no unnecessary waiting.\nKeep menus updated in real time while delivering a faster, more seamless service experience.",
   bullets: [
     "Real-Time Menu Updates",
     "No App Downloads Required",
@@ -136,7 +136,7 @@ description: "Real-time visibility across every stage of the service flow."
 number: "03",
 eyebrow: "BILLING & PAYMENTS",
 title: "Digital Billing & Payments",
-description: "Generate bills instantly, apply taxes and discounts, and accept secure digital payments through a seamless checkout experience. Simplify settlements, reduce billing errors, and deliver a faster payment experience for every guest.",
+description: "Generate bills instantly, apply taxes and discounts, and accept secure digital payments through a seamless checkout experience.\nSimplify settlements, reduce billing errors, and deliver a faster payment experience for every guest.",
 bullets: [
 "Instant Bill Generation",
 "Split Payments & Discounts",
@@ -156,7 +156,7 @@ description: "Fast, accurate, and hassle-free checkout for guests and staff."
 number: "04",
 eyebrow: "SERVICE OPERATIONS",
 title: "Staff & Service Management",
-description: "Empower your team with waiter call alerts, table assistance requests, and streamlined service workflows for faster response times. Reduce service delays, improve staff coordination, and ensure guests receive timely assistance throughout their dining experience.",
+description: "Empower your team with waiter call alerts, table assistance requests, and streamlined service workflows for faster response times.\nReduce service delays, improve staff coordination, and ensure guests receive timely assistance throughout their dining experience.",
 bullets: [
 "Instant Waiter Call Alerts",
 "Table Assistance Requests",
@@ -176,7 +176,7 @@ image: serviceImage,
 number: "05",
 eyebrow: "BUSINESS INSIGHTS",
 title: "Business Insights & Analytics",
-description: "Monitor sales, orders, customer trends, and operational performance through actionable reports that support smarter decisions. Gain complete visibility into your business with real-time data.",
+description: "Monitor sales, orders, customer trends, and operational performance through actionable reports that support smarter decisions.\nGain complete visibility into your business with real-time data, helping you identify opportunities, improve efficiency, and drive sustainable growth.",
 bullets: [
 "Sales & Revenue Tracking",
 "Order Performance Analytics",
@@ -196,7 +196,7 @@ description: "Turn everyday business data into actions that improve performance.
 number: "06",
 eyebrow: "INVENTORY & COST CONTROL",
 title: "Inventory & Expense Control",
-description: "Track stock consumption, manage expenses, and gain visibility into operational costs without relying on spreadsheets.",
+description: "Track stock consumption, manage expenses, and gain visibility into operational costs without relying on spreadsheets.\nMaintain better control over inventory movement, reduce wastage, and understand where your money is being spent across daily operations.",
 bullets: [
 "Inventory Consumption Tracking",
 "Expense Management & Records",
@@ -216,7 +216,7 @@ description: "Stay informed about stock usage and business expenses in one place
 number: "07",
 eyebrow: "QSR OPERATIONS",
 title: "QSR & Self-Service Workflows",
-description: "Enable customers to scan, order, and pay independently through a seamless self-service experience. Built for QSRs, food courts, cafeterias, theatres, and high-footfall food environments.",
+description: "Enable customers to scan, order, and pay independently through a seamless self-service experience. Built for QSRs, food courts, cafeterias, theatres, and high-footfall food environments.\nReduce queues, improve service speed, and create a smoother order fulfillment process without increasing operational complexity.",
 bullets: [
 "Self-Service Ordering",
 "Order Number Based Fulfillment",
@@ -427,7 +427,7 @@ const FeatureSection: FC = () => {
                       {...(f.flip ? fadeRight(0.05) : fadeLeft(0.05))}
                       className="text-slate-400 leading-relaxed text-base"
                     >
-                      {f.description}
+                      {f.description.split('\n').map((line, i) => <p key={i} className={i > 0 ? 'mt-4' : ''}>{line}</p>)}
                     </motion.p>
 
                     {/* Bullets */}
@@ -536,7 +536,7 @@ text: "Receive assistance through call, WhatsApp, or email from a dedicated team
                 <motion.div
                   key={item.title}
                   {...fadeUp(i * 0.1)}
-                  className="bg-[#0d1020] p-8 lg:p-10 flex flex-col gap-4"
+                  className="bg-transparent p-8 lg:p-10 flex flex-col gap-4"
                 >
                   <span className="text-amber-400 text-2xl">{item.icon}</span>
                   <h3 className="text-white font-black text-xl leading-tight">{item.title}</h3>

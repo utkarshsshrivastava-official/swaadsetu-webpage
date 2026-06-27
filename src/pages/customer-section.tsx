@@ -13,8 +13,10 @@ interface Feature {
   bg: string;
   image: string;
   stat: {
+    heading: string;
     value: string;
     label: string;
+    subtitle?: string;
   };
   metrics: {
     label: string;
@@ -34,8 +36,10 @@ const FEATURES_DATA: Feature[] = [
     bg: "rgba(251,191,36,0.08)",
     image: Images.userFront,
     stat: {
+      heading: "Customer Experience",
       value: "No App",
       label: "Required",
+      subtitle: "Scan, Order & Pay Instantly",
     },
     metrics: [
       {
@@ -68,8 +72,9 @@ const FEATURES_DATA: Feature[] = [
     bg: "rgba(34,197,94,0.08)",
     image: Images.orderStatus,
     stat: {
+      heading: "Real-Time Order Visibility",
       value: "0 Calls",
-      label: "to check order status",
+      label: "to check status",
     },
     metrics: [
       {
@@ -98,8 +103,10 @@ const FEATURES_DATA: Feature[] = [
     bg: "rgba(59,130,246,0.08)",
     image: Images.Bill,
     stat: {
+      heading: "Billing Experience",
       value: "Instant",
       label: "Digital Bills",
+      subtitle: "Generate & Share in Seconds",
     },
     metrics: [
       {
@@ -128,8 +135,9 @@ const FEATURES_DATA: Feature[] = [
     bg: "rgba(245,158,11,0.08)",
     image: Images.placeOrder,
     stat: {
+      heading: "Faster Service Response",
       value: "1 Tap",
-      label: "to request assistance",
+      label: "to request assistance"
     },
     metrics: [
       {
@@ -158,8 +166,10 @@ const FEATURES_DATA: Feature[] = [
     bg: "rgba(167,139,250,0.08)",
     image: Images.custDetails,
     stat: {
+      heading: "Secure Payment Experience",
       value: "100%",
       label: "Digital Payments",
+      subtitle: "Fast & Secure Checkout",
     },
     metrics: [
       {
@@ -268,7 +278,7 @@ export function CustomerSection() {
             className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-            Hyper-engineered Guest Flow
+            From Scan to Service
           </motion.div>
           
           <motion.h2 
@@ -278,10 +288,7 @@ export function CustomerSection() {
             transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="text-3xl lg:text-5xl font-bold tracking-tight text-white leading-tight"
           >
-            From Scan to{" "}
-            <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
-              Service
-            </span>
+            Smart Ordering Workflow
           </motion.h2>
 
           <motion.p 
@@ -365,7 +372,7 @@ export function CustomerSection() {
 
               <div className="space-y-4">
                 <div>
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-slate-500 block mb-1">Customer Experience</span>
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-slate-500 block mb-1">{currentFeature.stat.heading}</span>
                   <motion.div 
                     key={currentFeature.stat.value}
                     initial={{ opacity: 0, x: -10 }}
@@ -375,7 +382,12 @@ export function CustomerSection() {
                   >
                     {currentFeature.stat.value}
                   </motion.div>
-                  <p className="text-xs text-slate-400 mt-0.5 font-medium">{currentFeature.stat.label}</p>
+                  <p className="text-xs text-slate-400 mt-0.5 font-medium">
+                    {currentFeature.stat.label}
+                  </p>
+                  {currentFeature.stat.subtitle && (
+                    <p className="text-xs text-slate-500 mt-2 font-medium">{currentFeature.stat.subtitle}</p>
+                  )}
                 </div>
 
                 <hr className="border-white/5" />
@@ -429,25 +441,25 @@ export function CustomerSection() {
         {/* Global Bottom Summary Analytics Showcase Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 border-t border-white/5  mt-2">
           {[
-  {
-    icon: QrCode,
-    color: "text-amber-400",
-    title: "Effortless Customer Experience",
-    text: "Modern dining experiences powered by QR ordering and real-time updates.",
-  },
-  {
-    icon: ShieldCheck,
-    color: "text-emerald-400",
-    title: "Unified Business Management",
-    text: "Manage operations, billing, inventory, expenses, and payments from one platform.",
-  },
-  {
-    icon: Bell,
-    color: "text-indigo-400",
-    title: "Faster Service Operations",
-    text: "Faster service, better coordination, and improved operational efficiency.",
-  },
-].map((card, i) => {
+            {
+              icon: QrCode,
+              color: "text-amber-400",
+              title: "Effortless Customer Experience",
+              text: "Modern dining experiences powered by QR ordering and real-time updates.",
+            },
+            {
+              icon: ShieldCheck,
+              color: "text-emerald-400",
+              title: "Unified Business Management",
+              text: "Manage operations, billing, inventory, expenses, and payments from one platform.",
+            },
+            {
+              icon: Bell,
+              color: "text-indigo-400",
+              title: "Faster Service Operations",
+              text: "Faster service, better coordination, and improved operational efficiency.",
+            },
+          ].map((card, i) => {
             const CardIcon = card.icon;
             return (
               <div key={i} className="group p-6 rounded-3xl border border-white/[0.05] bg-gradient-to-b from-slate-900/30 to-slate-950/50 space-y-3 hover:border-white/10 transition-all duration-300">

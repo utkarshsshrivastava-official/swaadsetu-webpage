@@ -53,7 +53,7 @@ export function CTASection() {
         <div className="absolute w-[200px] h-[200px] rounded-full border border-amber-400/10" />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      <div className="relative z-10 max-w-5xl mx-auto text-center">
 
         {/* ── Badge ── */}
         <motion.div {...fadeUp(0)} className="flex justify-center mb-6">
@@ -68,7 +68,7 @@ export function CTASection() {
           Ready to{" "}
           <span className="relative inline-block">
             <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
-              Transform
+              {"  "}Transform
             </span>
             {/* underline */}
             <motion.span
@@ -78,8 +78,8 @@ export function CTASection() {
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 0.7, ease: "easeOut" }}
             />
-          </span>{" "}
-          Your Food Business?
+          </span>
+          {" "}Your Food Business?
         </motion.h2>
 
         {/* ── Subtext ── */}
