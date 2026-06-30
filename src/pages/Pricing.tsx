@@ -198,52 +198,90 @@ const Pricing: FC = () => {
           <div className="max-w-6xl mx-auto">
 
             {/* ── Hero section ── */}
-            <div className="text-center mb-16">
-              {/* Eyebrow badge */}
-              <motion.div {...fadeUp(0.1)} className="flex justify-center mb-5">
-                <div className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                  Pricing
-                </div>
-              </motion.div>
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+              {/* Left: Text */}
+              <div className="text-center lg:text-left">
+                {/* Eyebrow badge */}
+                <motion.div {...fadeUp(0.1)} className="flex justify-center lg:justify-start mb-5">
+                  <div className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    Pricing
+                  </div>
+                </motion.div>
 
-              <motion.h1
-                {...fadeUp(0.2)}
-                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"
-              >
-                Simple Pricing.{" "}
-                <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent block sm:inline">
-                   Powerful Operations.
-                </span>
-              </motion.h1>
-
-              <motion.p
-                {...fadeUp(0.35)}
-                className="mt-5 text-slate-400 text-lg max-w-xl mx-auto font-light leading-relaxed"
-              >
-                Everything you need to manage ordering, billing, payments, inventory, staff coordination, and business insights — in one unified platform.
-              </motion.p>
-
-              {/* ── Billing toggle ── */}
-              {/* <motion.div {...fadeUp(0.45)} className="mt-8 flex items-center justify-center gap-4">
-                <span className={`text-sm font-medium transition-colors ${billing === "monthly" ? "text-white" : "text-slate-500"}`}>
-                  Monthly
-                </span>
-                <input
-                  type="checkbox"
-                  className="toggle toggle-warning"
-                  checked={billing === "annual"}
-                  onChange={() =>
-                    setBilling(billing === "monthly" ? "annual" : "monthly")
-                  }
-                />
-                <span className={`text-sm font-medium flex items-center gap-2 transition-colors ${billing === "annual" ? "text-white" : "text-slate-500"}`}>
-                  Annual
-                  <span className="badge bg-amber-400/15 text-amber-300 border-amber-400/30 text-[10px] font-semibold px-2">
-                    Save 20%
+                <motion.h1
+                  {...fadeUp(0.2)}
+                  className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"
+                >
+                  Simple Pricing.{" "}
+                  <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent block sm:inline">
+                    Powerful Operations.
                   </span>
-                </span>
-              </motion.div>*/}
+                </motion.h1>
+
+                <motion.p
+                  {...fadeUp(0.35)}
+                  className="mt-5 text-slate-400 text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed"
+                >
+                  Everything you need to manage ordering, billing, payments, inventory, staff coordination, and business insights — in one unified platform.
+                </motion.p>
+              </div>
+
+              {/* Right: Visual */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                className="relative hidden lg:flex items-center justify-center h-80"
+              >
+                {/* SVG Dashboard Illustration */}
+                <svg width="320" height="240" viewBox="0 0 320 240" className="w-full h-full">
+                  <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="rgba(251, 191, 36, 0.1)" />
+                      <stop offset="100%" stopColor="rgba(251, 191, 36, 0.02)" />
+                    </linearGradient>
+                    <filter id="glow-soft" x="-50%" y="-50%" width="200%" height="200%">
+                      <feGaussianBlur stdDeviation="8" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  {/* Main Panel */}
+                  <motion.rect
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+                    width="320" height="240" rx="24" fill="url(#grad1)" stroke="rgba(251, 191, 36, 0.15)" strokeWidth="1.5"
+                  />
+
+                  {/* Sidebar */}
+                  <motion.rect initial={{ x: -50 }} animate={{ x: 0 }} transition={{ delay: 0.6, ease: "easeOut" }}
+                    x="0" y="0" width="60" height="240" rx="24" fill="rgba(251, 191, 36, 0.05)" />
+
+                  {/* Content Area */}
+                  {/* Bar Chart */}
+                  <g transform="translate(80, 40)">
+                    <motion.rect initial={{ height: 0 }} animate={{ height: 40 }} transition={{ delay: 0.8, ease: "easeOut" }} y="30" width="15" height="40" rx="3" fill="rgba(251, 191, 36, 0.4)" />
+                    <motion.rect initial={{ height: 0 }} animate={{ height: 60 }} transition={{ delay: 0.9, ease: "easeOut" }} x="25" y="10" width="15" height="60" rx="3" fill="rgba(251, 191, 36, 0.6)" />
+                    <motion.rect initial={{ height: 0 }} animate={{ height: 25 }} transition={{ delay: 1.0, ease: "easeOut" }} x="50" y="45" width="15" height="25" rx="3" fill="rgba(251, 191, 36, 0.3)" />
+                  </g>
+
+                  {/* Donut Chart */}
+                  <g transform="translate(220, 80)" filter="url(#glow-soft)">
+                    <circle cx="40" cy="40" r="30" fill="none" stroke="rgba(251, 191, 36, 0.1)" strokeWidth="10" />
+                    <motion.circle initial={{ strokeDashoffset: 188 }} animate={{ strokeDashoffset: 75 }} transition={{ delay: 1.1, duration: 1, ease: "circOut" }}
+                      cx="40" cy="40" r="30" fill="none" stroke="#FBBF24" strokeWidth="10" strokeDasharray="188" strokeLinecap="round" transform="rotate(-90 40 40)" />
+                  </g>
+
+                  {/* Line Graph */}
+                  <motion.path initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1.3, duration: 1.2, ease: "easeInOut" }}
+                    d="M 80 180 C 120 150, 160 200, 200 170 L 280 140" stroke="#FBBF24" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+                </svg>
+              </motion.div>
             </div>
 
             {/* ── Feature comparison table ── */}
@@ -296,19 +334,23 @@ const Pricing: FC = () => {
               </div>
             </motion.div>
 
-            <div className="rounded-3xl border border-amber-400/15 bg-amber-400/5 p-8 text-center mb-20">
-  <h3 className="text-2xl font-bold text-white mb-4">
-    Questions about pricing?
-  </h3>
+            <div className="grid md:grid-cols-2 gap-8 items-center rounded-3xl border border-amber-400/15 bg-amber-400/5 p-8 md:p-12 mb-20">
+              <div className="text-center md:text-left">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Questions about pricing?
+                </h3>
 
-  <p className="text-slate-400 max-w-2xl mx-auto mb-6">
-    Get in touch with our team to understand plans, features, onboarding, and everything included with SwaadSetu.
-  </p>
+                <p className="text-slate-400 max-w-2xl mx-auto md:mx-0 mb-6 md:mb-0">
+                  Get in touch with our team to understand plans, features, onboarding, and everything included with SwaadSetu.
+                </p>
+              </div>
+              <div className="text-center md:text-right">
+                <button className="btn bg-gradient-to-r from-amber-400 to-orange-400 text-black border-none" onClick={() => window.open('mailto:connect@swaadsetu.com')}>
+                  Talk to Our Team
+                </button>
+              </div>
+            </div>
 
-  <button className="btn bg-gradient-to-r from-amber-400 to-orange-400 text-black border-none" onClick={() => window.open('mailto:connect@swaadsetu.com')}>
-    Talk to Our Team
-  </button>
-</div>
 
 
             {/*── Pricing Benefits (3 cards) ──*/}

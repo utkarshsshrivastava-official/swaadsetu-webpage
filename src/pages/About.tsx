@@ -24,6 +24,7 @@ import Navbar from "../component/Navbar";
 import { Footer } from "../component/Footer";
 import BackButton from "../component/ui/BackButton";
 import { Helmet } from "@dr.pogodin/react-helmet";
+import { CTASection } from "../component/cta-section";
 
 /* ─────────────────────────────────────────────
    Shared animation helpers (same as Hero)
@@ -87,23 +88,23 @@ const fadeRight = (delay = 0) => ({
 /* ─────────────────────────────────────────────
    Floating particle (same as Hero)
 ───────────────────────────────────────────── */
-const Particle = ({ x, y, size, delay }: { x: string; y: string; size: number; delay: number }) => (
-  <motion.div
-    className="absolute rounded-full bg-amber-400 pointer-events-none"
-    style={{ left: x, top: y, width: size, height: size }}
-    animate={{ y: [0, -18, 0], opacity: [0.1, 0.4, 0.1] }}
-    transition={{ duration: 4 + delay, repeat: Infinity, delay, ease: "easeInOut" }}
-  />
-);
+// const Particle = ({ x, y, size, delay }: { x: string; y: string; size: number; delay: number }) => (
+//   <motion.div
+//     className="absolute rounded-full bg-amber-400 pointer-events-none"
+//     style={{ left: x, top: y, width: size, height: size }}
+//     animate={{ y: [0, -18, 0], opacity: [0.1, 0.4, 0.1] }}
+//     transition={{ duration: 4 + delay, repeat: Infinity, delay, ease: "easeInOut" }}
+//   />
+// );
 
-const particles = [
-  { x: "5%",  y: "15%", size: 3, delay: 0.2 },
-  { x: "20%", y: "70%", size: 4, delay: 1.5 },
-  { x: "78%", y: "25%", size: 5, delay: 0.8 },
-  { x: "92%", y: "60%", size: 3, delay: 2.1 },
-  { x: "55%", y: "8%",  size: 4, delay: 0.5 },
-  { x: "40%", y: "90%", size: 3, delay: 1.2 },
-];
+// const particles = [
+//   { x: "5%",  y: "15%", size: 3, delay: 0.2 },
+//   { x: "20%", y: "70%", size: 4, delay: 1.5 },
+//   { x: "78%", y: "25%", size: 5, delay: 0.8 },
+//   { x: "92%", y: "60%", size: 3, delay: 2.1 },
+//   { x: "55%", y: "8%",  size: 4, delay: 0.5 },
+//   { x: "40%", y: "90%", size: 3, delay: 1.2 },
+// ];
 
 /* ─────────────────────────────────────────────
    Value card data
@@ -171,26 +172,6 @@ const values = [
   },
 ]; */
 
-/* ─────────────────────────────────────────────
-   Image URLs (Unsplash — free to use)
-   Replace src with Images.xxx from your assets
-   when ready.
-
-   Sizes:
-   heroImg    1200×800  (landscape, warm restaurant ambience)
-   missionImg  900×600  (close-up QR scan / table setup)
-   gridImg1    600×800  (portrait, busy kitchen)
-   gridImg2    600×500  (landscape, plated food)
-   gridImg3    600×800  (portrait, diner smiling)
-───────────────────────────────────────────── */
-const IMG = {
-  hero:    "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&h=800&fit=crop&q=80",
-  mission: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=900&h=600&fit=crop&q=80",
-  grid1:   "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&h=800&fit=crop&q=80",
-  grid2:   "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&h=500&fit=crop&q=80",
-  grid3:   "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=800&fit=crop&q=80",
-};
-
 /* ═══════════════════════════════════════════
    PAGE COMPONENT
 ═══════════════════════════════════════════ */
@@ -202,6 +183,27 @@ const About: FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   // const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   // const heroImgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
+  /* ─────────────────────────────────────────────
+     Floating particle (same as Hero)
+  ───────────────────────────────────────────── */
+  const Particle = ({ x, y, size, delay }: { x: string; y: string; size: number; delay: number }) => (
+    <motion.div
+      className="absolute rounded-full bg-amber-400 pointer-events-none"
+      style={{ left: x, top: y, width: size, height: size }}
+      animate={{ y: [0, -18, 0], opacity: [0.1, 0.4, 0.1] }}
+      transition={{ duration: 4 + delay, repeat: Infinity, delay, ease: "easeInOut" }}
+    />
+  );
+
+  const particles = [
+    { x: "5%",  y: "15%", size: 3, delay: 0.2 },
+    { x: "20%", y: "70%", size: 4, delay: 1.5 },
+    { x: "78%", y: "25%", size: 5, delay: 0.8 },
+    { x: "92%", y: "60%", size: 3, delay: 2.1 },
+    { x: "55%", y: "8%",  size: 4, delay: 0.5 },
+    { x: "40%", y: "90%", size: 3, delay: 1.2 },
+  ];
 
   return (
     <>
@@ -348,14 +350,20 @@ const About: FC = () => {
             </div>
 
             {/* Right: Modern floating image composition */}
-            <div className="relative w-full h-[400px] sm:h-[500px] flex items-center justify-center perspective-1000 mt-10 lg:mt-0">
+            <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[500px] flex items-center justify-center perspective-1000 mt-10 lg:mt-0">
+              
+              {(() => {
+                const heroImage = "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&h=800&fit=crop&q=80";
+                const missionImage = "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=900&h=600&fit=crop&q=80";
+                return (
+                  <>
                <motion.div
                   initial={{ opacity: 0, x: 50, y: 30, rotateY: -10, rotateZ: 5 }}
                   animate={{ opacity: 1, x: 0, y: 0, rotateY: -10, rotateZ: 5 }}
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
                   className="absolute w-[80%] h-[80%] rounded-3xl overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-20"
                >
-                  <img src={IMG.hero} alt="Restaurant interior" className="w-full h-full object-cover" />
+                      <img src={heroImage} alt="Restaurant interior" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#060812] via-transparent to-transparent opacity-80" />
                </motion.div>
                
@@ -363,10 +371,13 @@ const About: FC = () => {
                   initial={{ opacity: 0, x: -50, y: -30, rotateY: 15, rotateZ: -5 }}
                   animate={{ opacity: 1, x: -30, y: 30, rotateY: 15, rotateZ: -5 }}
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
-                  className="absolute left-0 bottom-10 w-[50%] h-[50%] rounded-3xl overflow-hidden border border-amber-400/20 shadow-[0_20px_50px_rgba(251,191,36,0.2)] z-30 backdrop-blur-md bg-black/40 p-2"
+                      className="absolute left-0 bottom-10 w-[50%] h-[50%] rounded-3xl overflow-hidden border border-amber-400/20 shadow-[0_20px_50px_rgba(251,191,36,0.2)] z-30 backdrop-blur-md bg-black/40 p-2 hidden sm:block"
                >
-                  <img src={IMG.mission} alt="QR Menu Detail" className="w-full h-full object-cover rounded-2xl" />
+                      <img src={missionImage} alt="QR Menu Detail" className="w-full h-full object-cover rounded-2xl" />
                </motion.div>
+                  </>
+                );
+              })()}
             </div>
           </div>
         </section>
@@ -380,7 +391,7 @@ const About: FC = () => {
           <div className="absolute top-0 right-[-15%] w-[600px] h-[500px] rounded-full bg-amber-500/8 blur-[120px] pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
               {/* Left: text */}
               <div>
@@ -429,55 +440,65 @@ const About: FC = () => {
               </div>
 
               {/* Right: asymmetric image grid */}
-              <div className="relative grid grid-cols-2 gap-4 h-[480px]">
+              <div className="relative h-[480px] lg:h-auto">
+                {(() => {
+                  const gridImages = {
+                    grid1: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&h=800&fit=crop&q=80",
+                    grid2: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&h=500&fit=crop&q=80",
+                    grid3: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=800&fit=crop&q=80",
+                  };
+                  return (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
+                      {/* Tall left image — 600×800px recommended */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                        className="sm:row-span-2 rounded-2xl overflow-hidden border border-amber-400/10 shadow-[0_0_40px_rgba(251,191,36,0.08)]"
+                      >
+                        <img
+                          src={gridImages.grid1}
+                          alt="Busy restaurant kitchen — 600×800px"
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </motion.div>
 
-                {/* Tall left image — 600×800px recommended */}
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                  className="row-span-2 rounded-2xl overflow-hidden border border-amber-400/10 shadow-[0_0_40px_rgba(251,191,36,0.08)]"
-                >
-                  <img
-                    src={IMG.grid1}
-                    alt="Busy restaurant kitchen — 600×800px"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </motion.div>
+                      {/* Top-right — 600×500px recommended */}
+                      <motion.div
+                        initial={{ opacity: 0, y: -30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                        className="rounded-2xl overflow-hidden border border-amber-400/10"
+                      >
+                        <img
+                          src={gridImages.grid2}
+                          alt="Beautifully plated dish — 600×500px"
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </motion.div>
 
-                {/* Top-right — 600×500px recommended */}
-                <motion.div
-                  initial={{ opacity: 0, y: -30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  className="rounded-2xl overflow-hidden border border-amber-400/10"
-                >
-                  <img
-                    src={IMG.grid2}
-                    alt="Beautifully plated dish — 600×500px"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </motion.div>
-
-                {/* Bottom-right — 600×800px recommended */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="rounded-2xl overflow-hidden border border-amber-400/10 mt-4"
-                >
-                  <img
-                    src={IMG.grid3}
-                    alt="Happy diner scanning QR — 600×800px"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </motion.div>
+                      {/* Bottom-right — 600×800px recommended */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                        className="rounded-2xl overflow-hidden border border-amber-400/10 mt-0 sm:mt-4"
+                      >
+                        <img
+                          src={gridImages.grid3}
+                          alt="Happy diner scanning QR — 600×800px"
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </motion.div>
+                    </div>
+                  );
+                })()}
 
                 {/* Floating amber chip */}
                 <motion.div
@@ -539,25 +560,31 @@ const About: FC = () => {
           <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-amber-600/10 blur-[150px] pointer-events-none" />
 
           <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
               {/* Left image */}
               <motion.div
                 {...fadeLeft(0.1)}
-                className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)] z-10 group"
+                className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)] z-10 group order-2 lg:order-1"
               >
-                <img
-                  src={IMG.mission}
-                  alt="Customer scanning QR menu at restaurant table"
-                  className="w-full h-auto object-cover transform-gpu group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-                {/* Gradient overlay bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060812] via-transparent to-transparent opacity-80 pointer-events-none" />
+                {(() => {
+                  const missionImage = "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=900&h=600&fit=crop&q=80";
+                  return (
+                    <>
+                      <img
+                        src={missionImage}
+                        alt="Customer scanning QR menu at restaurant table"
+                        className="w-full h-auto object-cover transform-gpu group-hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#060812] via-transparent to-transparent opacity-80 pointer-events-none" />
+                    </>
+                  );
+                })()}
               </motion.div>
 
               {/* Right: mission text */}
-              <div className="flex flex-col gap-6 z-10">
+              <div className="flex flex-col gap-6 z-10 order-1 lg:order-2">
                 <motion.div {...fadeRight(0.05)}>
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(251,191,36,0.15)] backdrop-blur-md">
                     <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
@@ -680,9 +707,11 @@ const About: FC = () => {
         {/* ════════════════════════════════════
             CTA BAND
         ════════════════════════════════════ */}
-        <section className="relative py-24 overflow-hidden">
+         <CTASection/>
+
+         {/* <section className="relative py-24 overflow-hidden">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent" />
-          {/* ── Background grid ── */}
+          {/* ── Background grid ── 
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -692,22 +721,22 @@ const About: FC = () => {
             }}
           />
 
-          {/* ── Glow blobs ── */}
+         ── Glow blobs ── 
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-amber-500/10 blur-[140px]" />
             <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[400px] rounded-full bg-orange-600/6 blur-[120px]" />
             <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[400px] rounded-full bg-amber-400/5 blur-[120px]" />
           </div>
 
-          {/* ── Decorative rings ── */}
+          {/* ── Decorative rings ── 
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-[600px] h-[600px] rounded-full border border-amber-400/5" />
             <div className="absolute w-[400px] h-[400px] rounded-full border border-amber-400/8" />
             <div className="absolute w-[200px] h-[200px] rounded-full border border-amber-400/10" />
           </div>
 
-          <div className="relative z-10 max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            {/* ── Badge ── */}
+          {/* <div className="relative z-10 max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            {/* ── Badge ── 
             <motion.div {...fadeUp(0)} className="flex justify-center mb-6">
               <div className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
@@ -715,7 +744,7 @@ const About: FC = () => {
               </div>
             </motion.div> 
 
-            {/* ── Headline ── */}
+            {/* ── Headline ── 
             <motion.h2 {...fadeUp(0.1)} className="text-4xl sm:text-5xl lg:text-5xl font-bold tracking-tight text-white leading-[1.05] mb-6">
               Ready to{" "}
               <span className="relative inline-block">
@@ -733,12 +762,12 @@ const About: FC = () => {
               Your Food Business?
             </motion.h2>
 
-            {/* ── Subtext ── */}
+            {/* ── Subtext ── 
             <motion.p {...fadeUp(0.2)} className="text-slate-400 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-10">
              Join restaurants, cafés, QSRs, cloud kitchens, and food courts using SwaadSetu to streamline operations, improve customer experience, and grow profitably.
             </motion.p>
 
-            {/* ── Benefit pills ── */}
+            {/* ── Benefit pills ── 
             <motion.div {...fadeUp(0.28)} className="flex flex-wrap justify-center gap-3 mb-10">
               {["QR Ordering & Payments" , "Business Insights" , "Complete Operational Control"].map((label, i) => (
                 <div
@@ -753,7 +782,7 @@ const About: FC = () => {
               ))}
             </motion.div>
 
-            {/* ── CTA buttons ── */}
+            {/* ── CTA buttons ── 
             <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <button
                 onClick={() =>
@@ -777,8 +806,8 @@ const About: FC = () => {
                Talk to Our Team
               </button>
             </motion.div>
-          </div>
-        </section>
+          </div> 
+        </section>*/}
         <Footer />
       </div>
     </>

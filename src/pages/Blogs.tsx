@@ -15,6 +15,7 @@ import BackButton from "../component/ui/BackButton";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { CTASection } from "../component/cta-section";
 import { BLOG_POSTS, type BlogPost } from "../data/blogData";
+import { Images } from "../assets/assets";
 
 /* ─────────────────────────────────────────────
    Animation helpers
@@ -353,43 +354,57 @@ className="relative mt-14 rounded-3xl overflow-hidden border border-amber-400/20
 <div className="absolute -top-20 -right-20 w-72 h-72 bg-amber-500/20 blur-[120px] rounded-full" />
 
 <div className="relative z-10 px-8 py-12 md:px-1 md:py-14 text-center max-w-3xl mx-auto">
-  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/5 text-amber-300 text-xs font-semibold tracking-widest uppercase mb-6">
-    Featured Insight
-  </div>
+  <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+    <div className="text-center md:text-left">
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/5 text-amber-300 text-xs font-semibold tracking-widest uppercase mb-6">
+        Featured Insight
+      </div>
 
-  <h3 className="text-3xl lg:text-3xl sm:text-4xl font-black text-white leading-tight mb-5">
-    Why More Restaurants Are Switching To
-    <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
-      QR Menus
-    </span>
-  </h3>
+      <h3 className="text-3xl lg:text-3xl sm:text-4xl font-black text-white leading-tight mb-5">
+        Why More Restaurants Are Switching To
+        <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
+          QR Menus
+        </span>
+      </h3>
 
-  <p className="text-slate-400 text-lg leading-relaxed mb-8">
-    Discover how QR menus help restaurants reduce printing costs,
-    update menus instantly, improve order accuracy, and create a
-    faster dining experience for customers.
-  </p>
+      <p className="text-slate-400 text-lg leading-relaxed mb-8">
+        Discover how QR menus help restaurants reduce printing costs,
+        update menus instantly, improve order accuracy, and create a
+        faster dining experience for customers.
+      </p>
 
-  <Link
-    to="/blog/qr-menu-vs-traditional-menu"
-    className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold px-6 py-3 rounded-xl hover:scale-105 transition-all duration-300"
-  >
-    Read Full Article
+      <Link
+        to="/blog/qr-menu-vs-traditional-menu"
+        className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold px-6 py-3 rounded-xl hover:scale-105 transition-all duration-300 group"
+      >
+        Read Full Article
 
-    <svg
-      className="w-4 h-4"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2.5}
+        <svg
+          className="w-4 h-4 transition-transform group-hover:translate-x-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+          />
+        </svg>
+      </Link>
+    </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className="relative hidden md:block rounded-3xl overflow-hidden border border-amber-400/15 shadow-2xl shadow-amber-500/10 aspect-[4/3]"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-      />
-    </svg>
-  </Link>
+      <img src={Images.product_1} alt="QR Menu vs Traditional Menu" className="w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+    </motion.div>
+  </div>
 </div>
 
 

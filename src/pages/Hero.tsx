@@ -38,7 +38,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-[#060812] overflow-hidden flex items-center pt-16 pb-16">
+    <section className="relative min-h-screen bg-[#060812] overflow-hidden flex items-center ">
       {/* ── Background grid ── */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -58,10 +58,10 @@ const Hero = () => {
       {/* ── Floating particles ── */}
       {particles.map((p, i) => <Particle key={i} {...p} />)}
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 w-full grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-8 items-center">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-20 w-full grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-8 items-center mt-20 lg:mt-5">
         
         {/* ══════ LEFT: COPY & CTA ══════ */}
-        <div className="flex flex-col gap-8 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left z-20">
+        <div className="flex flex-col gap-6 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left z-20 ">
           
           {/* Badge */}
           <motion.div {...fadeUp(0.1)} className="flex justify-center lg:justify-start">
@@ -73,7 +73,7 @@ const Hero = () => {
 
           {/* Headline */}
           <motion.div {...fadeUp(0.2)}>
-            <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-white drop-shadow-lg">
+            <h1 className="text-3xl sm:text-5xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-white drop-shadow-lg">
               Operating System{" "}
               <br className="hidden sm:block" />
               for{" "}
@@ -92,7 +92,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Subtext */}
-          <motion.p {...fadeUp(0.35)} className="text-slate-300 text-lg sm:text-xl leading-relaxed font-light drop-shadow-sm max-w-xl mx-auto lg:mx-0">
+          <motion.p {...fadeUp(0.35)} className="text-slate-300 text-base sm:text-xl leading-relaxed font-light drop-shadow-sm max-w-xl mx-auto lg:mx-0">
           SwaadSetu is the operating system for modern food services, helping businesses manage ordering, billing, inventory, expenses, profit tracking, and daily operations through one connected platform.
           </motion.p>
 

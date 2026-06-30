@@ -327,7 +327,7 @@ const FeatureSection: FC = () => {
               <motion.h1
               
                 {...fadeUp(0.2)}
-                className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg"
               >
                 Everything  your{" "}
                 <span className="relative inline-block">
@@ -354,12 +354,12 @@ const FeatureSection: FC = () => {
             </div>
 
             {/* Right: Modern floating image composition */}
-            <div className="relative w-full h-[400px] sm:h-[500px] flex items-center justify-center perspective-1000 mt-10 lg:mt-0">
+            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] flex items-center justify-center perspective-1000 mt-10 lg:mt-0">
               <motion.div
                 initial={{ opacity: 0, x: 50, y: 30, rotateY: -10, rotateZ: 5 }}
                 animate={{ opacity: 1, x: 0, y: 0, rotateY: -10, rotateZ: 5 }}
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-                className="absolute w-[80%] h-[80%] rounded-3xl overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-20"
+                className="absolute w-[80%] sm:w-[80%] h-[80%] rounded-3xl overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-20"
               >
                 <img src={features[2].image} alt={features[2].imageAlt} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#060812] via-transparent to-transparent opacity-80" />
@@ -369,7 +369,7 @@ const FeatureSection: FC = () => {
                 initial={{ opacity: 0, x: -50, y: -30, rotateY: 15, rotateZ: -5 }}
                 animate={{ opacity: 1, x: -30, y: 30, rotateY: 15, rotateZ: -5 }}
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
-                className="absolute left-0 bottom-10 w-[50%] h-[50%] rounded-3xl overflow-hidden border border-amber-400/20 shadow-[0_20px_50px_rgba(251,191,36,0.2)] z-30 backdrop-blur-md bg-black/40 p-2"
+                className="absolute left-0 bottom-10 w-[50%] h-[50%] rounded-3xl overflow-hidden border border-amber-400/20 shadow-[0_20px_50px_rgba(251,191,36,0.2)] z-30 backdrop-blur-md bg-black/40 p-2 hidden sm:block"
               >
                 <img src={features[0].image} alt={features[0].imageAlt} className="w-full h-full object-cover rounded-2xl" />
               </motion.div>
@@ -389,7 +389,7 @@ const FeatureSection: FC = () => {
               {/* Full-width top rule */}
               <div className="w-full h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent" />
 
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 py-24 lg:py-5">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 py-16 sm:py-24 lg:py-5">
                 <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${f.flip ? "lg:[&>*:first-child]:order-2" : ""}`}>
 
                   {/* ── Text column ── */}
@@ -401,7 +401,7 @@ const FeatureSection: FC = () => {
                       className="flex items-baseline gap-4"
                     >
                       <span
-                        className="text-[5rem] font-black leading-none tabular-nums select-none"
+                        className="text-[4rem] sm:text-[5rem] font-black leading-none tabular-nums select-none"
                         style={{
                           WebkitTextStroke: "1px rgba(251,191,36,0.25)",
                           color: "transparent",
@@ -450,19 +450,20 @@ const FeatureSection: FC = () => {
                     {/* Stat — large, stark */}
                     <motion.div
                       {...(f.workflow ? fadeRight(0.36) : fadeLeft(0.36))}
-                      className="flex items-baseline gap-3 pt-4 mt-2 border-t border-amber-400/10"
+                      className="pt-4 mt-2 border-t border-amber-400/10"
                     >
                      <span className="text-[10px] tracking-[0.2em] uppercase text-amber-400 font-semibold block mb-2">
-    {f.workflow.label}
-  </span>
+                        {f.workflow.label}
+                      </span>
+                      <div className="flex flex-col items-start gap-1">
+                        <h4 className="text-lg font-bold text-white">
+                          {f.workflow.title}
+                        </h4>
 
-  <h4 className="text-lg font-bold text-white mb-2">
-    {f.workflow.title}
-  </h4>
-
-  <p className="text-sm text-slate-400 leading-relaxed">
-    {f.workflow.description}
-  </p>
+                        <p className="text-sm text-slate-400 leading-relaxed">
+                          {f.workflow.description}
+                        </p>
+                      </div>
                     </motion.div>
                   </div>
 
@@ -548,107 +549,8 @@ text: "Receive assistance through call, WhatsApp, or email from a dedicated team
         </section>
 
        
-<CTASection/>
-     {/* <section className="relative py-24 overflow-hidden">
-              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent" />
-              {/* ── Background grid ── 
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(251,191,36,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.04) 1px, transparent 1px)",
-                  backgroundSize: "48px 48px",
-                }}
-              />
-    
-              {/* ── Glow blobs ── 
-              <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-amber-500/10 blur-[140px]" />
-                <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[400px] rounded-full bg-orange-600/6 blur-[120px]" />
-                <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[400px] rounded-full bg-amber-400/5 blur-[120px]" />
-              </div>
-    
-              {/* ── Decorative rings ── 
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-[600px] h-[600px] rounded-full border border-amber-400/5" />
-                <div className="absolute w-[400px] h-[400px] rounded-full border border-amber-400/8" />
-                <div className="absolute w-[200px] h-[200px] rounded-full border border-amber-400/10" />
-              </div>
-    
-              <div className="relative z-10 max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-                {/* ── Badge ── 
-                <motion.div {...fadeUp(0)} className="flex justify-center mb-6">
-                  <div className="badge badge-outline border-amber-400/40 text-amber-300 bg-amber-400/5 gap-2 px-4 py-3 text-xs font-semibold tracking-widest uppercase">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                    Join the platform
-                  </div>
-                </motion.div> 
-    
-                {/* ── Headline ── 
-                <motion.h2 {...fadeUp(0.1)} className="text-4xl sm:text-5xl lg:text-5xl font-black tracking-tight text-white leading-[1.05] mb-6">
-                  Ready to{" "}
-                  <span className="relative inline-block">
-                    <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                      Transform
-                    </span>
-                    <motion.span
-                      className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "100%" }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.8, duration: 0.7, ease: "easeOut" }}
-                    />
-                  </span>{" "}
-                  Your Restaurant?
-                </motion.h2>
-    
-                {/* ── Subtext ── 
-                <motion.p {...fadeUp(0.2)} className="text-slate-400 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-10">
-                  Get a personalised demo and see SwaadSetu live in your restaurant in under 30 minutes.
-                </motion.p>
-    
-                {/* ── Benefit pills ── 
-                <motion.div {...fadeUp(0.28)} className="flex flex-wrap justify-center gap-3 mb-10">
-                  {["No Setup Fee", "24/7 Support", "No Credit Card Required"].map((label, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2 bg-white/[0.05] border border-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                    >
-                      <svg className="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm font-medium text-slate-300">{label}</span>
-                    </div>
-                  ))}
-                </motion.div>
-    
-                {/* ── CTA buttons ── 
-                <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                  <button
-                    onClick={() =>
-                      window.open(
-                        "https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true",
-                        "_blank",
-                      )
-                    }
-                    className="btn btn-lg bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none shadow-[0_0_40px_rgba(251,191,36,0.4)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] hover:scale-[1.03] active:scale-95 transition-all duration-200 group cursor-pointer flex items-center justify-center gap-2 px-3 py-2 rounded-2xl"
-                  >
-                    Book a Free Demo
-                    <svg className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                  </button>
-    
-                  <button
-                    onClick={() => (window.location.href = "https://www.swaadsetu.com/features")}
-                    className="btn btn-lg btn-ghost border border-amber-400/30 text-amber-300 hover:bg-amber-400/10 hover:border-amber-400/60 transition-all duration-200 cursor-pointer group px-3 py-2 rounded-2xl"
-                  >
-                    See How It Works
-                  </button>
-                </motion.div>
-              </div>
-            </section> */}
-
+        <CTASection/>
+     
         <Footer />
       </div>
     </>

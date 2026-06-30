@@ -175,7 +175,7 @@ const Navbar = () => {
             <img
               src={Images.swadLogo}
               alt="SwaadSetu"
-              className="h-10 sm:h-11 lg:h-12 w-auto object-contain transition-all duration-300"
+              className="h-7 sm:h-5 lg:h-12 w-auto object-contain transition-all duration-300"
               loading="eager"
             />
           </motion.button>

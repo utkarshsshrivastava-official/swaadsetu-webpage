@@ -213,7 +213,7 @@ const FAQ: React.FC = () => {
             <div className="max-w-3xl mx-auto">
               <motion.div {...fadeUp(0)}>
                 <div
-                  className="inline-flex items-center gap-2 text-[10px] font-semibold tracking-widest uppercase px-4 py-2.5 rounded-full mb-6"
+                  className="inline-flex items-center gap-2 text-[10px] font-semibold tracking-widest px-4 py-2.5 rounded-full mb-6"
                   style={{
                     background: "rgba(251,191,36,0.08)",
                     color: "#fbbf24",
@@ -221,7 +221,7 @@ const FAQ: React.FC = () => {
                   }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                  FAQ
+                  FAQs
                 </div>
               </motion.div>
 
@@ -229,7 +229,7 @@ const FAQ: React.FC = () => {
                 {...fadeUp(0.08)}
                 className="text-4xl sm:text-5xl lg:text-5xl font-black tracking-tight leading-[1.06] text-white mb-5"
               >
-                Everything You
+                Everything You{" "}
                 <span
                   className="bg-clip-text text-transparent"
                   style={{ backgroundImage: "linear-gradient(90deg, #fbbf24, #fb923c)" }}
