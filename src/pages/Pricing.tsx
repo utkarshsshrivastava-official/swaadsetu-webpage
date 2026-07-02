@@ -345,7 +345,7 @@ const Pricing: FC = () => {
                 </p>
               </div>
               <div className="text-center md:text-right">
-                <button className="btn bg-gradient-to-r from-amber-400 to-orange-400 text-black border-none" onClick={() => window.open('mailto:connect@swaadsetu.com')}>
+                <button className="btn bg-gradient-to-r from-amber-400 to-orange-400 text-black border-none" onClick={() => window.open('/contact')}>
                   Talk to Our Team
                 </button>
               </div>

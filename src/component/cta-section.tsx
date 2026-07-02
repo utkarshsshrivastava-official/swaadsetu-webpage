@@ -21,7 +21,7 @@ const benefits = [
 export function CTASection() {
   const handleRedirect = () => {
     window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true",
+      "/contact",
       "_blank",
     );
   };
