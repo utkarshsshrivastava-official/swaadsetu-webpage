@@ -41,7 +41,7 @@ const socialLinks = [
 const productLinks = [
   { label: "Features", to: "/features" },
   { label: "Pricing",  to: "/pricing"  },
-  { label: "FAQ",      to: "/faq"      },
+  { label: "FAQ",      to: "/faq"      }, 
 ];
 
 const companyLinks = [

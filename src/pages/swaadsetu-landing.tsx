@@ -10,7 +10,7 @@ import AboutSection from "./AboutSection";
 
 import { Helmet } from "@dr.pogodin/react-helmet";
 // import MobileFloatingButton from "../component/ui/MobileFolatingButton";
-import StaffSection from "../pages/StaffSection";
+import StaffSection from "./StaffSection";
 
 const SwaadsetuLanding: React.FC = () => {
   // Intersection Observer for scroll animations
@@ -112,7 +112,7 @@ const SwaadsetuLanding: React.FC = () => {
         <div id="contact">
           {/* CTA Section*/}
           <CTASection />
-          {/* <div className="p-5">
+{/* <div className="p-5">
 
           <ContactStrip/>
 </div> */}

@@ -91,13 +91,13 @@ import our_mission_2 from "../assets/about/our_missions_2.png";
 //Features 
 import hero_1 from "../assets/features/F_hero_1.png"
 import hero_2 from "../assets/features/F_hero_2.png"
-import qr_ordering from "../assets/features/01_instant qr ordering.png"
+import qr_ordering from "../assets/features/instant qr ordering.png"
 import real_time_order_2 from "../assets/features/real_time_order_2.png";
-import payments from "../assets/features/03_payments.png";
-import service from "../assets/features/04_service.png";
-import bussiness_insights from "../assets/features/05_business_insight.png";
-import Inventory from "../assets/features/06_inventory.png";
-import QSR from "../assets/features/07_QSR.png";
+import payments from "../assets/features/payments.png";
+import service from "../assets/features/service.png";
+import bussiness_insights from "../assets/features/business_insight.png";
+import Inventory from "../assets/features/business_insight.png";
+import QSR from "../assets/features/QSR.png";
 
 
 

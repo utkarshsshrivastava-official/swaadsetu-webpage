@@ -229,7 +229,7 @@ const Navbar = () => {
           {/* CTA — Desktop */}
           <div className="hidden md:flex items-center gap-3">
             <motion.button
-              onClick={() => window.location.href = "https://app.swaadsetu.com"}
+              onClick={() => navigate("/select-restaurant")}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="btn min-h-[44px] h-[44px] px-6 bg-gradient-to-r from-amber-400 to-orange-400
@@ -252,7 +252,7 @@ const Navbar = () => {
           {/* Mobile: CTA + hamburger */}
           <div className="flex items-center gap-3 md:hidden">
             <button
-              onClick={() => window.location.href = "https://app.swaadsetu.com"}
+              onClick={() => navigate("/select-restaurant")}
               className="btn btn-sm px-4 bg-gradient-to-r from-amber-400 to-orange-400
                          text-black font-bold border-none rounded-lg text-xs
                          shadow-[0_0_14px_rgba(251,191,36,0.3)]
@@ -361,7 +361,7 @@ const Navbar = () => {
               <div className="px-3 pb-4 pt-1">
                 <div className="h-20 w-full bg-gradient-to-r from-transparent via-amber-400/15 to-transparent mb-3" />
                 <button
-                  onClick={() => window.location.href = "https://app.swaadsetu.com"}
+                  onClick={() => navigate("/select-restaurant")}
                   className="w-full btn bg-gradient-to-r from-amber-400 to-orange-400
                              text-black font-bold border-none rounded-xl
                              shadow-[0_0_24px_rgba(251,191,36,0.35)]
