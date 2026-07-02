@@ -25,6 +25,7 @@ import { Footer } from "../component/Footer";
 import BackButton from "../component/ui/BackButton";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { CTASection } from "../component/cta-section";
+import { Images } from "../assets/assets";
 
 /* ─────────────────────────────────────────────
    Shared animation helpers (same as Hero)
@@ -353,8 +354,7 @@ const About: FC = () => {
             <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[500px] flex items-center justify-center perspective-1000 mt-10 lg:mt-0">
               
               {(() => {
-                const heroImage = "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&h=800&fit=crop&q=80";
-                const missionImage = "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=900&h=600&fit=crop&q=80";
+              
                 return (
                   <>
                <motion.div
@@ -363,7 +363,7 @@ const About: FC = () => {
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
                   className="absolute w-[80%] h-[80%] rounded-3xl overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-20"
                >
-                      <img src={heroImage} alt="Restaurant interior" className="w-full h-full object-cover" />
+                      <img src={Images.our_story_1} alt="Restaurant interior" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#060812] via-transparent to-transparent opacity-80" />
                </motion.div>
                
@@ -373,7 +373,7 @@ const About: FC = () => {
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
                       className="absolute left-0 bottom-10 w-[50%] h-[50%] rounded-3xl overflow-hidden border border-amber-400/20 shadow-[0_20px_50px_rgba(251,191,36,0.2)] z-30 backdrop-blur-md bg-black/40 p-2 hidden sm:block"
                >
-                      <img src={missionImage} alt="QR Menu Detail" className="w-full h-full object-cover rounded-2xl" />
+                      <img src={Images.our_story_2} alt="QR Menu Detail" className="w-full h-full object-cover rounded-2xl" />
                </motion.div>
                   </>
                 );
@@ -443,9 +443,9 @@ const About: FC = () => {
               <div className="relative h-[480px] lg:h-auto">
                 {(() => {
                   const gridImages = {
-                    grid1: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&h=800&fit=crop&q=80",
-                    grid2: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&h=500&fit=crop&q=80",
-                    grid3: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=800&fit=crop&q=80",
+                    grid1:Images.WW_1 ,
+                    grid2:Images.WW_2 ,
+                    grid3:Images.WW_3,
                   };
                   return (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
@@ -568,7 +568,7 @@ const About: FC = () => {
                 className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)] z-10 group order-2 lg:order-1"
               >
                 {(() => {
-                  const missionImage = "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=900&h=600&fit=crop&q=80";
+                  const missionImage = Images.our_mission_2;
                   return (
                     <>
                       <img

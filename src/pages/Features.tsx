@@ -14,6 +14,7 @@ import { Footer } from "../component/Footer";
 import BackButton from "../component/ui/BackButton";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { CTASection } from "../component/cta-section";
+import { Images } from "../assets/assets";
 // import { image } from "framer-motion/client";
 // import { CTASection } from "../component/cta-section";
 
@@ -61,14 +62,13 @@ const particles = [
   { x: "55%", y: "8%",  size: 4, delay: 0.5 },
 ];
 
-
-const qrImage = "https://images.pexels.com/photos/2451622/pexels-photo-2451622.jpeg";
-const trackingImage = "https://picsum.photos/800/600?random=2";
-const billingImage = "https://picsum.photos/800/600?random=3";
-const serviceImage = "https://picsum.photos/800/600?random=4";
-const analyticsImage = "https://picsum.photos/800/600?random=5";
-const inventoryImage = "https://picsum.photos/800/600?random=6";
-const qsrImage = "https://picsum.photos/800/600?random=7";
+const qrImage = Images.qr_ordering;
+const trackingImage = Images.real_time_order_2;
+const billingImage = Images.payments;
+const serviceImage = Images.service;
+const analyticsImage = Images.bussiness_insights;
+const inventoryImage = Images.Inventory;
+const qsrImage = Images.QSR;
 
 /* ─────────────────────────────────────────────
    Feature data
@@ -361,7 +361,7 @@ const FeatureSection: FC = () => {
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
                 className="absolute w-[80%] sm:w-[80%] h-[80%] rounded-3xl overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-20"
               >
-                <img src={features[2].image} alt={features[2].imageAlt} className="w-full h-full object-cover" />
+                <img src={Images.hero_1} alt={features[2].imageAlt} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#060812] via-transparent to-transparent opacity-80" />
               </motion.div>
 
@@ -371,7 +371,7 @@ const FeatureSection: FC = () => {
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
                 className="absolute left-0 bottom-10 w-[50%] h-[50%] rounded-3xl overflow-hidden border border-amber-400/20 shadow-[0_20px_50px_rgba(251,191,36,0.2)] z-30 backdrop-blur-md bg-black/40 p-2 hidden sm:block"
               >
-                <img src={features[0].image} alt={features[0].imageAlt} className="w-full h-full object-cover rounded-2xl" />
+                <img src={Images.hero_2} alt={features[0].imageAlt} className="w-full h-full object-cover rounded-2xl" />
               </motion.div>
             </div>
 

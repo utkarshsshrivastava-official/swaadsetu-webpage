@@ -74,6 +74,33 @@ import grw_2 from "../assets/Growth/img_2.png"
 import grw_3 from "../assets/Growth/img_3.png"
 import grw_4 from "../assets/Growth/img_4.png"
 
+//Home page
+import Zager from "../assets/home/zager_logo.png";
+import Swaad_setu_Logo from "../assets/home/Swaad_setu_logo.png";
+import Mockup_1 from "../assets/home/Admin_Dashbord_Mockup.png";
+import Mockup_2 from "../assets/home/Admin_Dashbord_Mockup_2.jpeg";
+
+//about page images
+import our_story_1 from "../assets/about/our_story_1.png";
+import our_story_2 from "../assets/about/our_story_2.png";
+import WW_1 from "../assets/about/who_we_are_1.png";
+import WW_2 from "../assets/about/who_we_are_2.png";
+import WW_3 from "../assets/about/who_we_are_3.png";
+import our_mission_2 from "../assets/about/our_missions_2.png";
+
+//Features 
+import hero_1 from "../assets/features/F_hero_1.png"
+import hero_2 from "../assets/features/F_hero_2.png"
+import qr_ordering from "../assets/features/01_instant qr ordering.png"
+import real_time_order_2 from "../assets/features/real_time_order_2.png";
+import payments from "../assets/features/03_payments.png";
+import service from "../assets/features/04_service.png";
+import bussiness_insights from "../assets/features/05_business_insight.png";
+import Inventory from "../assets/features/06_inventory.png";
+import QSR from "../assets/features/07_QSR.png";
+
+
+
 // Updated Images object:
 export const Images = {
   swadLogo,
@@ -154,6 +181,33 @@ export const Images = {
   grw_2,
   grw_3,
   grw_4,
+
+  //Home page
+  Zager,
+  Swaad_setu_Logo,
+  Mockup_1,
+  Mockup_2,
+
+  //about page images
+  our_story_1,
+  our_story_2,
+  WW_1,
+  WW_2,
+  WW_3,
+  our_mission_2,
+
+  //feature section images
+  hero_1,
+  hero_2,
+  qr_ordering,
+  real_time_order_2,
+  service,
+  bussiness_insights,
+  Inventory,
+  QSR,
+  payments,
+
+
 
 
 };

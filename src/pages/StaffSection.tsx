@@ -129,7 +129,7 @@ const StaffSection = () => {
             Staff Dashboard
           </div>
           <h2 className="text-3xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-           Run Every Restaurant {" "}
+           Run Every Food Business {" "}
             <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
               Operation From 
             </span>{" "}

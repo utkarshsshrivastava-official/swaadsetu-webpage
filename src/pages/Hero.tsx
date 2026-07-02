@@ -155,7 +155,7 @@ const Hero = () => {
                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
               </div>
               <img 
-                 src={Images.pcImage} 
+                 src={Images.Mockup_1} 
                  alt="Admin Dashboard" 
                  className="w-full h-auto opacity-90 mix-blend-lighten"
               />
@@ -173,7 +173,7 @@ const Hero = () => {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-4 sm:h-5 bg-[#111] rounded-b-xl z-30" />
               
               <img 
-                 src={Images.mobileImage} 
+                 src={Images.Mockup_2} 
                  alt="Mobile Ordering Interface" 
                  className="w-full h-auto"
               />
