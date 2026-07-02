@@ -101,8 +101,7 @@ const getAccent = (category: BlogPost["category"]): Accent => {
 const BlogsPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<BlogCategory>("All");
   const [search, setSearch] = useState("");
-  // const [email, setEmail] = useState("");
-  
+  // const [email, setEmail] = useState("");  
 
   const filteredPosts = useMemo(() => {
     return BLOG_POSTS.filter((post) => {

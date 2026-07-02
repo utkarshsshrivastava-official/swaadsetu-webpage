@@ -1,12 +1,12 @@
-﻿﻿import { useState, useMemo, memo } from "react";
+﻿﻿﻿﻿import { useState, useMemo, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { QrCode, Clock, FileText, Bell, CreditCard, ArrowRight,  ShieldCheck } from "lucide-react";
+import { QrCode, Clock, FileText, Bell, CreditCard, ArrowRight,  ShieldCheck, Sparkles } from "lucide-react";
 import { Images } from "../assets/assets";
 
 // Types
 interface Feature {
-  icon: React.ComponentType<{ className?: string; size?: number }>;
+  icon: React.ComponentType<{ className?: string; size?: number; }>;
   title: string;
   description: string;
   color: string;
@@ -22,7 +22,7 @@ interface Feature {
     label: string;
     value: string;
   }[];
-  badges: string[];
+  badges?: string[];
 }
 
 // Immutable Feature Configuration Data
