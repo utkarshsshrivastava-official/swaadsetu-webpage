@@ -73,6 +73,21 @@ const qsrImage = Images.QSR;
 /* ─────────────────────────────────────────────
    Feature data
 ───────────────────────────────────────────── */
+interface Feature {
+  number: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  bullets: string[];
+  workflow: {
+    label: string;
+    title: string;
+    description: string;
+  };
+  image: string;
+  imageAlt: string;
+  flip?: boolean;
+}
 
 const features: Feature[] = [
 {

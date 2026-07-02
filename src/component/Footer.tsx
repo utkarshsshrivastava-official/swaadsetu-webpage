@@ -35,7 +35,7 @@ const fadeUp = (delay = 0) => ({
 const socialLinks = [
 
   { icon: Instagram, href: "#" },
-  { icon: Linkedin,  href: "#" },
+  { icon: Linkedin,  href: "https://www.linkedin.com/company/swaadsetu/" },
 ];
 
 const productLinks = [
