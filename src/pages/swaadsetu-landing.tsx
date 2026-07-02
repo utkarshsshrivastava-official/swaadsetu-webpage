@@ -5,7 +5,7 @@ import { CTASection } from "../component/cta-section";
 import { CustomerSection } from "./customer-section";
 // import { AnalyticsSection } from "./AnalyticsSection";
 import Navbar from "../component/Navbar";
-import AboutSection from "./AboutSection"; 
+import AboutSection from "./AboutSection";
 
 
 import { Helmet } from "@dr.pogodin/react-helmet";
@@ -112,7 +112,7 @@ const SwaadsetuLanding: React.FC = () => {
         <div id="contact">
           {/* CTA Section*/}
           <CTASection />
-{/* <div className="p-5">
+          {/* <div className="p-5">
 
           <ContactStrip/>
 </div> */}
