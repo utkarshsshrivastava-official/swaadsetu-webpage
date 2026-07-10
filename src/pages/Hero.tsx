@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Images } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 
 /* ── Floating particle ── */
 const Particle = ({ x, y, size, delay }: { x: string; y: string; size: number; delay: number }) => (
@@ -30,6 +31,8 @@ const fadeUp = (delay = 0) => ({
 });
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const handleRedirect = () => {
     window.open(
       "https://docs.google.com/forms/d/e/1FAIpQLSdjwZxtGkYIpulXopAiZBd-BKbQkqA81--N2DNZ5DqqMYTCXw/viewform?embedded=true",
@@ -114,7 +117,7 @@ const Hero = () => {
               </svg>
             </button>
             <button
-              onClick={() => (window.location.href = "/features")}
+              onClick={() => (navigate("/features"))}
               className="btn btn-lg h-[56px] px-8 btn-ghost border border-white/20 text-white hover:bg-white/10 hover:border-white/40 rounded-2xl transition-all duration-300 backdrop-blur-sm"
             >
               Explore Features
