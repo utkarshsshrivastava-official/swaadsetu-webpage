@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import { Footer } from "../component/Footer";
 import BackButton from "../component/ui/BackButton";
@@ -133,6 +134,7 @@ const faqs = [
 
 const Pricing: FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
@@ -345,7 +347,7 @@ const Pricing: FC = () => {
                 </p>
               </div>
               <div className="text-center md:text-right">
-                <button className="btn bg-gradient-to-r from-amber-400 to-orange-400 text-black border-none" onClick={() => window.open('/contact')}>
+                <button className="btn bg-gradient-to-r from-amber-400 to-orange-400 text-black border-none" onClick={() => navigate('/contact')}>
                   Talk to Our Team
                 </button>
               </div>

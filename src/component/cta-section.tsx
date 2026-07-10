@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -19,12 +20,8 @@ const benefits = [
 
 
 export function CTASection() {
-  const handleRedirect = () => {
-    window.open(
-      "/contact",
-      "_blank",
-    );
-  };
+  const navigate = useNavigate();
+
 
   return (
     <section className="relative bg-[#060812] overflow-hidden py-10 px-4 md:px-8">
@@ -223,7 +220,7 @@ export function CTASection() {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end w-full">
               <button
-                onClick={handleRedirect}
+                onClick={() => navigate('/contact')}
                 className="btn btn-lg bg-gradient-to-r from-amber-400 to-orange-400 text-black font-bold border-none shadow-[0_0_40px_rgba(251,191,36,0.4)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] hover:scale-[1.03] active:scale-95 transition-all duration-200 group cursor-pointer flex items-center justify-center gap-2 px-3 py-2 rounded-2xl"
               >
                 Talk to Our Team
@@ -234,7 +231,7 @@ export function CTASection() {
               </button>
 
               <button
-                onClick={handleRedirect}
+                onClick={() => navigate('/contact')}
                 className="btn btn-lg btn-ghost border border-amber-400/30 text-amber-300 hover:bg-amber-400/10 hover:border-amber-400/60 transition-all duration-200 cursor-pointer group px-3 py-2 rounded-2xl"
               >
                 Book a Demo
